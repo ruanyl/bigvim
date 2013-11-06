@@ -203,12 +203,12 @@ autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 l
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "set completeopt+=longest
 set completeopt=longest,menu
- 
+
 "离开插入模式后自动关闭预览窗口
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 "回车即选中当前项
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
- 
+
 "上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
@@ -252,6 +252,13 @@ set whichwrap+=<,>,h,l
 "==========================================
 let mapleader = ','
 let g:mapleader = ','
+
+"()跳转修改表
+nnoremap <silent><unique> ( g;
+nnoremap <silent><unique> ) g,
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %"
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -313,7 +320,8 @@ map <space> /
 map Y y$
 "cmap w!! %!sudo tee > /dev/null %
 " w!! to sudo & write a file
-cmap w!! w !sudo tee >/dev/null %
+cmap w!! %!sudo tee > /dev/null %
+
 noremap <silent><leader>/ :nohls<CR>
 
 inoremap kj <Esc>
@@ -321,6 +329,7 @@ inoremap kj <Esc>
 noremap <F1> <Esc>"
 
 nnoremap ; :
+nnoremap ' :b
 
 nnoremap <leader>v V`}
 
@@ -336,8 +345,10 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 "Use arrow key to change buffer"
-noremap <left> :bp<CR>
-noremap <right> :bn<CR>
+"noremap <left> :bp<CR>
+"noremap <right> :bn<CR>
+noremap m :bn<CR>
+noremap M :bp<CR>
 
 ""Jump to start and end of line using the home row keys
 ""
@@ -356,8 +367,8 @@ nnoremap <leader>q :q<CR>
 " Swap implementations of ` and ' jump to markers
 " By default, ' jumps to the marked line, ` jumps to the marked line and
 " column, so swap them
-nnoremap ' `
-nnoremap ` '
+"nnoremap ' `
+"nnoremap ` '
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
@@ -414,6 +425,23 @@ Bundle 'gmarik/vundle'
 " :BundleClean       remove plugin not in list
 
 "################### 导航 ###################"
+"Project插件
+Bundle 'ruanyl/project.vim'
+
+Bundle 'ruanyl/minibufexpl.vim'
+let g:miniBufExplorerMoreThanOne = 2   " Display when more than 2 buffers
+let g:miniBufExplSplitToEdge = 1       " Always at top
+let g:miniBufExplMaxSize = 3           " The max height is 3 lines
+let g:miniBufExplMapWindowNavVim = 1   " map CTRL-[hjkl]
+let g:miniBufExplUseSingleClick = 1    " select by single click
+let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
+let g:miniBufExplorerDebugLevel = 0
+
+"winmanager
+Bundle 'vim-scripts/winmanager'
+let g:winManagerWindowLayout = "FileExplorer|TagList"
+let g:winManagerWidth = 30
+
 "目录导航
 Bundle 'scrooloose/nerdtree'
 map <leader>n :NERDTreeToggle<CR>
@@ -424,15 +452,15 @@ let g:netrw_home='~/bak'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 "for minibufferexpl
-Bundle 'fholgado/minibufexpl.vim'
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-"解决FileExplorer窗口变小问题
-let g:miniBufExplForceSyntaxEnable = 1
-let g:miniBufExplorerMoreThanOne=2
-let g:miniBufExplCycleArround=1
+"Bundle 'fholgado/minibufexpl.vim'
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplModSelTarget = 1
+""解决FileExplorer窗口变小问题
+"let g:miniBufExplForceSyntaxEnable = 1
+"let g:miniBufExplorerMoreThanOne=2
+"let g:miniBufExplCycleArround=1
 
 " 默认方向键左右可以切换buffer
 nnoremap <TAB> :MBEbn<CR>
@@ -497,7 +525,7 @@ let g:ctrlp_follow_symlinks=1
 Bundle 'Lokaltog/vim-powerline'
 "if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
 "let g:Powerline_symbols = 'fancy'
-let g:Powerline_symbols = 'unicode'
+"let g:Powerline_symbols = 'unicode'
 
 
 "括号显示增强
@@ -555,7 +583,7 @@ Bundle 'vim-scripts/matchit.zip'
 "################### 补全及快速编辑 ###################"
 
 "迄今为止用到的最好的自动VIM自动补全插件
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 "youcompleteme  默认tab  s-tab 和自动补全冲突
 "let g:ycm_key_list_select_completion=['<c-n>']
 let g:ycm_key_list_select_completion = ['<Down>']
@@ -592,7 +620,7 @@ nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
 "for visual selection
-Bundle 'terryma/vim-expand-region'
+"Bundle 'terryma/vim-expand-region'
 map = <Plug>(expand_region_expand)
 map - <Plug>(expand_region_shrink)
 
@@ -631,7 +659,7 @@ Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
 " for golang
-Bundle 'jnwhiteh/vim-golang'
+"Bundle 'jnwhiteh/vim-golang'
 
 " for markdown
 Bundle 'plasticboy/vim-markdown'
@@ -647,15 +675,15 @@ let g:html_indent_style1 = "inc"
 Bundle 'nono/jquery.vim'
 
 "for jinja2 highlight
-Bundle 'Glench/Vim-Jinja2-Syntax'
+"Bundle 'Glench/Vim-Jinja2-Syntax'
 
 "for nginx conf file highlight.   need to confirm it works
 Bundle 'thiderman/nginx-vim-syntax'
 
 "################### 其他 ###################"
 " task list
-Bundle 'vim-scripts/TaskList.vim'
-map <leader>td <Plug>TaskList
+"Bundle 'vim-scripts/TaskList.vim'
+"map <leader>td <Plug>TaskList
 
 " for git 尚未用起来
 Bundle 'tpope/vim-fugitive'
@@ -692,11 +720,11 @@ endif
 
 
 " 修改主题和颜色展示
-colorscheme solarized
+"colorscheme solarized
 set background=dark
 set t_Co=256
 
-"colorscheme molokai
+colorscheme molokai
 "colorscheme desert
 
 "设置标记一列的背景颜色和数字一行颜色一致
