@@ -13,6 +13,8 @@ ruanyl的修改
 
 4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
+5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
+
 ###自定义快捷键
 
     当打开多个Tab时：
