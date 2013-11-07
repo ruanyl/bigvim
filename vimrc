@@ -318,9 +318,6 @@ map <space> /
 "map <c-space> ?"
 
 map Y y$
-"cmap w!! %!sudo tee > /dev/null %
-" w!! to sudo & write a file
-cmap w!! %!sudo tee > /dev/null %
 
 noremap <silent><leader>/ :nohls<CR>
 
@@ -428,6 +425,7 @@ Bundle 'gmarik/vundle'
 "Project插件
 Bundle 'ruanyl/project.vim'
 
+"for minibufexpl
 Bundle 'ruanyl/minibufexpl.vim'
 let g:miniBufExplorerMoreThanOne = 2   " Display when more than 2 buffers
 let g:miniBufExplSplitToEdge = 1       " Always at top
@@ -438,9 +436,12 @@ let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
 let g:miniBufExplorerDebugLevel = 0
 
 "winmanager
-Bundle 'vim-scripts/winmanager'
+"Bundle 'vim-scripts/winmanager'
 let g:winManagerWindowLayout = "FileExplorer|TagList"
 let g:winManagerWidth = 30
+
+"自动补全插件neocomplcache
+"Bundle 'Shougo/neocomplcache.vim'
 
 "目录导航
 Bundle 'scrooloose/nerdtree'
@@ -748,3 +749,51 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+"==========================自定义函数 ======================================
+function! <SID>BufcloseCloseIt()
+    " 如果当前窗口不可写，关掉
+    if getwinvar(winnr(), "&modifiable") == 0
+        :q
+        return
+    endif
+    "
+    " Switch to the previous window
+    let l:count = winnr('$')
+    let l:i = 0
+    let l:big = 0
+    let l:id = -1
+
+    while l:i <= l:count
+        let l:i = l:i + 1
+        let l:a = winheight(l:i)*winwidth(l:i)
+        if l:a > l:big
+            let l:big = l:a
+            let l:id = l:i
+        endif
+    endwhile
+
+    if winnr() != l:id
+        :q
+        return
+    endif
+
+    let l:currentBufNum = bufnr("%")
+    let l:alternateBufNum = bufnr("#")
+
+    if buflisted(l:alternateBufNum)
+        buffer #
+    else
+        bnext
+    endif
+
+    if bufnr("%") == l:currentBufNum
+        qa
+    endif
+
+    if buflisted(l:currentBufNum)
+        execute("bdelete! ".l:currentBufNum)
+    endif
+    UMiniBufExplorer
+endfunction
+command! Bclose call <SID>BufcloseCloseIt()
+nnoremap qq  :Bclose<cr>
