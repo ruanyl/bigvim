@@ -84,7 +84,7 @@ PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_confi
 
 1. clone到本地,配置到linux个人目录（如果是从linux_config过来的，不需要clone）
 
-        git clone https://github.com/wklken/k-vim.git
+        git clone https://github.com/ruanyl/r-vim.git
 
 2. 安装依赖包
 
@@ -100,7 +100,7 @@ PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_confi
 
 3. 安装插件
 
-        cd k-vim/
+        cd r-vim/
 
         sh -x install.sh
 
