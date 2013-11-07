@@ -1,5 +1,25 @@
-k-vim
+r-vim
 ======================
+ruanyl的修改
+----------------------
+###插件部分
+基于k-vim修改删除了一些配置和插件，主要面向前端开发
+
+1.添加[Project](https://github.com/ruanyl/project.vim)插件
+
+2.删除YouCompleteMe插件，需要vim7.3.584的支持，手动编译比较麻烦，前段开发用neocomplcache差不多就够了
+
+3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim)
+
+4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
+
+###自定义快捷键
+
+    当打开多个Tab时：
+    映射：' :b，输入数字，:b3快速切换到第三个Tab
+    qq 关闭当前Tab
+    m 在Tab之间顺序切换，等同<Tab>
+    M 在Tab之间逆序切换
 
 ### vim插件分类及快捷键
 
