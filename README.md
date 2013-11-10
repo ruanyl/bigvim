@@ -1,68 +1,34 @@
-k-vim
+r-vim
 ======================
+ruanyl的修改
+----------------------
+###插件部分
+基于k-vim修改删除了一些配置和插件，主要面向前端开发
 
-### vim插件分类及快捷键
+1.添加[Project](https://github.com/ruanyl/project.vim)插件
 
-> 给人一条Vim 命令，他能折腾一晚上；告诉他怎么自定义Vim 命令，他能捣腾一辈子
->
-> 生命不息,折腾不止 (╯‵□′)╯︵┻━┻)
->
-> 编辑器之神 = 生产力(效率为王) + 性感(界面快捷键) + 装x神器
+2.删除YouCompleteMe插件，需要vim7.3.584的支持，手动编译比较麻烦，前段开发用neocomplcache差不多就够了
 
-### vim基本用法
+3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim)
 
-初学者: [vim训练稿](http://blog.csdn.net/wklken/article/details/7533272)
-几年前的三月份,第一次正儿八经开始使用vim,后来整理了一份,对着敲几遍,训练稿
+4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
-推荐: 耗子叔的 [简明vim练级攻略](http://coolshell.cn/articles/5426.html)
+5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
 
-或者,玩游戏 [vim大冒险](http://vim-adventures.com/)
+###自定义快捷键
 
-### 使用说明
+    当打开多个Tab时：
+    映射：' :b，输入数字，:b3快速切换到第三个Tab
+    qq 关闭当前Tab
+    m 在Tab之间顺序切换，等同<Tab>
+    M 在Tab之间逆序切换
 
-
-1. 能熟练使用原生vim,最好先熟悉了再来使用插件扩展
-
-2. 以下插件,仅介绍用途优点等,可以在github中搜索查看详细用途和配置
-
-   当前vim使用配置,在vimrc中查看
-
-   快捷键为插件默认/或者当前配置vimrc定义的,如果需要修改,查看vimrc中对插件配置进行修改 [sd]标记的为自定义 [d]标记的为默认快捷键
-
-
-3. 由于平时会使用python和golang,所以语言方面的配置偏向于这两个
-
-   其它的可以参照网上配置(通用的插件可以配置,其他具体语言插件可以自己配置加入)
-
-4. fork一份
-
-   根据自己使用的语言，自身习惯进行修改
-
-   有些插件用不到，可以注释删除，有些插件没有，可以自行添加（vundle很强大只要github上有都能配置），有些插件快捷键等可以自己去进一步了解
-
-          建议：插件不是越多越好，可以尝试注掉所有插件，然后根据自己使用遇到的问题和需求，逐一加入
-
-   得到一份符合自己习惯的vim配置，后续能在任何地方进行一键配置
-
-          二八定律,关注可以最大提升自身生产力的那20%插件,具体要亲自实践
-          有什么问题,先看插件文档说明->代码选项->github上的issues->google it
-          你遇到的问题,一定别人也遇到了,大部分可解决,少部分无解….
-
-   文章: [不要复杂化vim](http://www.kunli.info/2013/08/13/vim/)
-
-   欢迎推荐好用更酷的插件配置:)
-
-   我的配置也会不定期更新，thx
-
-PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_config)下一部分，如果需要，可以参考，主要是用于一键配置环境
-
---------------
 
 ### 配置步骤
 
 1. clone到本地,配置到linux个人目录（如果是从linux_config过来的，不需要clone）
 
-        git clone https://github.com/wklken/k-vim.git
+        git clone https://github.com/ruanyl/r-vim.git
 
 2. 安装依赖包
 
@@ -78,7 +44,7 @@ PS: 这个vim配置是我的[linux_config](https://github.com/wklken/linux_confi
 
 3. 安装插件
 
-        cd k-vim/
+        cd r-vim/
 
         sh -x install.sh
 
