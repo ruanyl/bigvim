@@ -1,10 +1,10 @@
 "==========================================
-" Author:  wklken
+" Author:  ruanyl,wklken
 " Version: 6
-" Email: wklken@yeah.net
+" Email: ruanyl@gmail.com,wklken@yeah.net
 " BlogPost: http://wklken.me
 " ReadMe: README.md
-" Last_modify: 2013-08-04
+" Last_modify: 2013-11-07
 " Sections:
 "     ->General 基础设置
 "     ->Show 展示/排班等界面格式设置
@@ -146,7 +146,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 set undolevels=1000         " How many undos
 set undoreload=10000        " number of lines to save for undo
 if v:version >= 730
-    set undofile                " keep a persistent backup file
+    set undofile                " keep a persistent backup file
     set undodir=~/bak/vimundo/
 endif
 
@@ -230,12 +230,12 @@ endif
 
 "删除多余空格
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
+"func! DeleteTrailingWS()
+  "exe "normal mz"
+  "%s/\s\+$//ge
+  "exe "normal `z"
+"endfunc
+"autocmd BufWrite *.py :call DeleteTrailingWS()
 
 " Remember info about open buffers on close"
 set viminfo^=%
