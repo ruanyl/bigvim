@@ -3,7 +3,7 @@ r-vim
 ruanyl的修改
 ----------------------
 ###插件部分
-基于k-vim修改删除了一些配置和插件，主要面向前端开发
+基于[k-vim](https://github.com/wklken/k-vim)修改删除了一些配置和插件，主要面向前端开发
 
 1.添加[Project](https://github.com/ruanyl/project.vim)插件
 
