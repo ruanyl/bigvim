@@ -15,6 +15,8 @@ ruanyl的修改
 
 5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
 
+6.添加closetag插件，自动关闭html,xml标签，并自动缩进
+
 ###自定义快捷键
 
     当打开多个Tab时：
@@ -22,6 +24,7 @@ ruanyl的修改
     qq 关闭当前Tab
     m 在Tab之间顺序切换，等同<Tab>
     M 在Tab之间逆序切换
+    zx 折叠所有代码，除当前光标所在位置的折叠
 
 
 ### 配置步骤
