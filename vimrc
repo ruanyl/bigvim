@@ -257,6 +257,9 @@ let g:mapleader = ','
 nnoremap <silent><unique> ( g;
 nnoremap <silent><unique> ) g,
 
+"close all fold, except current fold
+nnoremap <silent>zx zMl
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %"
 
@@ -465,6 +468,7 @@ noremap <leader>bd :MBEbd<CR>
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
+let g:tagbar_width = 50
 
 "标签导航 要装ctags
 Bundle 'vim-scripts/taglist.vim'
@@ -574,6 +578,12 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/matchit.zip'
 
 "################### 补全及快速编辑 ###################"
+
+"For closetag
+"close the tag automatically
+Bundle "ruanyl/closetag.vim"
+autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 "迄今为止用到的最好的自动VIM自动补全插件
 "Bundle 'Valloric/YouCompleteMe'
@@ -740,6 +750,9 @@ let g:pyflakes_use_quickfix = 0
 
 
 "################# 具体语言语法高亮 ###############
+
+"highlight for css3
+"Bundle "ruanyl/vim-css3-syntax"
 
 " for python.vim syntax highlight
 Bundle 'hdima/python-syntax'
