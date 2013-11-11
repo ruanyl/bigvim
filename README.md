@@ -9,7 +9,7 @@ ruanyl的修改
 
 2.删除YouCompleteMe插件，需要vim7.3.584的支持，手动编译比较麻烦，前段开发用neocomplcache差不多就够了
 
-3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim)
+3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim) 代码补全提示插件
 
 4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
