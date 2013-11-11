@@ -230,11 +230,11 @@ endif
 
 "删除多余空格
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-"func! DeleteTrailingWS()
-  "exe "normal mz"
-  "%s/\s\+$//ge
-  "exe "normal `z"
-"endfunc
+"function! DeleteTrailingWS()
+"  exe "normal mz"
+"  %s/\s\+$//ge
+"  exe "normal `z"
+"endfunction
 "autocmd BufWrite *.py :call DeleteTrailingWS()
 
 " Remember info about open buffers on close"
@@ -254,14 +254,12 @@ let mapleader = ','
 let g:mapleader = ','
 
 "()跳转修改表
-nnoremap <silent><unique> ( g;
-nnoremap <silent><unique> ) g,
+nnoremap <silent> ( g;
+nnoremap <silent> ) g,
 
 "close all fold, except current fold
-nnoremap <silent>zx zMl
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %"
+"TODO fix the bug that fold does not open
+nnoremap <silent> zx zMl
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -638,6 +636,7 @@ function! s:my_cr_function()
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
