@@ -13,7 +13,7 @@ ruanyl的修改
 
 4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
-5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate) <C-\>触发
+5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate) 触发键：Ctrl+\
 
 6.添加[closetag](https://github.com/ruanyl/closetag.vim)插件，自动关闭html,xml标签，并自动缩进
 
