@@ -15,7 +15,9 @@ ruanyl的修改
 
 5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
 
-6.添加closetag插件，自动关闭html,xml标签，并自动缩进
+6.添加[closetag](https://github.com/ruanyl/closetag.vim)插件，自动关闭html,xml标签，并自动缩进
+
+7.添加[PIV](https://github.com/ruanyl/PIV)插件，为PHP增加Doc生成和PHP手册查询功能
 
 ###自定义快捷键
 
