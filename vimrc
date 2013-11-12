@@ -747,11 +747,14 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Bundle 'kevinw/pyflakes-vim'
 let g:pyflakes_use_quickfix = 0
 
+"PHP代码提示PIV
+Bundle 'ruanyl/PIV'
+let g:DisableAutoPHPFolding = 1
 
 "################# 具体语言语法高亮 ###############
 
 "highlight for css3
-"Bundle "ruanyl/vim-css3-syntax"
+"Bundle 'ruanyl/vim-css3-syntax'
 
 " for python.vim syntax highlight
 Bundle 'hdima/python-syntax'
@@ -765,7 +768,7 @@ Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 
 " for javascript
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
