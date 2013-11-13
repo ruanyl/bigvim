@@ -38,6 +38,7 @@ ruanyl的修改
 2. 安装依赖包
 
         sudo apt-get install ctags
+        sudo apt-get install python-pip
         sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
 
         #brew install ctags     (mac用户)
