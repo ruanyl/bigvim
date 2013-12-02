@@ -1,69 +1,68 @@
 "==========================================
-" Author:  ruanyl,wklken
-" Version: 6
-" Email: ruanyl@gmail.com,wklken@yeah.net
-" BlogPost: http://wklken.me
+" Author:  ruanyl
+" Version: 0.9
+" Email: ruanyl@gmail.com
+" BlogPost: http://www.bigruan.com
 " ReadMe: README.md
-" Last_modify: 2013-11-07
+" Last_modify: 2013-11-12
 " Sections:
-"     ->General 基础设置
-"     ->Show 展示/排班等界面格式设置
-"     ->file encode, 文件编码,格式
-"     ->others 其它基础配置
-"     ->hot key  自定义快捷键
-"     ->bundle 插件管理和配置项
-"     ->colortheme 主题,及一些展示上颜色的修改
+"     ->General Settings
+"     ->Show:User Interface settings
+"     ->File encode:encode for varied filetype
+"     ->Others
+"     ->Hot Key:Customized keys
+"     ->Bundle:Plgin management and setting
+"     ->Color&Theme
 "==========================================
 
 "==========================================
-" General 基础设置
+" General Settings
 "==========================================
 
-"set guifont=Monaco:h20          " 字体 && 字号
+"set guifont=Monaco:h20          " Font family && Size
 
-" history存储长度。
+"history: number of command-lines that are remembered
 set history=2000
 
-"检测文件类型
+"detect filetype
 filetype on
-"针对不同的文件类型采用不同的缩进格式
+"differet indentation for differet filetype
 filetype indent on
-"允许插件
+"allow plugins
 filetype plugin on
-"启动自动补全
+"allow plugin indent
 filetype plugin indent on
 
-"非兼容vi模式。去掉讨厌的有关vi一致性模式，避免以前版本的一些bug和局限
+"Do not compatible with VI
 set nocompatible
-set autoread          " 文件修改之后自动载入。
-set shortmess=atI       " 启动的时候不显示那个援助索马里儿童的提示
+set autoread          " auto reload file after being modified
+set shortmess=atI       " do not show initial page
 
-" 备份,到另一个位置. 防止误删, 目前是取消备份
+" backup to specified location
 "set backup
 "set backupext=.bak
 "set backupdir=~/bak/vimbk/
 
-" 取消备份。 视情况自己改
+" cancel backup
 set nobackup
 set noswapfile
 
-" 突出显示当前行等 不喜欢这种定位可注解
+" highlight current column and line
 set cursorcolumn
 set cursorline              " 突出显示当前行
 
-"设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
-"好处：误删什么的，如果以前屏幕打开，可以找回
+" alway show the content on the screen after exist VIM
+" in case if i did some stupid deleting, and i can find them back
 set t_ti= t_te=
 
-"- 则点击光标不会换,用于复制
-set mouse-=a           " 鼠标暂不启用, 键盘党....
+" disable mouse
+set mouse-=a
 " 修复ctrl+m 多光标操作选择的bug，但是改变了ctrl+v进行字符选中时将包含光标下的字符
 "set selection=exclusive
 set selection=inclusive
 set selectmode=mouse,key
 
 " No annoying sound on errors
-" 去掉输入错误的提示声音
 set title                " change the terminal's title
 set novisualbell           " don't beep
 set noerrorbells         " don't beep
@@ -71,49 +70,55 @@ set t_vb=
 set tm=500
 
 "==========================================
-" Show 展示/排班等界面格式设置
+" Show:User Interface settings
 "==========================================
 
-"显示行号：
+" show line number
 set number
-set nowrap                    " 取消换行。
+" disable wrap
+set nowrap
 
-"括号配对情况
+" show matched brackets
 set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
-"设置文内智能搜索提示
-" 高亮search命中的文本。
+" highlight the searching words
 set hlsearch
-" 搜索时忽略大小写
+" ingnore case when do searching
 set ignorecase
-" 随着键入即时搜索
+" instant search
 set incsearch
-" 有一个或以上大写字母时仍大小写敏感
-set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
+" ignore case if search pattern is all lowercase, case-sensitive otherwise
+set smartcase
 
-" 代码折叠
+" code folding
 set foldenable
-" 折叠方法
-" manual    手工折叠
-" indent    使用缩进表示折叠
-" expr      使用表达式定义折叠
-" syntax    使用语法定义折叠
-" diff      对没有更改的文本进行折叠
-" marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
+" folding methods
+" manual
+" indent    use indentation
+" expr      use expressions
+" syntax    use syntax based on language
+" diff      fold the content which not modified
+" marker    use marker to indent, the default are {{{ and }}}
 set foldmethod=indent
 set foldlevel=99
 
-"Smart indent
+" Do smart autoindenting when starting a new line.
 set smartindent
 set autoindent    " always set autoindenting on
 " never add copyindent, case error   " copy the previous indentation on autoindenting
 
-set tabstop=4                " 设置Tab键的宽度        [等同的空格个数]
-set shiftwidth=4  " number of spaces to use for autoindenting
-set softtabstop=4             " 按退格键时可以一次删掉 4 个空格
-set smarttab      " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
+" Number of spaces that a <Tab> in the file counts for.
+set tabstop=4
+" number of spaces to use for autoindenting
+set shiftwidth=4
+" Number of spaces that a <Tab> counts for while performing editing operations
+set softtabstop=4
+" When on, a <Tab> in front of a line inserts blanks according to
+" 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places.  A
+" <BS> will delete a 'shiftwidth' worth of space at the start of the line.
+set smarttab
 
 set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
 
@@ -170,7 +175,7 @@ set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\
 set laststatus=2
 
 "==========================================
-" file encode, 文件编码,格式
+" File encode:encode for varied filetype
 "==========================================
 " 设置新文件的编码为 UTF-8
 "set fileencodings=ucs-bom,utf-8,gb2312,big5,latin1
@@ -194,7 +199,7 @@ set formatoptions+=m
 set formatoptions+=B
 
 "==========================================
-" others 其它配置
+" others
 "==========================================
 autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
 autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
@@ -248,7 +253,7 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 "==========================================
-"hot key  自定义快捷键
+"Hot Key:Customized keys
 "==========================================
 let mapleader = ','
 let g:mapleader = ','
@@ -401,7 +406,7 @@ map <leader>tm :tabmove
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 "==========================================
-" bundle 插件管理和配置项
+" Bundle:Plgin management and setting
 "==========================================
 "========================== config for plugins begin ======================================
 
@@ -800,7 +805,7 @@ filetype plugin indent on
 "========================== config for plugins end ======================================
 
 "==========================================
-" 主题,及一些展示上颜色的修改
+" Color&Theme
 "==========================================
 "开启语法高亮
 syntax enable
