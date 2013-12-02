@@ -13,9 +13,11 @@ ruanyl的修改
 
 4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
-5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
+5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate) 触发键：Ctrl+\
 
-6.添加closetag插件，自动关闭html,xml标签，并自动缩进
+6.添加[closetag](https://github.com/ruanyl/closetag.vim)插件，自动关闭html,xml标签，并自动缩进
+
+7.添加[PIV](https://github.com/ruanyl/PIV)插件，为PHP增加Doc生成和PHP手册查询功能 输入K 查找当前函数手册
 
 ###自定义快捷键
 
@@ -36,6 +38,7 @@ ruanyl的修改
 2. 安装依赖包
 
         sudo apt-get install ctags
+        sudo apt-get install python-pip
         sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
 
         #brew install ctags     (mac用户)

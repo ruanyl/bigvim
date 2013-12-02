@@ -564,7 +564,7 @@ map <leader><space> :FixWhitespace<cr>
 
 "主题 solarized
 Bundle 'altercation/vim-colors-solarized'
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
@@ -581,6 +581,12 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'vim-scripts/matchit.zip'
 
 "################### 补全及快速编辑 ###################"
+
+"python autocomplete
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#auto_initialization = 0
+noremap <leader>d :call jedi#goto_definitions()<CR>
+noremap <leader>g :call jedi#goto_assignments()<CR>
 
 "For closetag
 "close the tag automatically
@@ -673,7 +679,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -752,7 +758,7 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Bundle 'kevinw/pyflakes-vim'
 let g:pyflakes_use_quickfix = 0
 
-"PHP代码提示PIV
+"PHP代码提示PI
 Bundle 'ruanyl/PIV'
 let g:DisableAutoPHPFolding = 1
 
@@ -827,11 +833,11 @@ endif
 
 
 " 修改主题和颜色展示
-"colorscheme solarized
 set background=dark
 set t_Co=256
 
 colorscheme molokai
+"colorscheme solarized
 "colorscheme desert
 
 "设置标记一列的背景颜色和数字一行颜色一致
