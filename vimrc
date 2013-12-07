@@ -49,7 +49,7 @@ set noswapfile
 
 " highlight current column and line
 set cursorcolumn
-set cursorline              " 突出显示当前行
+set cursorline
 
 " alway show the content on the screen after exist VIM
 " in case if i did some stupid deleting, and i can find them back
@@ -120,7 +120,8 @@ set softtabstop=4
 " <BS> will delete a 'shiftwidth' worth of space at the start of the line.
 set smarttab
 
-set expandtab                " 将Tab自动转化成空格    [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+"when type <Tab>, it auto generate to <spale>
+set expandtab
 
 set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
 
@@ -131,11 +132,11 @@ set wildmode=list:longest
 set ttyfast
 
 
-"行号变成相对，可以用 nj  nk   进行跳转 5j   5k 上下跳5行
+"relative line number
 set relativenumber
 au FocusLost * :set number
 au FocusGained * :set relativenumber
-" 插入模式下用绝对行号, 普通模式下用相对
+"absolte line number in Insert mode, relative line number in Normal mode
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 function! NumberToggle()
@@ -157,9 +158,9 @@ endif
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
 
-"显示当前的行号列号：
+"show the current line number and column number
 set ruler
-""在状态栏显示正在输入的命令
+"show the current typing command
 set showcmd
 " Show current mode
 set showmode
