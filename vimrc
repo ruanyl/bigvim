@@ -257,6 +257,9 @@ let g:mapleader = ','
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
 
+"
+nnoremap <silent> <leader>; $a;<ESC>o
+
 "close all fold, except current fold
 "TODO fix the bug that fold does not open
 nnoremap <silent> zx zMl
