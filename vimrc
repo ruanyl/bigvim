@@ -170,7 +170,7 @@ set scrolloff=7
 
 "set winwidth=79
 
-" 命令行（在状态行下）的高度，默认为1，这里是2
+"height of command line
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line
 set laststatus=2
@@ -178,17 +178,14 @@ set laststatus=2
 "==========================================
 " File encode:encode for varied filetype
 "==========================================
-" 设置新文件的编码为 UTF-8
-"set fileencodings=ucs-bom,utf-8,gb2312,big5,latin1
 
 set encoding=utf-8
-" 自动判断编码时，依次尝试以下编码：
+"auto detect file encodings
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=cn
 "language message zh_CN.UTF-8
 "set langmenu=zh_CN.UTF-8
 "set enc=2byte-gb18030
-" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
 set termencoding=utf-8
 
 " Use Unix as the standard file type
@@ -202,10 +199,10 @@ set formatoptions+=B
 "==========================================
 " others
 "==========================================
-autocmd! bufwritepost _vimrc source % " vimrc文件修改之后自动加载。 windows。
-autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 linux。
+autocmd! bufwritepost _vimrc source % "auto load vimrc file after modify. windows
+autocmd! bufwritepost .vimrc source % "auto load vimrc file after modify. linux
 
-" 自动补全配置
+"auto complete
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
 "set completeopt+=longest
 set completeopt=longest,menu
@@ -226,7 +223,7 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
 
-" Python 文件的一般设置，比如不要 tab 等
+" setting for Python file
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
