@@ -223,7 +223,7 @@ set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
 
-" Python 文件的一般设置，比如不要 tab 等
+" setting for Python file
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
