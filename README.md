@@ -19,6 +19,11 @@ ruanyl的修改
 
 7.添加[PIV](https://github.com/ruanyl/PIV)插件，为PHP增加Doc生成和PHP手册查询功能 输入K 查找当前函数手册
 
+8.替换[vim-powerline](https://github.com/Lokaltog/vim-powerline)为[vim-airline](https://github.com/bling/vim-airline)，因为powerline项目不再活跃
+
+9.添加[vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
+    按键：Ctrl+f
+
 ###自定义快捷键
 
     当打开多个Tab时：
