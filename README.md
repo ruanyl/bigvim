@@ -22,6 +22,7 @@ ruanyl的修改
 8.替换[vim-powerline](https://github.com/Lokaltog/vim-powerline)为[vim-airline](https://github.com/bling/vim-airline)，因为powerline项目不再活跃
 
 9.添加[vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
+
     按键：Ctrl+f
 
 ###自定义快捷键
