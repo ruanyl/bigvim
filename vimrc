@@ -170,7 +170,7 @@ set scrolloff=7
 
 "set winwidth=79
 
-"height of command line
+"height of command line 2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line
 set laststatus=2
@@ -523,11 +523,13 @@ let g:ctrlp_follow_symlinks=1
 "################### 显示增强 ###################"
 
 "状态栏增强展示
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 "if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
 "let g:Powerline_symbols = 'fancy'
 "let g:Powerline_symbols = 'unicode'
+"let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
 
+Bundle 'bling/vim-airline'
 
 "括号显示增强
 Bundle 'kien/rainbow_parentheses.vim'
@@ -678,6 +680,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd Filetype css setlocal equalprg=csstidy\ -\ --silent=true
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
@@ -784,6 +787,11 @@ Bundle 'pangloss/vim-javascript'
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+Bundle 'maksimr/vim-jsbeautify'
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 "for jquery
 Bundle 'nono/jquery.vim'
