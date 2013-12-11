@@ -7,13 +7,19 @@ ruanyl的修改
 
 1.添加[Project](https://github.com/ruanyl/project.vim)插件
 
+    新建项目：输入:Project
+    然后输入：\+C 新建一个项目
+    按提示输入信息
+
 2.删除YouCompleteMe插件，需要vim7.3.584的支持，手动编译比较麻烦，前段开发用neocomplcache差不多就够了
 
 3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim) 代码补全提示插件
 
 4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
 
-5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate) 触发键：Ctrl+\
+5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
+
+    触发键：Ctrl+\
 
 6.添加[closetag](https://github.com/ruanyl/closetag.vim)插件，自动关闭html,xml标签，并自动缩进
 
