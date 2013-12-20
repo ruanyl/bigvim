@@ -708,7 +708,7 @@ Bundle 'ruanyl/xptemplate'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 "定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories=["snippets", "bundle/UltiSnips/UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultiSnips/UltiSnips"]
 
 "快速 加减注释
 Bundle 'scrooloose/nerdcommenter'
@@ -769,7 +769,10 @@ let g:DisableAutoPHPFolding = 1
 "################# 具体语言语法高亮 ###############
 
 "highlight for css3
-"Bundle 'ruanyl/vim-css3-syntax'
+Bundle 'JulesWang/css.vim'
+
+"underlays the CSS colorcodes with their real color
+Bundle 'gorodinskiy/vim-coloresque'
 
 " for python.vim syntax highlight
 Bundle 'hdima/python-syntax'
@@ -789,9 +792,9 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 Bundle 'maksimr/vim-jsbeautify'
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
 
 "for jquery
 Bundle 'nono/jquery.vim'

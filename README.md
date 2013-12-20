@@ -29,7 +29,7 @@ ruanyl的修改
 
 9.添加[vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
 
-    按键：Ctrl+f
+    按键: <leader><leader>+f
 
 ###自定义快捷键
 
