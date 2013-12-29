@@ -231,15 +231,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-"删除多余空格
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-"function! DeleteTrailingWS()
-"  exe "normal mz"
-"  %s/\s\+$//ge
-"  exe "normal `z"
-"endfunction
-"autocmd BufWrite *.py :call DeleteTrailingWS()
-
 " Remember info about open buffers on close"
 set viminfo^=%
 
@@ -348,9 +339,7 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-"Use arrow key to change buffer"
-"noremap <left> :bp<CR>
-"noremap <right> :bn<CR>
+"Use 'm' key to change buffer"
 noremap m :bn<CR>
 noremap M :bp<CR>
 
@@ -359,25 +348,8 @@ noremap M :bp<CR>
 nmap t o<ESC>k
 nmap T O<ESC>j
 
-" ctrl +jk to move lines   经常敲错换错行...一直没想好配哪个映射
-"noremap <C-k> :m+<CR>
-"noremap <C-j> :m-2<CR>
-"inoremap <C-j> <Esc>:m+<CR>
-"inoremap <C-k> <Esc>:m-2<CR>
-
 " Quickly close the current window
 nnoremap <leader>q :q<CR>
-
-" Swap implementations of ` and ' jump to markers
-" By default, ' jumps to the marked line, ` jumps to the marked line and
-" column, so swap them
-"nnoremap ' `
-"nnoremap ` '
-
-" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
-" yanked stack (also, in visual mode)
-"nnoremap <silent> <leader>d "_d
-"vnoremap <silent> <leader>d "_d
 
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
@@ -389,11 +361,6 @@ map <Leader>sa ggVG"
 
 " automatically reload vimrc when it's saved
 au BufWritePost .vimrc so ~/.vimrc
-
-" Close the current buffer
-"map <leader>bd :Bclose<cr>
-"" " Close all the buffers
-"map <leader>ba :1,1000 bd!<cr>
 
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
@@ -451,23 +418,6 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-"for minibufferexpl
-"Bundle 'fholgado/minibufexpl.vim'
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-""解决FileExplorer窗口变小问题
-"let g:miniBufExplForceSyntaxEnable = 1
-"let g:miniBufExplorerMoreThanOne=2
-"let g:miniBufExplCycleArround=1
-
-" 默认方向键左右可以切换buffer
-nnoremap <TAB> :MBEbn<CR>
-noremap <leader>bn :MBEbn<CR>
-noremap <leader>bp :MBEbp<CR>
-noremap <leader>bd :MBEbd<CR>
-
 "标签导航
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
@@ -523,12 +473,6 @@ let g:ctrlp_follow_symlinks=1
 "################### 显示增强 ###################"
 
 "状态栏增强展示
-"Bundle 'Lokaltog/vim-powerline'
-"if want to use fancy,need to add font patch -> git clone git://gist.github.com/1630581.git ~/.fonts/ttf-dejavu-powerline
-"let g:Powerline_symbols = 'fancy'
-"let g:Powerline_symbols = 'unicode'
-"let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
-
 Bundle 'bling/vim-airline'
 
 "括号显示增强
@@ -597,14 +541,6 @@ Bundle "ruanyl/closetag.vim"
 autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
-"迄今为止用到的最好的自动VIM自动补全插件
-"Bundle 'Valloric/YouCompleteMe'
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-
 "for neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
 " Disable AutoComplPop.
@@ -616,12 +552,6 @@ let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
@@ -656,27 +586,6 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
-
-" AutoComplPop like behavior.
-"let g:neocomplcache_enable_auto_select = 1
-
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplcache_enable_auto_select = 1
-"let g:neocomplcache_disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -702,14 +611,6 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "For xptemplate
 Bundle 'ruanyl/xptemplate'
 
-"快速插入代码片段
-"Bundle 'vim-scripts/UltiSnips'
-"Bundle 'SirVer/ultisnips'
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-"定义存放代码片段的文件夹 .vim/snippets下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories=["snippets", "bundle/ultiSnips/UltiSnips"]
-
 "快速 加减注释
 Bundle 'scrooloose/nerdcommenter'
 
@@ -729,11 +630,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
-
-"for visual selection
-"Bundle 'terryma/vim-expand-region'
-map = <Plug>(expand_region_expand)
-map - <Plug>(expand_region_shrink)
 
 "for mutil cursor
 Bundle 'terryma/vim-multiple-cursors'
@@ -806,12 +702,6 @@ Bundle 'nono/jquery.vim'
 Bundle 'thiderman/nginx-vim-syntax'
 
 "################### 其他 ###################"
-" task list
-"Bundle 'vim-scripts/TaskList.vim'
-"map <leader>td <Plug>TaskList
-
-" for git 尚未用起来
-Bundle 'tpope/vim-fugitive'
 
 "edit history, 可以查看回到某个历史状态
 Bundle 'sjl/gundo.vim'
