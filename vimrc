@@ -2,7 +2,7 @@
 " Author:  ruanyl
 " Version: 0.9
 " Email: ruanyl@gmail.com
-" BlogPost: http://www.bigruan.com
+" BlogPost: http://blog.bigruan.com
 " ReadMe: README.md
 " Last_modify: 2013-11-12
 " Sections:
@@ -19,10 +19,8 @@
 " General Settings
 "==========================================
 
-"set guifont=Monaco:h20          " Font family && Size
-
-"history: number of command-lines that are remembered
-set history=2000
+"history: number of command-lines remembered
+set history=200
 
 "detect filetype
 filetype on
@@ -38,11 +36,6 @@ set nocompatible
 set autoread          " auto reload file after being modified
 set shortmess=atI       " do not show initial page
 
-" backup to specified location
-"set backup
-"set backupext=.bak
-"set backupdir=~/bak/vimbk/
-
 " cancel backup
 set nobackup
 set noswapfile
@@ -57,7 +50,6 @@ set t_ti= t_te=
 
 " disable mouse
 set mouse-=a
-" 修复ctrl+m 多光标操作选择的bug，但是改变了ctrl+v进行字符选中时将包含光标下的字符
 "set selection=exclusive
 set selection=inclusive
 set selectmode=mouse,key
@@ -165,10 +157,8 @@ set showcmd
 " Show current mode
 set showmode
 
-" Set 7 lines to the cursor - when moving vertically using j/k 上下滚动,始终在中间
+" Set 7 lines to the cursor - when moving vertically using j/k
 set scrolloff=7
-
-"set winwidth=79
 
 "height of command line 2
 set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
@@ -182,18 +172,14 @@ set laststatus=2
 set encoding=utf-8
 "auto detect file encodings
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set helplang=cn
-"language message zh_CN.UTF-8
-"set langmenu=zh_CN.UTF-8
-"set enc=2byte-gb18030
+set helplang=en
 set termencoding=utf-8
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
 
-" 如遇Unicode值大于255的文本，不必等到空格再折行。
 set formatoptions+=m
-" 合并两行中文时，不在中间加空格：
+"When joining lines, don't insert a space between two multi-byte characters.
 set formatoptions+=B
 
 "==========================================
@@ -202,23 +188,18 @@ set formatoptions+=B
 autocmd! bufwritepost _vimrc source % "auto load vimrc file after modify. windows
 autocmd! bufwritepost .vimrc source % "auto load vimrc file after modify. linux
 
-"auto complete
-"让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-"set completeopt+=longest
+"behaviour of insert mode completion
 set completeopt=longest,menu
 
-"离开插入模式后自动关闭预览窗口
+"close popup menu when leave insert mode
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"回车即选中当前项
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
-"上下左右键的行为 会显示其他信息
 inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
 inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
-" 增强模式中的命令行自动完成操作
+"auto complete command
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
@@ -247,11 +228,14 @@ set whichwrap+=<,>,h,l
 let mapleader = ','
 let g:mapleader = ','
 
-"()跳转修改表
+"goto older/newer position in change list
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
 
-"
+"replace currently selected text with default register without yanking it
+vnoremap p "_dP
+
+"add ; at the end of a line and begin a new line
 nnoremap <silent> <leader>; $a;<ESC>o
 
 "close all fold, except current fold
@@ -262,14 +246,7 @@ nnoremap <silent> zx zMl
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-"强迫自己用 hjkl
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-
 "Treat long lines as break lines (useful when moving around in them)
-"se swap之后，同物理行上线直接跳
 map j gj
 map k gk
 
@@ -279,7 +256,7 @@ cnoremap <C-k> <t_ku>
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-"Smart way to move between windows 分屏窗口移动
+"Smart way to move between windows
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -296,14 +273,12 @@ map 0 ^
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
 
-""为方便复制，用<F2>开启/关闭行号显示:
+"为方便复制，用<F2>开启/关闭行号显示:
 nnoremap <F2> :set nonumber! number?<CR>
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
-              "set paste
-set pastetoggle=<F5>            " when in insert mode, press <F2> to go to
-                                "    paste mode, where you can paste mass data
-                                "    that won't be autoindented
+" when in insert mode, press <F5> to go to that won't be autoindented paste mode, where you can paste mass data
+set pastetoggle=<F5>
 
 " disbale paste mode when leaving insert mode
 au InsertLeave * set nopaste
@@ -367,17 +342,12 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 
-" tabnext  tabpreviouse
-
-" Opens a new tab with the current buffer's path
-" Super useful when editing files in the same directory
+" Opens a new tab with the current buffer's path super useful when editing files in the same directory
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 "==========================================
 " Bundle:Plgin management and setting
 "==========================================
-"========================== config for plugins begin ======================================
-
 " 0-bundle the plugins
 "package dependent:  ctags
 "python dependent:  pep8, pyflake
@@ -386,17 +356,16 @@ filetype off " required! turn off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"################### 插件管理 ###################"
+"################### Plugins Management ###################"
 
-"使用Vundle来管理Vundle
 Bundle 'gmarik/vundle'
 " vim plugin bundle control, command model
 " :BundleInstall     install
 " :BundleInstall!    update
 " :BundleClean       remove plugin not in list
 
-"################### 导航 ###################"
-"Project插件
+"################### Navigation ###################"
+"for Project.vim
 Bundle 'ruanyl/project.vim'
 
 "for minibufexpl
@@ -409,7 +378,7 @@ let g:miniBufExplUseSingleClick = 1    " select by single click
 let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
 let g:miniBufExplorerDebugLevel = 0
 
-"目录导航
+"for nerdtree
 Bundle 'scrooloose/nerdtree'
 map <leader>n :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
@@ -418,13 +387,13 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-"标签导航
+"for tagbar
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
-"标签导航 要装ctags
+"for taglist
 Bundle 'vim-scripts/taglist.vim'
 set tags=tags;/
 let Tlist_Ctags_Cmd="/usr/bin/ctags"
@@ -452,12 +421,11 @@ let Tlist_Use_Horiz_Window = 0
 let Tlist_Use_Right_Window = 0
 let Tlist_WinWidth = 25
 
-"for file search ctrlp, 文件搜索
+"for file search ctrlp
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_cmd = 'CtrlP'
 map <leader>f :CtrlPMRU<CR>
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -470,12 +438,12 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
-"################### 显示增强 ###################"
+"################### Display Enhancements ###################"
 
-"状态栏增强展示
+"Enhances status bar
 Bundle 'bling/vim-airline'
 
-"括号显示增强
+"colorful parentheses
 Bundle 'kien/rainbow_parentheses.vim'
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -498,36 +466,36 @@ let g:rbpt_colorpairs = [
 let g:rbpt_max = 40
 let g:rbpt_loadcmd_toggle = 0
 
-"代码排版缩进标识
+"show indent line
 Bundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_color_term = 0
 let g:indentLine_char = '¦'
 
-"for show no user whitespaces
+"show whitespaces not used
 Bundle 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
 
 
-"主题 solarized
+"theme solarized
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 
-"主题 molokai
+"theme molokai
 Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
 
-"################### 快速移动 ###################"
+"################### fast move ###################"
 
-"更高效的移动 ,, + w/fx
+"efficient move ,, + w/fx
 Bundle 'Lokaltog/vim-easymotion'
 
 Bundle 'vim-scripts/matchit.zip'
 
-"################### 补全及快速编辑 ###################"
+"################### auto complete and fast edit ###################"
 
 "python autocomplete
 Bundle 'davidhalter/jedi-vim'
@@ -608,20 +576,21 @@ let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "==================================End of neocomplcache=======================
 
-"For xptemplate
+"for xptemplate
+"powerful snippets plugin, ctrl+\ to trigger
 Bundle 'ruanyl/xptemplate'
 
-"快速 加减注释
+"add comment quickly
 Bundle 'scrooloose/nerdcommenter'
 
-" 快速加入修改环绕字符
+"add surround character quickly
 Bundle 'tpope/vim-surround'
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
 
-"自动补全单引号，双引号等
+"auto complete ' " ... whatever you want
 Bundle 'Raimondi/delimitMate'
-" for python docstring ",优化输入
+" for python docstring "
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 "for code alignment
@@ -641,10 +610,8 @@ let g:multi_cursor_skip_key='<C-x>'
 let g:multi_cursor_quit_key='<Esc>'
 
 
-"################# 语法检查 ###############
+"################# syntax check ###############
 
-" 编辑时自动语法检查标红, vim-flake8目前还不支持,所以多装一个
-" 使用pyflakes,速度比pylint快
 Bundle 'scrooloose/syntastic'
 let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
@@ -654,15 +621,15 @@ let g:syntastic_enable_highlighting = 0
 let g:syntastic_python_checkers=['pyflakes']
 highlight SyntasticErrorSign guifg=white guibg=black
 
-" python fly check, 弥补syntastic只能打开和保存才检查语法的不足
+" python fly check
 Bundle 'kevinw/pyflakes-vim'
 let g:pyflakes_use_quickfix = 0
 
-"PHP代码提示PI
+"PHP Doc gen and better completion
 Bundle 'ruanyl/PIV'
 let g:DisableAutoPHPFolding = 1
 
-"################# 具体语言语法高亮 ###############
+"################# Highlight ###############
 
 "highlight for css3
 Bundle 'JulesWang/css.vim'
@@ -670,12 +637,10 @@ Bundle 'JulesWang/css.vim'
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
 
-" for python.vim syntax highlight
+" for python syntax highlight
 Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
-" for golang
-"Bundle 'jnwhiteh/vim-golang'
 
 " for markdown
 Bundle 'plasticboy/vim-markdown'
@@ -687,11 +652,6 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-Bundle 'maksimr/vim-jsbeautify'
-autocmd FileType javascript noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
-
 "for jquery
 Bundle 'nono/jquery.vim'
 
@@ -701,21 +661,25 @@ Bundle 'nono/jquery.vim'
 "for nginx conf file highlight.   need to confirm it works
 Bundle 'thiderman/nginx-vim-syntax'
 
-"################### 其他 ###################"
+"################### Others ###################"
 
-"edit history, 可以查看回到某个历史状态
+"edit history, historical edit tree
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
+
+"format js, html, css files
+Bundle 'maksimr/vim-jsbeautify'
+autocmd FileType javascript noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
 
 " end turn on
 filetype plugin indent on
 
-"========================== config for plugins end ======================================
-
 "==========================================
 " Color&Theme
 "==========================================
-"开启语法高亮
+
 syntax enable
 syntax on
 
@@ -733,8 +697,6 @@ if has("gui_running")
     set t_Co=256
 endif
 
-
-" 修改主题和颜色展示
 set background=dark
 set t_Co=256
 
@@ -742,12 +704,11 @@ colorscheme molokai
 "colorscheme solarized
 "colorscheme desert
 
-"设置标记一列的背景颜色和数字一行颜色一致
 hi! link SignColumn   LineNr
 hi! link ShowMarksHLl DiffAdd
 hi! link ShowMarksHLu DiffChange
 
-"" for error highlight，防止错误整行标红导致看不清
+" for error highlight
 highlight clear SpellBad
 highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
 highlight clear SpellCap
@@ -763,9 +724,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-"==========================自定义函数 ======================================
+"========================== functions ======================================
 function! <SID>BufcloseCloseIt()
-    " 如果当前窗口不可写，关掉
+    " if not modifiable, then closed
     if getwinvar(winnr(), "&modifiable") == 0
         :q
         return
