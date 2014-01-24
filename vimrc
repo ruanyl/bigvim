@@ -597,8 +597,8 @@ au FileType python let b:delimitMate_nesting_quotes = ['"']
 Bundle 'godlygeek/tabular'
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
 
 "for mutil cursor
 Bundle 'terryma/vim-multiple-cursors'
@@ -643,8 +643,10 @@ let python_highlight_all = 1
 
 
 " for markdown
-Bundle 'plasticboy/vim-markdown'
+"Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
+
+Bundle 'tpope/vim-markdown'
 
 " for javascript
 Bundle 'pangloss/vim-javascript'
