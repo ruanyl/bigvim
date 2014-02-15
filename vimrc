@@ -206,6 +206,7 @@ set wildignore=*.o,*~,*.pyc,*.class
 
 " setting for Python file
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+" autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
@@ -492,6 +493,7 @@ Bundle 'tomasr/molokai'
 
 "efficient move ,, + w/fx
 Bundle 'Lokaltog/vim-easymotion'
+nmap s <Plug>(easymotion-s)
 
 Bundle 'vim-scripts/matchit.zip'
 
@@ -677,6 +679,9 @@ autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
 
 " end turn on
 filetype plugin indent on
+
+Bundle 'thinca/vim-quickrun'
+
 
 "==========================================
 " Color&Theme
