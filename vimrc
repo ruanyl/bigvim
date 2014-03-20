@@ -208,6 +208,9 @@ set wildignore=*.o,*~,*.pyc,*.class
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 " autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
 
+" setting for javascript file
+autocmd FileType javascript set tabstop=2 shiftwidth=2 expandtab ai
+
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -237,7 +240,8 @@ nnoremap <silent> ) g,
 vnoremap p "_dP
 
 "add ; at the end of a line and begin a new line
-nnoremap <silent> <leader>; $a;<ESC>o
+inoremap ss <ESC>:w<CR>
+inoremap lll <ESC>$a;<ESC>
 
 "close all fold, except current fold
 "TODO fix the bug that fold does not open
@@ -369,20 +373,26 @@ Bundle 'gmarik/vundle'
 "for Project.vim
 Bundle 'ruanyl/project.vim'
 
-"for minibufexpl
-Bundle 'ruanyl/minibufexpl.vim'
-let g:miniBufExplorerMoreThanOne = 2   " Display when more than 2 buffers
-let g:miniBufExplSplitToEdge = 1       " Always at top
-let g:miniBufExplMaxSize = 3           " The max height is 3 lines
-let g:miniBufExplMapWindowNavVim = 1   " map CTRL-[hjkl]
-let g:miniBufExplUseSingleClick = 1    " select by single click
-let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
-let g:miniBufExplorerDebugLevel = 0
+""for minibufexpl
+"Bundle 'ruanyl/minibufexpl.vim'
+"let g:miniBufExplorerMoreThanOne = 2   " Display when more than 2 buffers
+"let g:miniBufExplSplitToEdge = 1       " Always at top
+"let g:miniBufExplMaxSize = 3           " The max height is 3 lines
+"let g:miniBufExplMapWindowNavVim = 1   " map CTRL-[hjkl]
+"let g:miniBufExplUseSingleClick = 1    " select by single click
+"let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
+"let g:miniBufExplorerDebugLevel = 0
+
+Bundle 'bling/vim-bufferline'
+let g:bufferline_modified = '*'
+let g:bufferline_inactive_highlight = 'StatusLineNC'
+let g:bufferline_active_highlight = 'StatusLine'
 
 "for nerdtree
 Bundle 'scrooloose/nerdtree'
-map <leader>n :NERDTreeToggle<CR>
+map <leader>e :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
+let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
@@ -631,6 +641,8 @@ let g:pyflakes_use_quickfix = 0
 Bundle 'ruanyl/PIV'
 let g:DisableAutoPHPFolding = 1
 
+Bundle 'kchmck/vim-coffee-script'
+
 "################# Highlight ###############
 
 "highlight for css3
@@ -645,9 +657,6 @@ let python_highlight_all = 1
 
 
 " for markdown
-"Bundle 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-
 Bundle 'tpope/vim-markdown'
 
 " for javascript
@@ -678,6 +687,8 @@ autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
 filetype plugin indent on
 
 Bundle 'thinca/vim-quickrun'
+
+Bundle 'mattn/webapi-vim'
 
 
 "==========================================
@@ -729,50 +740,5 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 "========================== functions ======================================
-function! <SID>BufcloseCloseIt()
-    " if not modifiable, then closed
-    if getwinvar(winnr(), "&modifiable") == 0
-        :q
-        return
-    endif
-    "
-    " Switch to the previous window
-    let l:count = winnr('$')
-    let l:i = 0
-    let l:big = 0
-    let l:id = -1
-
-    while l:i <= l:count
-        let l:i = l:i + 1
-        let l:a = winheight(l:i)*winwidth(l:i)
-        if l:a > l:big
-            let l:big = l:a
-            let l:id = l:i
-        endif
-    endwhile
-
-    if winnr() != l:id
-        :q
-        return
-    endif
-
-    let l:currentBufNum = bufnr("%")
-    let l:alternateBufNum = bufnr("#")
-
-    if buflisted(l:alternateBufNum)
-        buffer #
-    else
-        bnext
-    endif
-
-    if bufnr("%") == l:currentBufNum
-        qa
-    endif
-
-    if buflisted(l:currentBufNum)
-        execute("bdelete! ".l:currentBufNum)
-    endif
-    UMiniBufExplorer
-endfunction
-command! Bclose call <SID>BufcloseCloseIt()
-nnoremap qq  :Bclose<cr>
+Bundle 'moll/vim-bbye'
+nnoremap qq  :Bdelete<cr>
