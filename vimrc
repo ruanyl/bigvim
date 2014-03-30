@@ -161,9 +161,19 @@ set showmode
 set scrolloff=7
 
 "height of command line 2
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
 " Always show the status line
-set laststatus=2
+"set laststatus=2
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\                     " Filename
+    set statusline+=%w%h%m%r                 " Options
+    set statusline+=%{fugitive#statusline()} " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " Filetype
+    set statusline+=\ [%{getcwd()}]          " Current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+endif
 
 "==========================================
 " File encode:encode for varied filetype
@@ -236,16 +246,15 @@ let g:mapleader = ','
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
 
+"close all buffers except current one
+nnoremap <silent> qo :BufOnly<CR>
+
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
 
 "add ; at the end of a line and begin a new line
 inoremap ss <ESC>:w<CR>
 inoremap lll <ESC>$a;<ESC>
-
-"close all fold, except current fold
-"TODO fix the bug that fold does not open
-nnoremap <silent> zx zMl
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -370,23 +379,15 @@ Bundle 'gmarik/vundle'
 " :BundleClean       remove plugin not in list
 
 "################### Navigation ###################"
-"for Project.vim
-Bundle 'ruanyl/project.vim'
-
-""for minibufexpl
-"Bundle 'ruanyl/minibufexpl.vim'
-"let g:miniBufExplorerMoreThanOne = 2   " Display when more than 2 buffers
-"let g:miniBufExplSplitToEdge = 1       " Always at top
-"let g:miniBufExplMaxSize = 3           " The max height is 3 lines
-"let g:miniBufExplMapWindowNavVim = 1   " map CTRL-[hjkl]
-"let g:miniBufExplUseSingleClick = 1    " select by single click
-"let g:miniBufExplModSelTarget = 1      " Dont change to unmodified buffer
-"let g:miniBufExplorerDebugLevel = 0
 
 Bundle 'bling/vim-bufferline'
 let g:bufferline_modified = '*'
 let g:bufferline_inactive_highlight = 'StatusLineNC'
 let g:bufferline_active_highlight = 'StatusLine'
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#branch#enabled = 0
+
+Bundle 'vim-scripts/BufOnly.vim'
 
 "for nerdtree
 Bundle 'scrooloose/nerdtree'
@@ -453,6 +454,7 @@ let g:ctrlp_follow_symlinks=1
 
 "Enhances status bar
 Bundle 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
 
 "colorful parentheses
 Bundle 'kien/rainbow_parentheses.vim'
@@ -592,6 +594,8 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "powerful snippets plugin, ctrl+\ to trigger
 Bundle 'ruanyl/xptemplate'
 
+Bundle 'mattn/gist-vim'
+
 "add comment quickly
 Bundle 'scrooloose/nerdcommenter'
 
@@ -679,7 +683,7 @@ nnoremap <leader>h :GundoToggle<CR>
 
 "format js, html, css files
 Bundle 'maksimr/vim-jsbeautify'
-autocmd FileType javascript noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
+autocmd FileType javascript,json noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
 
@@ -689,6 +693,8 @@ filetype plugin indent on
 Bundle 'thinca/vim-quickrun'
 
 Bundle 'mattn/webapi-vim'
+
+Bundle 'tpope/vim-fugitive'
 
 
 "==========================================
