@@ -219,7 +219,7 @@ autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 " autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
 
 " setting for javascript file
-autocmd FileType javascript set tabstop=2 shiftwidth=2 expandtab ai
+autocmd FileType javascript,css,scss set tabstop=2 shiftwidth=2 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
@@ -253,7 +253,7 @@ nnoremap <silent> qo :BufOnly<CR>
 vnoremap p "_dP
 
 "add ; at the end of a line and begin a new line
-inoremap ss <ESC>:w<CR>
+inoremap sss <ESC>:w<CR>
 inoremap lll <ESC>$a;<ESC>
 
 " Quickly edit/reload the vimrc file
@@ -645,6 +645,9 @@ Bundle 'kchmck/vim-coffee-script'
 
 "highlight for css3
 Bundle 'JulesWang/css.vim'
+
+"highlight for scss
+Bundle 'cakebaker/scss-syntax.vim'
 
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
