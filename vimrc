@@ -1,10 +1,10 @@
 "==========================================
 " Author:  ruanyl
-" Version: 0.9
+" Version: 0.9.1
 " Email: ruanyl@gmail.com
 " BlogPost: http://blog.bigruan.com
 " ReadMe: README.md
-" Last_modify: 2013-11-12
+" Last_modify: 2014-05-15
 " Sections:
 "     ->General Settings
 "     ->Show:User Interface settings
@@ -219,7 +219,7 @@ autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 " autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
 
 " setting for javascript file
-autocmd FileType javascript,css,scss set tabstop=2 shiftwidth=2 expandtab ai
+autocmd FileType javascript,json,css,scss set tabstop=2 shiftwidth=2 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
