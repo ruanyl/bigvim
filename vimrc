@@ -131,14 +131,6 @@ au FocusGained * :set relativenumber
 "absolte line number in Insert mode, relative line number in Normal mode
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-nnoremap <C-n> :call NumberToggle()<cr>
 
 "create undo file
 set undolevels=1000         " How many undos
@@ -505,6 +497,13 @@ Bundle 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
 
+"wildfire
+Bundle 'gcmt/wildfire.vim'
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+    \ "html,xml" : ["at"],
+\ }
+
 "python autocomplete
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#auto_initialization = 0
@@ -612,13 +611,6 @@ vmap <Leader>a: :Tabularize /:<CR>
 
 "for mutil cursor
 Bundle 'terryma/vim-multiple-cursors'
-let g:multi_cursor_use_default_mapping=0
-" Default mapping
-let g:multi_cursor_next_key='<C-m>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-
 
 "################# syntax check ###############
 
