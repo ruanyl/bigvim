@@ -491,18 +491,21 @@ Bundle 'tomasr/molokai'
 
 "efficient move ,, + w/fx
 Bundle 'Lokaltog/vim-easymotion'
-nmap s <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s2)
+let g:EasyMotion_smartcase = 1
 
 Bundle 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
-
+Bundle 'ervandew/supertab'
 "wildfire
 Bundle 'gcmt/wildfire.vim'
 let g:wildfire_objects = {
     \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
     \ "html,xml" : ["at"],
 \ }
+let g:wildfire_fuel_map = "<ENTER>"
+let g:wildfire_water_map = "<BS>"
 
 "python autocomplete
 Bundle 'davidhalter/jedi-vim'
@@ -566,7 +569,7 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd Filetype css setlocal equalprg=csstidy\ -\ --silent=true
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 "autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -621,6 +624,8 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 "let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_quiet_messages = { "type": "style",
+                                 \ "level": "warnings" }
 highlight SyntasticErrorSign guifg=white guibg=black
 
 " python fly check
@@ -658,10 +663,11 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+"generate javascript doc
+"key: <C-l>
 Bundle 'heavenshell/vim-jsdoc'
 
-"for jquery
-Bundle 'nono/jquery.vim'
+Bundle 'marijnh/tern_for_vim'
 
 "for jinja2 highlight
 "Bundle 'Glench/Vim-Jinja2-Syntax'
@@ -673,10 +679,14 @@ Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
 
 "format js, html, css files
+Bundle 'einars/js-beautify'
 Bundle 'maksimr/vim-jsbeautify'
 autocmd FileType javascript,json noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
+let g:config_Beautifier = {}
+let g:config_Beautifier['js'] = {}
+let g:config_Beautifier['js'].indent_size = '2'
 
 " end turn on
 filetype plugin indent on
