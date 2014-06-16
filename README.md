@@ -77,6 +77,8 @@ ruanyl的修改
         2.git clone安装vundle（clone到bundle目录下）
         3.通过vundle安装其他所有插件（相当于进入vimrc, 命令行执行:BundleInstall）,从github全部搞到本地
         4.编译需要手动编译的插件，eg.YCM
+        
+        最后：安装tern_for_vim: cd ~/.vim/bundle/tern_for_vim && npm install
 
 4. 可能遇到的问题:
 
