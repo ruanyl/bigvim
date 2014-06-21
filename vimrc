@@ -211,7 +211,7 @@ autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 " autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
 
 " setting for javascript file
-autocmd FileType javascript,json,css,scss set tabstop=2 shiftwidth=2 expandtab ai
+autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
@@ -372,13 +372,6 @@ Bundle 'gmarik/vundle'
 
 "################### Navigation ###################"
 
-Bundle 'bling/vim-bufferline'
-let g:bufferline_modified = '*'
-let g:bufferline_inactive_highlight = 'StatusLineNC'
-let g:bufferline_active_highlight = 'StatusLine'
-let g:airline#extensions#bufferline#enabled = 0
-let g:airline#extensions#branch#enabled = 0
-
 Bundle 'vim-scripts/BufOnly.vim'
 
 "for nerdtree
@@ -442,11 +435,18 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
+" CtrlP extensions
+Bundle 'tacahiroy/ctrlp-funky'
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+
 "################### Display Enhancements ###################"
 
 "Enhances status bar
 Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 "colorful parentheses
 Bundle 'kien/rainbow_parentheses.vim'
@@ -497,7 +497,7 @@ let g:EasyMotion_smartcase = 1
 Bundle 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
-Bundle 'ervandew/supertab'
+"Bundle 'ervandew/supertab'
 "wildfire
 Bundle 'gcmt/wildfire.vim'
 let g:wildfire_objects = {
@@ -527,6 +527,9 @@ let g:acp_enableAtStartup = 0
 let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_auto_delimiter = 1
+let g:neocomplcache_max_list = 15
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
@@ -588,7 +591,7 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "for xptemplate
 "powerful snippets plugin, ctrl+\ to trigger
-Bundle 'ruanyl/xptemplate'
+Bundle 'drmingdrmer/xptemplate'
 
 Bundle 'mattn/gist-vim'
 
@@ -641,10 +644,7 @@ Bundle 'kchmck/vim-coffee-script'
 "################# Highlight ###############
 
 "highlight for css3
-Bundle 'JulesWang/css.vim'
-
-"highlight for scss
-Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'hail2u/vim-css3-syntax'
 
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
@@ -679,14 +679,9 @@ Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
 
 "format js, html, css files
-Bundle 'einars/js-beautify'
-Bundle 'maksimr/vim-jsbeautify'
-autocmd FileType javascript,json noremap <buffer>  <leader><leader>f :call JsBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader><leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader><leader>f :call CSSBeautify()<cr>
-let g:config_Beautifier = {}
-let g:config_Beautifier['js'] = {}
-let g:config_Beautifier['js'].indent_size = '2'
+"require: npm install -g js-beautify
+Bundle "Chiel92/vim-autoformat"
+autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " end turn on
 filetype plugin indent on
