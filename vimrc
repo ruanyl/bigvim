@@ -133,11 +133,11 @@ autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
 
 "create undo file
-set undolevels=1000         " How many undos
-set undoreload=10000        " number of lines to save for undo
-if v:version >= 730
-    set undofile                " keep a persistent backup file
-    set undodir=~/bak/vimundo/
+if has('persistent_undo')
+  set undofile                " So is persistent undo ...
+  set undolevels=1000         " Maximum number of changes that can be undone
+  set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+  set undodir=~/.undodir/
 endif
 
 set wildignore=*.swp,*.bak,*.pyc,*.class
@@ -420,9 +420,9 @@ let Tlist_WinWidth = 25
 
 "for file search ctrlp
 Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlPMRU<CR>
+map <leader>m :CtrlPMRU<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>f :CtrlPMixed<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -677,6 +677,8 @@ Bundle 'marijnh/tern_for_vim'
 "edit history, historical edit tree
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
+"Bundle 'mbbill/undotree'
+"nnoremap <leader>h :UndotreeToggle<CR>
 
 "format js, html, css files
 "require: npm install -g js-beautify
@@ -692,6 +694,9 @@ Bundle 'mattn/webapi-vim'
 
 Bundle 'tpope/vim-fugitive'
 
+Bundle 'maxbrunsfeld/vim-yankstack'
+nmap zn <Plug>yankstack_substitute_older_paste
+nmap zp <Plug>yankstack_substitute_newer_paste
 
 "==========================================
 " Color&Theme
