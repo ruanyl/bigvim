@@ -184,34 +184,13 @@ set formatoptions+=m
 "When joining lines, don't insert a space between two multi-byte characters.
 set formatoptions+=B
 
-"==========================================
-" others
-"==========================================
-autocmd! bufwritepost _vimrc source % "auto load vimrc file after modify. windows
-autocmd! bufwritepost .vimrc source % "auto load vimrc file after modify. linux
-
 "behaviour of insert mode completion
 set completeopt=longest,menu
-
-"close popup menu when leave insert mode
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 "auto complete command
 set wildmenu
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc,*.class
-
-" setting for Python file
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-" autocmd FileType python set tabstop=4 shiftwidth=4 noexpandtab ai
-
-" setting for javascript file
-autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
 
 " if this not work ,make sure .viminfo is writable for you
 if has("autocmd")
@@ -228,8 +207,30 @@ set magic
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
+" when in insert mode, toggle between 'paste' and 'nopaste'
+set pastetoggle=<F5>
+
+" disbale paste mode when leaving insert mode
+au InsertLeave * set nopaste
+
+"auto load vimrc file after modify. linux
+autocmd! bufwritepost .vimrc source $MYVIMRC
+
+"close popup menu when leave insert mode
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+
+" setting for Python file
+autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+
+" setting for javascript file
+autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
+
 "==========================================
-"Hot Key:Customized keys
+"Key Mappings:Customized keys
 "==========================================
 let mapleader = ','
 let g:mapleader = ','
@@ -238,8 +239,6 @@ let g:mapleader = ','
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
 
-"close all buffers except current one
-nnoremap <silent> qo :BufOnly<CR>
 
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
@@ -283,11 +282,6 @@ nnoremap <C-y> 2<C-y>
 nnoremap <F2> :set nonumber! number?<CR>
 nnoremap <F3> :set list! list?<CR>
 nnoremap <F4> :set wrap! wrap?<CR>
-" when in insert mode, press <F5> to go to that won't be autoindented paste mode, where you can paste mass data
-set pastetoggle=<F5>
-
-" disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
 
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
@@ -300,7 +294,6 @@ map Y y$
 
 noremap <silent><leader>/ :nohls<CR>
 
-inoremap kj <Esc>
 " I can type :help on my own, thanks.
 noremap <F1> <Esc>"
 
@@ -335,27 +328,14 @@ nnoremap <leader>q :q<CR>
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
-"au VimResized * exe "normal! \<c-w>=""
-
 " select all
 map <Leader>sa ggVG"
-
-" automatically reload vimrc when it's saved
-au BufWritePost .vimrc so ~/.vimrc
-
-map <leader>tn :tabnew<cr>
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove
-
-" Opens a new tab with the current buffer's path super useful when editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 "==========================================
 " Bundle:Plgin management and setting
 "==========================================
-" 0-bundle the plugins
 "package dependent:  ctags
+"awesome javascript autocomplete dependent: nodejs
 "python dependent:  pep8, pyflake
 
 filetype off " required! turn off
@@ -371,9 +351,6 @@ Bundle 'gmarik/vundle'
 " :BundleClean       remove plugin not in list
 
 "################### Navigation ###################"
-
-Bundle 'vim-scripts/BufOnly.vim'
-
 "for nerdtree
 Bundle 'scrooloose/nerdtree'
 map <leader>e :NERDTreeToggle<CR>
@@ -435,7 +412,8 @@ let g:ctrlp_match_window_reversed=0
 let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
-" CtrlP extensions
+" CtrlP extensions, go to defination
+" Mapping: <Leader>fu
 Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
@@ -448,33 +426,24 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-"colorful parentheses
-Bundle 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 40
-let g:rbpt_loadcmd_toggle = 0
+"underlays the CSS colorcodes with their real color
+Bundle 'gorodinskiy/vim-coloresque'
 
-"show whitespaces not used
+Bundle 'oblitum/rainbow'
+let g:rainbow_active = 1
+let g:rainbow_load_separately = [
+    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
+    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
+    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
+    \ ]
+let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
+let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
+
+"show whitespaces not used and call :FixWhitespace to remove them
+" Mapping: <leader><space>
 Bundle 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
-
 
 "theme solarized
 Bundle 'altercation/vim-colors-solarized'
@@ -489,7 +458,8 @@ Bundle 'tomasr/molokai'
 
 "################### fast move ###################"
 
-"efficient move ,, + w/fx
+" Move to anywhere
+" Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
 nmap s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
@@ -497,8 +467,8 @@ let g:EasyMotion_smartcase = 1
 Bundle 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
-"Bundle 'ervandew/supertab'
-"wildfire
+" Select blocks quickly
+" Mapping: <Enter>
 Bundle 'gcmt/wildfire.vim'
 let g:wildfire_objects = {
     \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
@@ -593,19 +563,21 @@ let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 "powerful snippets plugin, ctrl+\ to trigger
 Bundle 'drmingdrmer/xptemplate'
 
-Bundle 'mattn/gist-vim'
-
 "add comment quickly
 Bundle 'scrooloose/nerdcommenter'
 
 "add surround character quickly
+" Mappings:
+" surround with: ysiw
+" unsurround with: ds
 Bundle 'tpope/vim-surround'
+
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
 
 "auto complete ' " ... whatever you want
 Bundle 'Raimondi/delimitMate'
-" for python docstring "
+" For python docstring "
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 
 "for code alignment
@@ -635,24 +607,14 @@ highlight SyntasticErrorSign guifg=white guibg=black
 Bundle 'kevinw/pyflakes-vim'
 let g:pyflakes_use_quickfix = 0
 
-"PHP Doc gen and better completion
-Bundle 'ruanyl/PIV'
-let g:DisableAutoPHPFolding = 1
-
-Bundle 'kchmck/vim-coffee-script'
-
 "################# Highlight ###############
 
 "highlight for css3
 Bundle 'hail2u/vim-css3-syntax'
 
-"underlays the CSS colorcodes with their real color
-Bundle 'gorodinskiy/vim-coloresque'
-
 " for python syntax highlight
 Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
-
 
 " for markdown
 Bundle 'tpope/vim-markdown'
@@ -667,27 +629,31 @@ let g:html_indent_style1 = "inc"
 "key: <C-l>
 Bundle 'heavenshell/vim-jsdoc'
 
+" Provides Tern-based JavaScript editing support. Require Nodejs installed
 Bundle 'marijnh/tern_for_vim'
 
-"for jinja2 highlight
-"Bundle 'Glench/Vim-Jinja2-Syntax'
+"PHP Doc gen and better completion
+Bundle 'ruanyl/PIV'
+let g:DisableAutoPHPFolding = 1
 
+Bundle 'kchmck/vim-coffee-script'
 "################### Others ###################"
+
+" Github Gist
+" Command: :Gist
+Bundle 'mattn/gist-vim'
 
 "edit history, historical edit tree
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
-"Bundle 'mbbill/undotree'
-"nnoremap <leader>h :UndotreeToggle<CR>
 
 "format js, html, css files
 "require: npm install -g js-beautify
 Bundle "Chiel92/vim-autoformat"
 autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
-" end turn on
-filetype plugin indent on
-
+" quick run current buffer or selected code
+" Command: :QuickRun or :QuickRun {language}
 Bundle 'thinca/vim-quickrun'
 
 Bundle 'mattn/webapi-vim'
@@ -698,9 +664,20 @@ Bundle 'maxbrunsfeld/vim-yankstack'
 nmap zn <Plug>yankstack_substitute_older_paste
 nmap zp <Plug>yankstack_substitute_newer_paste
 
+" delete current buffer
+Bundle 'moll/vim-bbye'
+nnoremap qq :Bdelete<cr>
+
+" delete all buffers except current one.
+" call :BufOnly
+Bundle 'vim-scripts/BufOnly.vim'
+nnoremap <silent> qo :BufOnly<CR>
+
 "==========================================
 " Color&Theme
 "==========================================
+
+filetype plugin indent on
 
 syntax enable
 syntax on
@@ -740,12 +717,3 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-" settings for kien/rainbow_parentheses.vim
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-"========================== functions ======================================
-Bundle 'moll/vim-bbye'
-nnoremap qq  :Bdelete<cr>
