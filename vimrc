@@ -470,6 +470,10 @@ Bundle 'tomasr/molokai'
 " Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
 nmap <Leader>s <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 let g:EasyMotion_smartcase = 1
 
 Bundle 'vim-scripts/matchit.zip'
