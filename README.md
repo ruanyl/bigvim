@@ -1,44 +1,13 @@
-r-vim
+bigvim
 ======================
-ruanyl的修改
-----------------------
-###插件部分
-基于[k-vim](https://github.com/wklken/k-vim)修改删除了一些配置和插件，主要面向前端开发
-
-1.添加[Project](https://github.com/ruanyl/project.vim)插件
-
-    新建项目：输入:Project
-    然后输入：\+C 新建一个项目
-    按提示输入信息
-
-2.删除YouCompleteMe插件，需要vim7.3.584的支持，手动编译比较麻烦，前段开发用neocomplcache差不多就够了
-
-3.添加[neocomplcache](https://github.com/Shougo/neocomplcache.vim) 代码补全提示插件
-
-4.替换了[minibufexpl](https://github.com/ruanyl/minibufexpl.vim)为我自己常用的版本
-
-5.删除UltiSnips代码片段插件，替换为[xptemplate](https://github.com/drmingdrmer/xptemplate)
-
-    触发键：Ctrl+\
-
-6.添加[closetag](https://github.com/ruanyl/closetag.vim)插件，自动关闭html,xml标签，并自动缩进
-
-7.添加[PIV](https://github.com/ruanyl/PIV)插件，为PHP增加Doc生成和PHP手册查询功能 输入K 查找当前函数手册
-
-8.替换[vim-powerline](https://github.com/Lokaltog/vim-powerline)为[vim-airline](https://github.com/bling/vim-airline)，因为powerline项目不再活跃
-
-9.添加[vim-jsbeautify](https://github.com/maksimr/vim-jsbeautify)
-
-    按键: <leader><leader>+f
 
 ###自定义快捷键
 
-    当打开多个Tab时：
+    当打开多个Buffer时：
     映射：' :b，输入数字，:b3快速切换到第三个Tab
-    qq 关闭当前Tab
-    m 在Tab之间顺序切换，等同<Tab>
-    M 在Tab之间逆序切换
-    zx 折叠所有代码，除当前光标所在位置的折叠
+    qq 关闭当前Buffer
+    m 在Buffer之间顺序切换
+    M 在Buffer之间逆序切换
 
 
 ### 配置步骤
@@ -53,7 +22,7 @@ ruanyl的修改
         sudo apt-get install python-pip
         sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
 
-        #brew install ctags     (mac用户)
+        brew install ctags     (mac用户)
 
         #使用python需要
         sudo pip install pyflakes
@@ -62,14 +31,11 @@ ruanyl的修改
 
 3. 安装插件
 
-        cd r-vim/
+        cd bigvim/
 
         sh -x install.sh
 
         #会进入安装插件的列表，目前30+个插件，一一安装是从github clone的，完全取决于网速
-
-        #安装完插件后，会自动编译YCM，注意，可能编译失败（缺少某些依赖包,暂不支持mac osx 10.9）
-        失败的话手动编译吧，看第4步 编译自动补全YouCompleteMe （这步耗时也有点长，但绝对值得）
 
         install.sh
         本质上做的事情
@@ -81,12 +47,6 @@ ruanyl的修改
         最后：安装tern_for_vim: cd ~/.vim/bundle/tern_for_vim && npm install
 
 4. 可能遇到的问题:
-
-   * 编译自动补全YouCompleteMe
-
-   [文档](https://github.com/Valloric/YouCompleteMe)
-
-   这个插件需要Vim 7.3.584,所以,如果vim版本太低,需要[编译安装](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
 
    * 相对行号
 
@@ -129,21 +89,9 @@ ruanyl的修改
 
 6. 给mac用户
 
-   可以使用mac vim
-
-   首先，安装最新mac vim ,可以正常打开
-
-   然后(需要sudo)
-
-        mv /usr/bin/vim /usr/bin/vim.bk
-        ln -s /usr/local/bin/mvim /usr/bin/vim
-
-   最后，在.bashrc/.bash_profile中加入
-
-        alias vi='mvim -v'
-        alias vim='mvim -v'
-
-   配置完成
+   安装[homebrew](http://brew.sh/)
+   
+   使用brew install vim
 
 7. 冲突和问题排查
 
@@ -178,26 +126,17 @@ molokai主题
     空格 /开启查找
     Y   =y$   复制到行尾
     w!!  以sudo的权限保存
-    kj   <Esc>，不用到角落去按esc了
     t    新起一行，下面，不进入插入模式
     T    新起一行，上面
     ,sa   全选(select all)
     hjkl  上下左右，强迫使用，要解开的自己改
     ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
 
-    ,tn  new tab
-    ,tc  tab close
-    ,to  tab only
-    ,tm  tab move
-    ,te  new tab edit
-    ctrl+n  相对行号绝对行号变换，默认用相对行号
-    5j/5k  在相对行号模式下，往上移动5行 往下移动5行
-
     ,y 展示历史剪贴板
     ,yc 清空
     yy/dd -> p -> ctrl+p可以替换非最近一次剪贴内容
 
-    ,p 开启文件搜索 ctrlp
+    ,f 开启文件搜索 ctrlp
     ,/ 去除匹配高亮
 
 --------------------
