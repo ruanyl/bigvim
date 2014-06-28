@@ -469,7 +469,7 @@ Bundle 'tomasr/molokai'
 " Move to anywhere
 " Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
-nmap s <Plug>(easymotion-s2)
+nmap <Leader>s <Plug>(easymotion-s2)
 let g:EasyMotion_smartcase = 1
 
 Bundle 'vim-scripts/matchit.zip'
