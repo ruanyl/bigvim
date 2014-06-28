@@ -51,7 +51,7 @@ then
     mkdir -p ~/bak/vimbk
 fi
 
-if [ ! -d ~/bak/vimundo ]
+if [ ! -d ~/.undodir ]
 then
-    mkdir -p ~/bak/vimundo
+    mkdir -p ~/.undodir
 fi
