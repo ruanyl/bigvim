@@ -235,6 +235,9 @@ autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expand
 let mapleader = ','
 let g:mapleader = ','
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 "goto older/newer position in change list
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
@@ -244,8 +247,7 @@ nnoremap <silent> ) g,
 vnoremap p "_dP
 
 "add ; at the end of a line and begin a new line
-inoremap sss <ESC>:w<CR>
-inoremap lll <ESC>$a;<ESC>
+inoremap LL <ESC>$a
 
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -330,6 +332,11 @@ nnoremap U <C-r>
 
 " select all
 map <Leader>sa ggVG"
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
 
 "==========================================
 " Bundle:Plgin management and setting
@@ -425,6 +432,7 @@ Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
@@ -625,6 +633,9 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+Bundle 'kchmck/vim-coffee-script'
+
+"################## Language Specific ##################
 "generate javascript doc
 "key: <C-l>
 Bundle 'heavenshell/vim-jsdoc'
@@ -636,7 +647,9 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'ruanyl/PIV'
 let g:DisableAutoPHPFolding = 1
 
-Bundle 'kchmck/vim-coffee-script'
+Bundle 'fatih/vim-go'
+let g:go_disable_autoinstall = 1
+
 "################### Others ###################"
 
 " Github Gist
@@ -655,6 +668,7 @@ autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
 Bundle 'thinca/vim-quickrun'
+"autocmd FileType go noremap <buffer>  <leader>r :!go run %<cr>
 
 Bundle 'mattn/webapi-vim'
 
@@ -699,7 +713,7 @@ endif
 set background=dark
 set t_Co=256
 
-colorscheme molokai
+colorscheme solarized
 "colorscheme solarized
 "colorscheme desert
 
