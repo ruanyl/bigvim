@@ -236,7 +236,7 @@ let mapleader = ','
 let g:mapleader = ','
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
+cmap w!! %!sudo tee > /dev/null %
 
 "goto older/newer position in change list
 nnoremap <silent> ( g;
@@ -289,7 +289,7 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-map <space> /
+noremap <space> /
 "map <c-space> ?"
 
 map Y y$
@@ -374,34 +374,6 @@ nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
-"for taglist
-Bundle 'vim-scripts/taglist.vim'
-set tags=tags;/
-let Tlist_Ctags_Cmd="/usr/bin/ctags"
-nnoremap <silent> <F8> :TlistToggle<CR>
-let Tlist_Auto_Highlight_Tag = 1
-let Tlist_Auto_Open = 0
-let Tlist_Auto_Update = 1
-let Tlist_Close_On_Select = 0
-let Tlist_Compact_Format = 0
-let Tlist_Display_Prototype = 0
-let Tlist_Display_Tag_Scope = 1
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_File_Fold_Auto_Close = 0
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Hightlight_Tag_On_BufEnter = 1
-let Tlist_Inc_Winwidth = 0
-let Tlist_Max_Submenu_Items = 1
-let Tlist_Max_Tag_Length = 30
-let Tlist_Process_File_Always = 0
-let Tlist_Show_Menu = 0
-let Tlist_Show_One_File = 1
-let Tlist_Sort_Type = "order"
-let Tlist_Use_Horiz_Window = 0
-let Tlist_Use_Right_Window = 0
-let Tlist_WinWidth = 25
-
 "for file search ctrlp
 Bundle 'kien/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
@@ -437,7 +409,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
 
-Bundle 'oblitum/rainbow'
+"Bundle 'oblitum/rainbow'
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
     \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
@@ -464,19 +436,23 @@ let g:solarized_visibility="normal"
 Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
 
+Bundle 'chriskempson/vim-tomorrow-theme'
+
+Bundle 'goatslacker/mango.vim'
+
 "################### fast move ###################"
 
 " Move to anywhere
-" Mapping: s
+" Mapping: <Leader>s
 Bundle 'Lokaltog/vim-easymotion'
 nmap <Leader>s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 let g:EasyMotion_smartcase = 1
 
 Bundle 'vim-scripts/matchit.zip'
+
+Bundle 'Valloric/MatchTagAlways'
 
 "################### auto complete and fast edit ###################"
 " Select blocks quickly
@@ -717,8 +693,10 @@ endif
 set background=dark
 set t_Co=256
 
+"colorscheme mango
+"colorscheme Tomorrow-Night
 colorscheme solarized
-"colorscheme solarized
+"colorscheme molokai
 "colorscheme desert
 
 hi! link SignColumn   LineNr
