@@ -667,6 +667,8 @@ nnoremap qq :Bdelete<cr>
 Bundle 'vim-scripts/BufOnly.vim'
 nnoremap <silent> qo :BufOnly<CR>
 
+Bundle 'editorconfig/editorconfig-vim'
+
 "==========================================
 " Color&Theme
 "==========================================
