@@ -395,7 +395,7 @@ let g:ctrlp_follow_symlinks=1
 " Mapping: <Leader>fu
 Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>d :CtrlPFunky<Cr>
 
 "################### Display Enhancements ###################"
 
@@ -468,14 +468,11 @@ let g:wildfire_water_map = "<BS>"
 "python autocomplete
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#auto_initialization = 0
-noremap <leader>d :call jedi#goto_definitions()<CR>
-noremap <leader>g :call jedi#goto_assignments()<CR>
+autocmd FileType python noremap <leader>d :call jedi#goto_definitions()<CR>
+autocmd FileType python noremap noremap <leader>g :call jedi#goto_assignments()<CR>
 
-"For closetag
-"close the tag automatically
-Bundle "ruanyl/closetag.vim"
-autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+" auto close html tag when press >
+Bundle 'vim-scripts/HTML-AutoCloseTag'
 
 "for neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
@@ -563,10 +560,8 @@ Bundle 'tpope/vim-surround'
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
 
-"auto complete ' " ... whatever you want
-Bundle 'Raimondi/delimitMate'
-" For python docstring "
-au FileType python let b:delimitMate_nesting_quotes = ['"']
+" auto close " ( [ ...
+Bundle 'jiangmiao/auto-pairs'
 
 "for code alignment
 Bundle 'godlygeek/tabular'
@@ -639,6 +634,7 @@ Bundle 'mattn/gist-vim'
 "edit history, historical edit tree
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
+let g:gundo_auto_preview = 0
 
 "format js, html, css files
 "require: npm install -g js-beautify
