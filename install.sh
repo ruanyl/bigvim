@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# refer  spf13-vim bootstrap.sh`
+REQUIRE="npm node"
+for i in $REQUIRE
+do
+    command -v $i >/dev/null && continue || { echo "$i command not found."; exit 1; }
+done
 
 BASEDIR=$(dirname $0)
 cd $BASEDIR
@@ -17,13 +21,15 @@ lnif() {
 
 echo "backing up current vim config"
 today=`date +%Y%m%d`
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
-for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc; do [ -L $i ] && unlink $i ; done
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.editorconfig $HOME/.tern-config; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
+for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.editorconfig $HOME/.tern-config; do [ -L $i ] && unlink $i ; done
 
 
 echo "setting up symlinks"
 lnif $CURRENT_DIR/vimrc $HOME/.vimrc
 lnif $CURRENT_DIR/ $HOME/.vim
+lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
+lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
 
 
 if [ ! -e $CURRENT_DIR/vundle ]; then
@@ -39,18 +45,19 @@ vim -u $CURRENT_DIR/vimrc +BundleInstall! +BundleClean +qall
 export SHELL=$system_shell
 
 
-
 #echo "compile YouCompleteMe"
 #echo "if error,you need to compile it yourself"
 #cd $CURRENT_DIR/bundle/YouCompleteMe/
 #bash -x install.sh --clang-completer
 
-#vim bk and undo dir
-if [ ! -d ~/bak/vimbk ]
-then
-    mkdir -p ~/bak/vimbk
-fi
+echo "install ternjs dependences"
+cd $CURRENT_DIR/bundle/tern_for_vim/
+npm install
 
+echo "install jshint for javascript syntax check"
+sudo npm install -g jshint
+
+#vim undo dir
 if [ ! -d ~/.undodir ]
 then
     mkdir -p ~/.undodir
