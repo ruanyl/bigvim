@@ -395,7 +395,7 @@ let g:ctrlp_follow_symlinks=1
 " Mapping: <Leader>fu
 Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
-nnoremap <Leader>d :CtrlPFunky<Cr>
+nnoremap <Leader>fu :CtrlPFunky<Cr>
 
 "################### Display Enhancements ###################"
 
@@ -612,11 +612,14 @@ Bundle 'kchmck/vim-coffee-script'
 
 "################## Language Specific ##################
 "generate javascript doc
-"key: <C-l>
+"key: <C-L>
 Bundle 'heavenshell/vim-jsdoc'
+let g:jsdoc_default_mapping = 0
+autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " Provides Tern-based JavaScript editing support. Require Nodejs installed
 Bundle 'marijnh/tern_for_vim'
+autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
 "PHP Doc gen and better completion
 Bundle 'ruanyl/PIV'
