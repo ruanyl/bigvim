@@ -1,52 +1,36 @@
 bigvim
 ======================
 
-###自定义快捷键
-
-    当打开多个Buffer时：
-    映射：' :b，输入数字，:b3快速切换到第三个Tab
-    qq 关闭当前Buffer
-    m 在Buffer之间顺序切换
-    M 在Buffer之间逆序切换
-
-
 ### 配置步骤
 
-1. clone到本地,配置到linux个人目录（如果是从linux_config过来的，不需要clone）
+1. clone到本地任意目录
 
-        git clone https://github.com/ruanyl/r-vim.git
+        git clone https://github.com/ruanyl/bigvim.git
 
 2. 安装依赖包
 
         sudo apt-get install ctags
         sudo apt-get install python-pip
         sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
-
         brew install ctags     (mac用户)
 
-        #使用python需要
-        sudo pip install pyflakes
-        sudo pip install pylint
-        sudo pip install pep8
+3. 安装Nodejs
+        nodejs.org
 
-3. 安装插件
+4. 安装插件
 
         cd bigvim/
 
         sh -x install.sh
-
-        #会进入安装插件的列表，目前30+个插件，一一安装是从github clone的，完全取决于网速
 
         install.sh
         本质上做的事情
         1.将vimrc/vim文件夹软链接到$HOME，编程系统vim配置
         2.git clone安装vundle（clone到bundle目录下）
         3.通过vundle安装其他所有插件（相当于进入vimrc, 命令行执行:BundleInstall）,从github全部搞到本地
-        4.编译需要手动编译的插件，eg.YCM
-        
-        最后：安装tern_for_vim: cd ~/.vim/bundle/tern_for_vim && npm install
+        4.安装必须的nodejs包
 
-4. 可能遇到的问题:
+5. 可能遇到的问题:
 
    * 相对行号
 
@@ -60,8 +44,10 @@ bigvim
 
    想要修改终端配色为solarized可以参考 [这里](https://github.com/sigurdga/gnome-terminal-colors-solarized)
 
+   * Powerline美化字体
 
----------------------
+   推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
+
 
 ### 其他
 
@@ -71,7 +57,7 @@ bigvim
 
    去掉某些自己用不到的插件: 编辑vimrc，注释掉插件对应Bundle行即可(加一个双引号),保存退出即可
 
-        "Bundle 'fholgado/minibufexpl.vim'
+        "Bundle 'scrooloose/syntastic'
 
    如果想从物理上清除（删除插件文件），注释保存后再次进入vim
 
@@ -90,7 +76,7 @@ bigvim
 6. 给mac用户
 
    安装[homebrew](http://brew.sh/)
-   
+
    使用brew install vim
 
 7. 冲突和问题排查
@@ -129,7 +115,6 @@ molokai主题
     t    新起一行，下面，不进入插入模式
     T    新起一行，上面
     ,sa   全选(select all)
-    hjkl  上下左右，强迫使用，要解开的自己改
     ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
 
     ,y 展示历史剪贴板
@@ -138,6 +123,13 @@ molokai主题
 
     ,f 开启文件搜索 ctrlp
     ,/ 去除匹配高亮
+
+    当打开多个Buffer时：
+    映射：' :b，输入数字，:b3快速切换到第三个Tab
+    qq 关闭当前Buffer
+    qo 关闭除当前buffer之外的所有buffer
+    m 在Buffer之间顺序切换
+    M 在Buffer之间逆序切换
 
 --------------------
 
@@ -164,8 +156,9 @@ molokai主题
 
    必装,开启目录树导航
 
-        [sd]
-            ,n  打开 关闭树形目录结构
+            ,e  打开 关闭树形目录结构
+
+            m   根据提示执行新建文件，目录，拷贝等操作
 
             在nerdtree窗口常用操作：(小写当前，大写root)
             x.......Close the current nodes parent收起当前目录树
@@ -180,90 +173,59 @@ molokai主题
             s.......Open selected file in a new vsplit左右分屏
    演示
 
-   ![thenerdtree](https://github.com/wklken/gallery/blob/master/vim/thenerdtree.gif?raw=true)
-
-2. ####[fholgado/minibufexpl.vim](https://github.com/fholgado/minibufexpl.vim)
-
-   必装，buffer管理, 可以查找其他同类插件
-
-        [sd]
-            <Tab>  切换buffer
-            左右方向键  切换buffer
-            ,bn   切到后一个
-            ,bp   切到前一个
-            ,bd   关闭当前buffer
+   ![thenerdtree](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdtree.gif)
 
 2. ####[majutsushi/tagbar](https://github.com/majutsushi/tagbar)
 
-   必装,标签导航,纬度和taglist不同
-
-        [sd] <F9> 打开
+        <F9> 打开
 
    演示
 
-   ![tagbar](https://github.com/wklken/gallery/blob/master/vim/tagbar.gif?raw=true)
+   ![tagbar](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tagbar.gif)
 
-3. ####[vim-scripts/taglist.vim](https://github.com/vim-scripts/taglist.vim)
-
-   必装
-
-        [sd] <F8>打开
-
-   演示:
-
-   ![taglist](https://github.com/wklken/gallery/blob/master/vim/taglist.png?raw=true)
-
-4. ####[kien/ctrlp.vim](https://github.com/hdima/python-syntax)
+3. ####[kien/ctrlp.vim](https://github.com/hdima/python-syntax)
 
    文件搜索,ack/Command-T需要依赖于外部包,不喜欢有太多依赖的,除非十分强大, 具体 [文档](http://kien.github.io/ctrlp.vim/)
 
-        [sd] ,p  打开ctrlp搜索
-        [sd] ,f  相当于mru功能，show recently opened files
+        ,f  默认查找 最近使用的+文件搜索+buffer
+        ,m  相当于mru功能，most recently used
+        ,b  查找buffer
 
-        ctrl + j/k 进行上下移动
+        ctrl + j/k 进行上下移动 或者小键盘方向键
 
    演示
 
-   ![ctrip](https://github.com/wklken/gallery/blob/master/vim/ctrlp.gif?raw=true)
+   ![ctrlp](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp.gif)
+
+4. ####[tacahiroy/ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky)
+
+   CtrlP插件，类似go to definition的功能
+
+        ,fu 打开搜索
+
+   演示
+
+   ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp-funky.gif)
 
 > 显示增强
 
     被动技能,无快捷键
 
-1. ####[Lokaltog/vim-powerline](https://github.com/Lokaltog/vim-powerline)
+1. ####[bling/vim-airline](https://github.com/bling/vim-airline)
 
-   必装，状态栏美观
+   ![vim-airline](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-airline.png)
 
-   演示
+2. ####[gorodinskiy/vim-coloresque](https://github.com/gorodinskiy/vim-coloresque)
 
-   ![powerline](https://github.com/wklken/gallery/blob/master/vim/powerline.png?raw=true)
+   高亮显示文档中颜色代码
 
-2. ####[kien/rainbow_parentheses.vim](https://github.com/kien/rainbow_parentheses.vim)
+   ![vim-coloresque](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-colorsque.png)
 
-   必装,括号高亮
-
-   演示
-
-   ![rainbow](https://github.com/wklken/gallery/blob/master/vim/rainbow_parentheses.png?raw=true)
-
-3. ####[Yggdroot/indentLine](https://github.com/Yggdroot/indentLine)
-
-   选装,装不装看个人喜好了,缩进标识
-
-   另一个类似的,整块背景色的的,[nathanaelkane/vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides),自选吧, 看来看去还是st2的好看,唉
-
-   调整颜色和solarized一致,不至于太显眼影响注意力,可以根据自己主题设置颜色([颜色](http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim?file=Xterm-color-table.png))
-
-   演示:
-
-   ![indentline](https://github.com/wklken/gallery/blob/master/vim/indentline.png?raw=true)
-
-4. ####[bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+3. ####[bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
 
    将代码行最后无效的空格标红
 
-        [sd] ,空格    去掉当前行末尾空格
-
+        ,空格    去掉当前行末尾空格
 
 4. ####[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 
