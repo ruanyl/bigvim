@@ -436,16 +436,12 @@ let g:solarized_visibility="normal"
 Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
 
-Bundle 'chriskempson/vim-tomorrow-theme'
-
-Bundle 'goatslacker/mango.vim'
-
 "################### fast move ###################"
 
 " Move to anywhere
 " Mapping: <Leader>s
 Bundle 'Lokaltog/vim-easymotion'
-nmap <Leader>s <Plug>(easymotion-s2)
+nmap s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
@@ -612,7 +608,6 @@ Bundle 'kchmck/vim-coffee-script'
 
 "################## Language Specific ##################
 "generate javascript doc
-"key: <C-L>
 Bundle 'heavenshell/vim-jsdoc'
 let g:jsdoc_default_mapping = 0
 autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
@@ -694,8 +689,6 @@ endif
 set background=dark
 set t_Co=256
 
-"colorscheme mango
-"colorscheme Tomorrow-Night
 colorscheme solarized
 "colorscheme molokai
 "colorscheme desert
