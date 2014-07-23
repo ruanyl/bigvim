@@ -397,6 +397,10 @@ Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
+" You will need the ack(>= 2.0)
+Bundle 'mileszs/ack.vim'
+nnoremap <Leader><Leader>a :Ack! ""<Left>
+
 "################### Display Enhancements ###################"
 
 "Enhances status bar
