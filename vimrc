@@ -573,6 +573,8 @@ vmap <Leader>a: :Tabularize /:<CR>
 "for mutil cursor
 Bundle 'terryma/vim-multiple-cursors'
 
+Bundle 'mattn/emmet-vim'
+
 "################# syntax check ###############
 
 Bundle 'scrooloose/syntastic'
