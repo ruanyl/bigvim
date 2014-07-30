@@ -461,28 +461,3 @@ molokai主题
 
         [sd] ,h  查看文件编辑历史
 
-> 待考察的
-
-1. ####sjl/vitality.vim
-
-2. ####vim-scripts/Conque-Shell
-
-3. ####vim-scripts/YankRing.vim
-
-4. ####vim-scripts/auto.git
-
-5. ####[AndrewRadev/splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim)
-
-------------------------
-
-The End!
-
-wklken (凌岳/pythoner/vim党预备党员)
-
-Email: wklken@yeah.net
-
-Github: https://github.com/wklken
-
-Blog: http://wklken.me
-
-2013-06-11 于深圳
