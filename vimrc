@@ -561,7 +561,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
 " auto close " ( [ ...
-Bundle 'jiangmiao/auto-pairs'
+"Bundle 'jiangmiao/auto-pairs'
+Bundle 'Raimondi/delimitMate'
 
 "for code alignment
 Bundle 'godlygeek/tabular'
