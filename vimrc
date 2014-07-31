@@ -443,7 +443,7 @@ Bundle 'tomasr/molokai'
 "################### fast move ###################"
 
 " Move to anywhere
-" Mapping: <Leader>s
+" Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
 nmap s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
