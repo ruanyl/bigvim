@@ -93,11 +93,11 @@ bigvim
 
 solarized主题
 
-![solarized](https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true)
+![solarized](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/solarized.png) 我的终端颜色显示不对，不过这个色调也很舒服
 
 molokai主题
 
-![molokai](https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true)
+![molokai](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/molokai.png)
 
 -------------
 
@@ -134,8 +134,6 @@ molokai主题
 --------------------
 
 ### 插件及其快捷键说明
-
-图片有点多，展示有点慢，截得不是很专业，耐心看完:)
 
 > 插件管理
 
@@ -229,11 +227,11 @@ molokai主题
 
 4. ####[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 
-   经典主题,目前我使用的,看起来舒服
+   经典主题, 但是颜色需要终端导入色彩方案，我的颜色显示不对，但是看着还是舒服，就那样了。。
 
 5. ####[tomasr/molokai](https://github.com/tomasr/molokai)
 
-   用sublime text2的同学应该很熟悉, 另一个主题,可选,偶尔换换味道
+   另外一个经典主题
 
 > 快速移动
 
@@ -241,67 +239,32 @@ molokai主题
 
 1. ####[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
 
-   必装，效率提升杀手锏，跳转到光标后任意位置
+   跳转到任意位置
 
-   配置(我的leader键配置 let g:mapleader = ',')
+        s  查找2个字符，例如想要跳到某个方法，只需输入该方法前2个字符，就能跳转到该位置
+        ,, + f  向后查找1个字符
+        /  替代vim默认的搜索功能，如果不喜欢可以去除
 
-        ,, + w  跳转
-        ,, + fe  查找'e',快速跳转定位到某个字符位置
+   ![easy_motion](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/easy-motion.gif)
 
-   演示
+2. ####[Valloric/MatchTagAlways](https://github.com/Valloric/MatchTagAlways)
 
-   ![easy_motion](https://github.com/wklken/gallery/blob/master/vim/easymotion.gif?raw=true)
+   高亮显示匹配的标签
 
-2. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
+   ![matchit](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif)
 
-   选装
+3. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
 
-   % 匹配成对的标签，跳转
+   % 匹配标签，不只是单个的字符，还可以匹配单词，如html标签
 
 > 自动补全及快速编辑
 
-    主动技能,需要快捷键,高效编辑无上利器
-
-
-1. ####[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
-
-   必装，强烈推荐
-
-   YCM是我目前用到的最好的自动补全插件,我只能说，用这个写代码太舒畅了
-
-   需要编译这个插件(见github文档)
-
-   这个需要自己去看官方的配置方式,演示在官方github有
-
-   需要Vim 7.3.584 以上版本([如何编译vim](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source))
-
-   这个插件包含了以下四个插件功能,所以不需要装下面四个
-
-        clang_complete
-        AutoComplPop
-        Supertab
-        neocomplcache
-        jedi(对python的补全)
-
-   快捷键:
-
-        ,gd  跳到声明位置, 仅 filetypes: c, cpp, objc, objcpp, python 有效
-
-2. ####[SirVer/ultisnips](https://github.com/SirVer/ultisnips)
-
-   必装，效率杀手锏，快速插入自定义的代码片段
-
-   自动补全加这个,高效必备, 针对各种语言已经带了一份配置了，可以到安装目录下查看具体，我有针对性补全一份，在snippets目录下，可自行修改
-
-   演示
-
-   ![ultisnips](https://github.com/wklken/gallery/blob/master/vim/utilsnips.gif?raw=true)
 
 2. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
    必装，另一个大大提升效率的地方，快速批量加减注释
 
-        [d] shift+v+方向键选中(默认当前行)   ->  ,cc  加上注释  -> ,cu 解开注释
+        [d] shift+v+方向键选中(默认当前行)   ->  ,cm  加上注释  -> ,cu 解开注释
 
    演示
 
