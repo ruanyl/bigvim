@@ -265,7 +265,7 @@ molokai主题
 
    ![wildfire](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif)
 
-2. ###[alvan/vim-closetag](1. ###[gcmt/wildfire.vim](https://github.com/alvan/vim-closetag)
+2. ###[alvan/vim-closetag]
 
     自动关闭html, xml标签
 
@@ -297,7 +297,7 @@ molokai主题
         "Hello world!" -> 'Hello world!'
         ds"
         "Hello world!" -> Hello world!
-        
+
    ![surround](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/surround.gif)
 
 6. ###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
@@ -323,6 +323,7 @@ molokai主题
         ,n  开始选择
         ,x  跳过当前
         ,p  返回选择
+
     ![multicursor](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif)
 
 10. ###[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
