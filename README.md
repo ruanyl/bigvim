@@ -274,12 +274,15 @@ molokai主题
 3. ###[drmingdrmer/xptemplate](https://github.com/drmingdrmer/xptemplate)
 
     代码片段工具
+
         <C-\> 触发
+        
     ![xptemplate](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/xptemplate.gif)
 
 4. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
-        shift+v 选择要注释的行   ->
+
+        shift+v 选择要注释的行
         ,cc  注释单行或者选中行
         ,cm  多行注释
         ,cu  解开注释
@@ -303,7 +306,8 @@ molokai主题
 6. ###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 
     重复命令
-        .  重复上一次命令
+
+         .  重复上一次命令
 
 7. ### [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
 
@@ -312,6 +316,7 @@ molokai主题
 8. ###[godlygeek/tabular](https://github.com/godlygeek/tabular)
 
     代码按=或者: 对齐
+
         ,a=   按等号对齐
         ,a:   安冒号对齐
 
@@ -320,14 +325,18 @@ molokai主题
 9. ###[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 
     多光标操作
+
         ,n  开始选择
         ,x  跳过当前
         ,p  返回选择
+
     ![multicursor](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif)
 
 10. ###[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 
     快速书写html
+
+        <C-y>,  触发
 
     ![emmet](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif)
 
