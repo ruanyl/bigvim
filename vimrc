@@ -472,7 +472,7 @@ autocmd FileType python noremap <leader>d :call jedi#goto_definitions()<CR>
 autocmd FileType python noremap noremap <leader>g :call jedi#goto_assignments()<CR>
 
 " auto close html tag when press >
-Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'alvan/vim-closetag'
 
 "for neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
@@ -563,6 +563,7 @@ Bundle 'tpope/vim-repeat'
 " auto close " ( [ ...
 "Bundle 'jiangmiao/auto-pairs'
 Bundle 'Raimondi/delimitMate'
+let delimitMate_matchpairs = "(:),[:],{:}"
 
 "for code alignment
 Bundle 'godlygeek/tabular'

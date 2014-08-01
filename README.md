@@ -135,7 +135,7 @@ molokai主题
 
 ### 插件及其快捷键说明
 
-> 插件管理
+##### 插件管理
 
 1. ####[gmarik/vundle](https://github.com/gmarik/vundle)
 
@@ -148,7 +148,7 @@ molokai主题
         :BundleClean       remove plugin not in list
 
 
-> 导航及搜索
+##### 导航及搜索
 
 1. ####[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
@@ -205,7 +205,7 @@ molokai主题
 
    ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp-funky.gif)
 
-> 显示增强
+##### 显示增强
 
     被动技能,无快捷键
 
@@ -233,7 +233,7 @@ molokai主题
 
    另外一个经典主题
 
-> 快速移动
+##### 快速移动
 
     主动技能,需要快捷键
 
@@ -251,44 +251,96 @@ molokai主题
 
    高亮显示匹配的标签
 
-   ![matchit](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif)
+   ![matchtagalways](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif)
 
 3. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
 
    % 匹配标签，不只是单个的字符，还可以匹配单词，如html标签
 
-> 自动补全及快速编辑
+##### 快速编辑
 
+1. ###[gcmt/wildfire.vim](https://github.com/gcmt/wildfire.vim)
 
-2. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+   快速选取代码块
 
-   必装，另一个大大提升效率的地方，快速批量加减注释
+   ![wildfire](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif)
 
-        [d] shift+v+方向键选中(默认当前行)   ->  ,cm  加上注释  -> ,cu 解开注释
+2. ###[alvan/vim-closetag](1. ###[gcmt/wildfire.vim](https://github.com/alvan/vim-closetag)
 
-   演示
+    自动关闭html, xml标签
 
-   ![nerdcommenter](https://github.com/wklken/gallery/blob/master/vim/nerdcomment.gif?raw=true)
+    ![closetag](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/CloseTag.gif)
 
-3. ####[tpope/vim-surround](https://github.com/tpope/vim-surround)
+3. ###[drmingdrmer/xptemplate](https://github.com/drmingdrmer/xptemplate)
 
-   必装，很给力的功能，快速给词加环绕符号,例如引号
+    代码片段工具
+        <C-\> 触发
+    ![xptemplate](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/xptemplate.gif)
 
-   [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
+4. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
-   repeat进行增强,'.'可以重复命令
+        shift+v 选择要注释的行   ->
+        ,cc  注释单行或者选中行
+        ,cm  多行注释
+        ,cu  解开注释
+        ,ci  在注释和取消注释之间切换
 
-        [d]
-        cs"' [inside]
+    ![nerdcomment](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdcomment.gif)
+
+5. ####[tpope/vim-surround](https://github.com/tpope/vim-surround)
+
+   配合vim-repeat进行增强,'.'可以重复命令
+
+        ysiw"
+        Hello -> "Hello"
+        cs"'
         "Hello world!" -> 'Hello world!'
         ds"
         "Hello world!" -> Hello world!
-        ysiw"
-        Hello -> "Hello"
+        
+   ![surround](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/surround.gif)
 
-   演示
+6. ###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 
-   ![surround](https://github.com/wklken/gallery/blob/master/vim/surround.gif?raw=true)
+    重复命令
+        .  重复上一次命令
+
+7. ### [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
+
+    自动补全：(), [], {}, <>
+
+8. ###[godlygeek/tabular](https://github.com/godlygeek/tabular)
+
+    代码按=或者: 对齐
+        ,a=   按等号对齐
+        ,a:   安冒号对齐
+
+    ![tabular](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tabular.gif)
+
+9. ###[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+
+    多光标操作
+        ,n  开始选择
+        ,x  跳过当前
+        ,p  返回选择
+    ![multicursor](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif)
+
+10. ###[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
+
+    快速书写html
+
+    ![emmet](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif)
+
+> 自动补全
+
+1. ###[davidhalter/jedi-vim](https://github.com/davidhalter/jedi-vim)
+
+   Python 自动补全以及快速跳转，详情请见其Github主页
+
+2. ###[Shougo/neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim)
+
+    自动补全，演示请见项目主页
+
 
 4. ####[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
 
