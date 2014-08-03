@@ -433,8 +433,8 @@ map <leader><space> :FixWhitespace<cr>
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 
 "theme molokai
 Bundle 'tomasr/molokai'
@@ -625,7 +625,7 @@ Bundle 'marijnh/tern_for_vim'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
 "PHP Doc gen and better completion
-Bundle 'ruanyl/PIV'
+Bundle 'spf13/PIV'
 let g:DisableAutoPHPFolding = 1
 
 Bundle 'fatih/vim-go'
