@@ -265,7 +265,7 @@ molokai主题
 
    ![wildfire](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif)
 
-2. ###[alvan/vim-closetag]
+2. ###[alvan/vim-closetag](https://github.com/alvan/vim-closetag)
 
     自动关闭html, xml标签
 
@@ -340,7 +340,7 @@ molokai主题
 
     ![emmet](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif)
 
-> 自动补全
+#### 自动补全
 
 1. ###[davidhalter/jedi-vim](https://github.com/davidhalter/jedi-vim)
 
@@ -351,54 +351,9 @@ molokai主题
     自动补全，演示请见项目主页
 
 
-4. ####[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
+#### 语法检查
 
-   必装，输入引号,括号时,自动补全
-
-   对python的docstring 三引号做了处理(只处理""", '''暂时没配，可以自己加)
-
-   演示
-
-   ![delimitmate](https://github.com/wklken/gallery/blob/master/vim/delimate.gif?raw=true)
-
-5. ####[godlygeek/tabular](https://github.com/godlygeek/tabular)
-
-   选装，代码格式化用的，code alignment
-
-        [sd]
-        ,a=  按等号切分格式化
-        ,a:  按逗号切分格式化
-
-6. ####[terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)
-
-   选装，visual mode selection
-   视图模式下可伸缩选中部分，用于快速选中某些块
-
-        [sd]
-        = 增加选中范围(+/=按键)
-        - 减少选中范围(_/-按键)
-
-   演示（直接取链到其github图)
-
-   ![expand-region](https://raw.github.com/terryma/vim-expand-region/master/expand-region.gif)
-
-7. ####[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
-
-   选装，多光标批量操作
-
-        [sd]
-        ctrl + m 开始选择
-        ctrl + p 向上取消
-        ctrl + x 跳过
-        esc   退出
-
-   演示(官方演示图)
-
-   ![multiple-cursors](https://raw.github.com/terryma/vim-multiple-cursors/master/assets/example1.gif)
-
-> 语法检查
-
-1. ####[scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+1. ###[scrooloose/syntastic](https://github.com/scrooloose/syntastic)
 
    建议安装，静态语法及风格检查,支持多种语言
 
@@ -406,82 +361,94 @@ molokai主题
 
    演示
 
-   ![syntastic](https://github.com/wklken/gallery/blob/master/vim/syntastic.png?raw=true)
+   ![syntastic](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.gif)
 
-2. ####[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
+2. ###[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
 
-   虽然这个的作者推荐使用syntastic,但是这个插件对于pythoner还是很需要的
-
-   因为有一个特牛的功能,fly check,即,编码时在buffer状态就能动态查错标记,弥补syntastic只能保存和打开时检查语法错误的不足
-
-   演示
-   ![pyflakes](https://github.com/wklken/gallery/blob/master/vim/pyflakes.png?raw=true)
-
-> 具体语言
-
-    主要是python  其它语言以及前端的,用得少没有研究使用过
-    python   golang   markdown
-    需要其它语言支持的,可以到github上捞,上面很多流行的vim配置,eg. spf13-vim
-    以下均为选装，根据自己需要
-
-1. ####[python-syntax](https://github.com/hdima/python-syntax)
-
-   使用Python建议安装，python语法高亮,就是python.vim,在github,有维护和更新
-
-4. ####[jnwhiteh/vim-golang](https://github.com/jnwhiteh/vim-golang)
-
-   使用golang建议安装， golang语法高亮
-
-   golang刚入门使用,项目中还没正式开始,目前很多golang的手册有配置vim的介绍,后续有需求再弄
-
-5. ####[plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)
-
-   markdown语法,编辑md文件
-
-6. ####[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
-
-   偶尔会看看js,频率不高
-
-7. ####[nono/jquery.vim](https://github.com/nono/jquery.vim)
-
-   jquery高亮
-
-5. ####[thiderman/nginx-vim-syntax](https://github.com/thiderman/nginx-vim-syntax)
-
-   nginx配置文件语法高亮,常常配置服务器很有用
-
-6. ####[Glench/Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-
-   jinja2 语法高亮
+   Python语法检查
 
 
-> 其它扩展增强
+#### 语法高亮
 
-    根据自身需求自取配置,不需要的话自己注解
+1. ###[python-syntax](https://github.com/hdima/python-syntax)
 
-1. ####[vim-scripts/TaskList.vim](https://github.com/vim-scripts/TaskList.vim)
+2. ###[tpope/vim-markdown](https://github.com/tpope/vim-markdown)
 
-   查看并快速跳转到代码中的TODO列表
+   markdown语法高亮
 
-   重构代码时一般通读,标记修改位置,非常实用
+3. ###[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
 
-        [sd]
-        ,td 打开todo列表
+4. ###[hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
 
-   演示
-
-   ![tasklist](https://github.com/wklken/gallery/blob/master/vim/tasklist.gif?raw=true)
-
-2. ####[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-
-   git插件
-
-   不是很习惯,所以用的次数太少,目前和现有配置快捷键有冲突,尚未解决
+5. ###[kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 
 
-3. ####[sjl/gundo.vim](https://github.com/sjl/gundo.vim)
+#### 语言相关
 
-   编辑文件时光机
+1. ###[heavenshell/vim-jsdoc](https://github.com/heavenshell/vim-jsdoc)
 
-        [sd] ,h  查看文件编辑历史
+		,,d  光标定位在方法上面，自动生成js doc
 
+2. ###[marijnh/tern_for_vim](https://github.com/marijnh/tern_for_vim)
+
+	前端开发需要，支持jquery自动补全，还有其它插件支持
+
+        ,d  go to definition功能
+
+3. ###[spf13/PIV](https://github.com/spf13/PIV)
+
+	PHP手册
+
+    	K 大写的K，打开光标下方法的PHP Doc
+
+4. ###[fatih/vim-go](https://github.com/fatih/vim-go)
+
+	go语言支持
+
+#### 其他
+
+1. [mattn/gist-vim](https://github.com/mattn/gist-vim)
+
+		:Gist  github gist, 支持查看自己和别人的gist，以及编辑修改新建gist
+
+2. ####[sjl/gundo.vim](https://github.com/sjl/gundo.vim)
+
+   历史操作记录
+
+        ,h  查看文件编辑历史
+
+	![gundo](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.gif)
+
+3. ####[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
+
+	格式化js,json,html,css,scss
+
+        ,,f  自动格式化
+
+4. ###[thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)
+
+		,r  运行当前文件，如运行javascript
+
+5. ###[mattn/webapi-vim](https://github.com/mattn/webapi-vim)
+
+6. ###[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+
+    git 支持
+
+7. ###[maxbrunsfeld/vim-yankstack](https://github.com/maxbrunsfeld/vim-yankstack)
+
+	剪切板历史
+    	zn
+        zp
+
+8. ###[moll/vim-bbye](https://github.com/moll/vim-bbye)
+
+		qq 删除当前buff
+
+9. ###[vim-scripts/BufOnly.vim](https://github.com/vim-scripts/BufOnly.vim)
+
+		qo 关闭所有buff，当前除外
+
+10. ###[editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
+
+	支持.editorconfig文件
