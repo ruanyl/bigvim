@@ -434,8 +434,8 @@ map <leader><space> :FixWhitespace<cr>
 Bundle 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
 
 "theme molokai
 Bundle 'tomasr/molokai'
@@ -444,7 +444,7 @@ Bundle 'tomasr/molokai'
 "################### fast move ###################"
 
 " Move to anywhere
-" Mapping: <Leader>s
+" Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
 nmap s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
@@ -473,7 +473,7 @@ autocmd FileType python noremap <leader>d :call jedi#goto_definitions()<CR>
 autocmd FileType python noremap noremap <leader>g :call jedi#goto_assignments()<CR>
 
 " auto close html tag when press >
-Bundle 'vim-scripts/HTML-AutoCloseTag'
+Bundle 'alvan/vim-closetag'
 
 "for neocomplcache
 Bundle 'Shougo/neocomplcache.vim'
@@ -562,7 +562,9 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
 " auto close " ( [ ...
-Bundle 'jiangmiao/auto-pairs'
+"Bundle 'jiangmiao/auto-pairs'
+Bundle 'Raimondi/delimitMate'
+let delimitMate_matchpairs = "(:),[:],{:}"
 
 "for code alignment
 Bundle 'godlygeek/tabular'
@@ -624,7 +626,7 @@ Bundle 'marijnh/tern_for_vim'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
 "PHP Doc gen and better completion
-Bundle 'ruanyl/PIV'
+Bundle 'spf13/PIV'
 let g:DisableAutoPHPFolding = 1
 
 Bundle 'fatih/vim-go'

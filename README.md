@@ -93,11 +93,11 @@ bigvim
 
 solarized主题
 
-![solarized](https://github.com/wklken/gallery/blob/master/vim/solarized.png?raw=true)
+![solarized](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/solarized.png) 我的终端颜色显示不对，不过这个色调也很舒服
 
 molokai主题
 
-![molokai](https://github.com/wklken/gallery/blob/master/vim/molokai.png?raw=true)
+![molokai](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/molokai.png)
 
 -------------
 
@@ -135,9 +135,7 @@ molokai主题
 
 ### 插件及其快捷键说明
 
-图片有点多，展示有点慢，截得不是很专业，耐心看完:)
-
-> 插件管理
+##### 插件管理
 
 1. ####[gmarik/vundle](https://github.com/gmarik/vundle)
 
@@ -150,7 +148,7 @@ molokai主题
         :BundleClean       remove plugin not in list
 
 
-> 导航及搜索
+##### 导航及搜索
 
 1. ####[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
@@ -207,7 +205,7 @@ molokai主题
 
    ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp-funky.gif)
 
-> 显示增强
+##### 显示增强
 
     被动技能,无快捷键
 
@@ -229,152 +227,133 @@ molokai主题
 
 4. ####[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
 
-   经典主题,目前我使用的,看起来舒服
+   经典主题, 但是颜色需要终端导入色彩方案，我的颜色显示不对，但是看着还是舒服，就那样了。。
 
 5. ####[tomasr/molokai](https://github.com/tomasr/molokai)
 
-   用sublime text2的同学应该很熟悉, 另一个主题,可选,偶尔换换味道
+   另外一个经典主题
 
-> 快速移动
+##### 快速移动
 
     主动技能,需要快捷键
 
 1. ####[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
 
-   必装，效率提升杀手锏，跳转到光标后任意位置
+   跳转到任意位置
 
-   配置(我的leader键配置 let g:mapleader = ',')
+        s  查找2个字符，例如想要跳到某个方法，只需输入该方法前2个字符，就能跳转到该位置
+        ,, + f  向后查找1个字符
+        /  替代vim默认的搜索功能，如果不喜欢可以去除
 
-        ,, + w  跳转
-        ,, + fe  查找'e',快速跳转定位到某个字符位置
+   ![easy_motion](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/easy-motion.gif)
 
-   演示
+2. ####[Valloric/MatchTagAlways](https://github.com/Valloric/MatchTagAlways)
 
-   ![easy_motion](https://github.com/wklken/gallery/blob/master/vim/easymotion.gif?raw=true)
+   高亮显示匹配的标签
 
-2. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
+   ![matchtagalways](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif)
 
-   选装
+3. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
 
-   % 匹配成对的标签，跳转
+   % 匹配标签，不只是单个的字符，还可以匹配单词，如html标签
 
-> 自动补全及快速编辑
+##### 快速编辑
 
-    主动技能,需要快捷键,高效编辑无上利器
+1. ###[gcmt/wildfire.vim](https://github.com/gcmt/wildfire.vim)
+
+   快速选取代码块
+
+   ![wildfire](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif)
+
+2. ###[alvan/vim-closetag](https://github.com/alvan/vim-closetag)
+
+    自动关闭html, xml标签
+
+    ![closetag](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/CloseTag.gif)
+
+3. ###[drmingdrmer/xptemplate](https://github.com/drmingdrmer/xptemplate)
+
+    代码片段工具
+
+        <C-\> 触发
+        
+    ![xptemplate](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/xptemplate.gif)
+
+4. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
 
-1. ####[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+        shift+v 选择要注释的行
+        ,cc  注释单行或者选中行
+        ,cm  多行注释
+        ,cu  解开注释
+        ,ci  在注释和取消注释之间切换
 
-   必装，强烈推荐
+    ![nerdcomment](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdcomment.gif)
 
-   YCM是我目前用到的最好的自动补全插件,我只能说，用这个写代码太舒畅了
+5. ####[tpope/vim-surround](https://github.com/tpope/vim-surround)
 
-   需要编译这个插件(见github文档)
+   配合vim-repeat进行增强,'.'可以重复命令
 
-   这个需要自己去看官方的配置方式,演示在官方github有
-
-   需要Vim 7.3.584 以上版本([如何编译vim](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source))
-
-   这个插件包含了以下四个插件功能,所以不需要装下面四个
-
-        clang_complete
-        AutoComplPop
-        Supertab
-        neocomplcache
-        jedi(对python的补全)
-
-   快捷键:
-
-        ,gd  跳到声明位置, 仅 filetypes: c, cpp, objc, objcpp, python 有效
-
-2. ####[SirVer/ultisnips](https://github.com/SirVer/ultisnips)
-
-   必装，效率杀手锏，快速插入自定义的代码片段
-
-   自动补全加这个,高效必备, 针对各种语言已经带了一份配置了，可以到安装目录下查看具体，我有针对性补全一份，在snippets目录下，可自行修改
-
-   演示
-
-   ![ultisnips](https://github.com/wklken/gallery/blob/master/vim/utilsnips.gif?raw=true)
-
-2. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
-
-   必装，另一个大大提升效率的地方，快速批量加减注释
-
-        [d] shift+v+方向键选中(默认当前行)   ->  ,cc  加上注释  -> ,cu 解开注释
-
-   演示
-
-   ![nerdcommenter](https://github.com/wklken/gallery/blob/master/vim/nerdcomment.gif?raw=true)
-
-3. ####[tpope/vim-surround](https://github.com/tpope/vim-surround)
-
-   必装，很给力的功能，快速给词加环绕符号,例如引号
-
-   [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
-
-   repeat进行增强,'.'可以重复命令
-
-        [d]
-        cs"' [inside]
+        ysiw"
+        Hello -> "Hello"
+        cs"'
         "Hello world!" -> 'Hello world!'
         ds"
         "Hello world!" -> Hello world!
-        ysiw"
-        Hello -> "Hello"
 
-   演示
+   ![surround](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/surround.gif)
 
-   ![surround](https://github.com/wklken/gallery/blob/master/vim/surround.gif?raw=true)
+6. ###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 
-4. ####[Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
+    重复命令
 
-   必装，输入引号,括号时,自动补全
+         .  重复上一次命令
 
-   对python的docstring 三引号做了处理(只处理""", '''暂时没配，可以自己加)
+7. ### [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
 
-   演示
+    自动补全：(), [], {}, <>
 
-   ![delimitmate](https://github.com/wklken/gallery/blob/master/vim/delimate.gif?raw=true)
+8. ###[godlygeek/tabular](https://github.com/godlygeek/tabular)
 
-5. ####[godlygeek/tabular](https://github.com/godlygeek/tabular)
+    代码按=或者: 对齐
 
-   选装，代码格式化用的，code alignment
+        ,a=   按等号对齐
+        ,a:   安冒号对齐
 
-        [sd]
-        ,a=  按等号切分格式化
-        ,a:  按逗号切分格式化
+    ![tabular](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tabular.gif)
 
-6. ####[terryma/vim-expand-region](https://github.com/terryma/vim-expand-region)
+9. ###[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 
-   选装，visual mode selection
-   视图模式下可伸缩选中部分，用于快速选中某些块
+    多光标操作
 
-        [sd]
-        = 增加选中范围(+/=按键)
-        - 减少选中范围(_/-按键)
+        ,n  开始选择
+        ,x  跳过当前
+        ,p  返回选择
 
-   演示（直接取链到其github图)
+    ![multicursor](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif)
 
-   ![expand-region](https://raw.github.com/terryma/vim-expand-region/master/expand-region.gif)
+10. ###[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 
-7. ####[vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+    快速书写html
 
-   选装，多光标批量操作
+        <C-y>,  触发
 
-        [sd]
-        ctrl + m 开始选择
-        ctrl + p 向上取消
-        ctrl + x 跳过
-        esc   退出
+    ![emmet](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif)
 
-   演示(官方演示图)
+#### 自动补全
 
-   ![multiple-cursors](https://raw.github.com/terryma/vim-multiple-cursors/master/assets/example1.gif)
+1. ###[davidhalter/jedi-vim](https://github.com/davidhalter/jedi-vim)
 
-> 语法检查
+   Python 自动补全以及快速跳转，详情请见其Github主页
 
-1. ####[scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+2. ###[Shougo/neocomplcache.vim](https://github.com/Shougo/neocomplcache.vim)
+
+    自动补全，演示请见项目主页
+
+
+#### 语法检查
+
+1. ###[scrooloose/syntastic](https://github.com/scrooloose/syntastic)
 
    建议安装，静态语法及风格检查,支持多种语言
 
@@ -382,107 +361,94 @@ molokai主题
 
    演示
 
-   ![syntastic](https://github.com/wklken/gallery/blob/master/vim/syntastic.png?raw=true)
+   ![syntastic](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.png)
 
-2. ####[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
+2. ###[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
 
-   虽然这个的作者推荐使用syntastic,但是这个插件对于pythoner还是很需要的
-
-   因为有一个特牛的功能,fly check,即,编码时在buffer状态就能动态查错标记,弥补syntastic只能保存和打开时检查语法错误的不足
-
-   演示
-   ![pyflakes](https://github.com/wklken/gallery/blob/master/vim/pyflakes.png?raw=true)
-
-> 具体语言
-
-    主要是python  其它语言以及前端的,用得少没有研究使用过
-    python   golang   markdown
-    需要其它语言支持的,可以到github上捞,上面很多流行的vim配置,eg. spf13-vim
-    以下均为选装，根据自己需要
-
-1. ####[python-syntax](https://github.com/hdima/python-syntax)
-
-   使用Python建议安装，python语法高亮,就是python.vim,在github,有维护和更新
-
-4. ####[jnwhiteh/vim-golang](https://github.com/jnwhiteh/vim-golang)
-
-   使用golang建议安装， golang语法高亮
-
-   golang刚入门使用,项目中还没正式开始,目前很多golang的手册有配置vim的介绍,后续有需求再弄
-
-5. ####[plasticboy/vim-markdown](https://github.com/plasticboy/vim-markdown)
-
-   markdown语法,编辑md文件
-
-6. ####[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
-
-   偶尔会看看js,频率不高
-
-7. ####[nono/jquery.vim](https://github.com/nono/jquery.vim)
-
-   jquery高亮
-
-5. ####[thiderman/nginx-vim-syntax](https://github.com/thiderman/nginx-vim-syntax)
-
-   nginx配置文件语法高亮,常常配置服务器很有用
-
-6. ####[Glench/Vim-Jinja2-Syntax](https://github.com/Glench/Vim-Jinja2-Syntax)
-
-   jinja2 语法高亮
+   Python语法检查
 
 
-> 其它扩展增强
+#### 语法高亮
 
-    根据自身需求自取配置,不需要的话自己注解
+1. ###[python-syntax](https://github.com/hdima/python-syntax)
 
-1. ####[vim-scripts/TaskList.vim](https://github.com/vim-scripts/TaskList.vim)
+2. ###[tpope/vim-markdown](https://github.com/tpope/vim-markdown)
 
-   查看并快速跳转到代码中的TODO列表
+   markdown语法高亮
 
-   重构代码时一般通读,标记修改位置,非常实用
+3. ###[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
 
-        [sd]
-        ,td 打开todo列表
+4. ###[hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
 
-   演示
-
-   ![tasklist](https://github.com/wklken/gallery/blob/master/vim/tasklist.gif?raw=true)
-
-2. ####[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
-
-   git插件
-
-   不是很习惯,所以用的次数太少,目前和现有配置快捷键有冲突,尚未解决
+5. ###[kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 
 
-3. ####[sjl/gundo.vim](https://github.com/sjl/gundo.vim)
+#### 语言相关
 
-   编辑文件时光机
+1. ###[heavenshell/vim-jsdoc](https://github.com/heavenshell/vim-jsdoc)
 
-        [sd] ,h  查看文件编辑历史
+		,,d  光标定位在方法上面，自动生成js doc
 
-> 待考察的
+2. ###[marijnh/tern_for_vim](https://github.com/marijnh/tern_for_vim)
 
-1. ####sjl/vitality.vim
+	前端开发需要，支持jquery自动补全，还有其它插件支持
 
-2. ####vim-scripts/Conque-Shell
+        ,d  go to definition功能
 
-3. ####vim-scripts/YankRing.vim
+3. ###[spf13/PIV](https://github.com/spf13/PIV)
 
-4. ####vim-scripts/auto.git
+	PHP手册
 
-5. ####[AndrewRadev/splitjoin.vim](https://github.com/AndrewRadev/splitjoin.vim)
+    	K 大写的K，打开光标下方法的PHP Doc
 
-------------------------
+4. ###[fatih/vim-go](https://github.com/fatih/vim-go)
 
-The End!
+	go语言支持
 
-wklken (凌岳/pythoner/vim党预备党员)
+#### 其他
 
-Email: wklken@yeah.net
+1. [mattn/gist-vim](https://github.com/mattn/gist-vim)
 
-Github: https://github.com/wklken
+		:Gist  github gist, 支持查看自己和别人的gist，以及编辑修改新建gist
 
-Blog: http://wklken.me
+2. ####[sjl/gundo.vim](https://github.com/sjl/gundo.vim)
 
-2013-06-11 于深圳
+   历史操作记录
+
+        ,h  查看文件编辑历史
+
+	![gundo](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.png)
+
+3. ####[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
+
+	格式化js,json,html,css,scss
+
+        ,,f  自动格式化
+
+4. ###[thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)
+
+		,r  运行当前文件，如运行javascript
+
+5. ###[mattn/webapi-vim](https://github.com/mattn/webapi-vim)
+
+6. ###[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+
+    git 支持
+
+7. ###[maxbrunsfeld/vim-yankstack](https://github.com/maxbrunsfeld/vim-yankstack)
+
+	剪切板历史
+    	zn
+        zp
+
+8. ###[moll/vim-bbye](https://github.com/moll/vim-bbye)
+
+		qq 删除当前buff
+
+9. ###[vim-scripts/BufOnly.vim](https://github.com/vim-scripts/BufOnly.vim)
+
+		qo 关闭所有buff，当前除外
+
+10. ###[editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
+
+	支持.editorconfig文件
