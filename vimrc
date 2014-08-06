@@ -245,6 +245,7 @@ nnoremap <silent> ) g,
 
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
+inoremap <C-V> <C-R>"
 
 "add ; at the end of a line and begin a new line
 inoremap LL <ESC>$a
