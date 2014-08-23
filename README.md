@@ -361,7 +361,7 @@ molokai主题
 
    演示
 
-   ![syntastic](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.gif)
+   ![syntastic](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.png)
 
 2. ###[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
 
@@ -417,7 +417,7 @@ molokai主题
 
         ,h  查看文件编辑历史
 
-	![gundo](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.gif)
+	![gundo](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.png)
 
 3. ####[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
 
