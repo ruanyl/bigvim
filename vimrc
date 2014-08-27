@@ -339,6 +339,9 @@ map <leader>ew :e %%
 map <leader>es :sp %%
 map <leader>ev :vsp %%
 
+nnoremap dp :diffput<CR>
+nnoremap dg :diffget<CR>
+
 "==========================================
 " Bundle:Plgin management and setting
 "==========================================
