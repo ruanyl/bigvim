@@ -70,6 +70,10 @@ set number
 " disable wrap
 set nowrap
 
+" list setting
+set list
+set listchars=tab:▸-,trail:⋅,extends:❯,precedes:❮
+
 " show matched brackets
 set showmatch
 " How many tenths of a second to blink when matching brackets
@@ -290,7 +294,7 @@ nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
 
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-noremap <space> /
+"map <space><space> /
 "map <c-space> ?"
 
 map Y y$
@@ -449,7 +453,7 @@ Bundle 'tomasr/molokai'
 " Move to anywhere
 " Mapping: s
 Bundle 'Lokaltog/vim-easymotion'
-nmap s <Plug>(easymotion-s2)
+map <space> <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
@@ -719,3 +723,4 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
+autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
