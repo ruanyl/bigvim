@@ -1,0 +1,680 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Bigvim by ruanyl</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Bigvim</h1>
+        <p>Vim configuration</p>
+
+        <p class="view"><a href="https://github.com/ruanyl/bigvim">View the Project on GitHub <small>ruanyl/bigvim</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/ruanyl/bigvim/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/ruanyl/bigvim/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/ruanyl/bigvim">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="bigvim" class="anchor" href="#bigvim"><span class="octicon octicon-link"></span></a>bigvim</h1>
+
+<h3>
+<a name="%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4" class="anchor" href="#%E9%85%8D%E7%BD%AE%E6%AD%A5%E9%AA%A4"><span class="octicon octicon-link"></span></a>配置步骤</h3>
+
+<ol>
+<li>
+<p>clone到本地任意目录</p>
+
+<pre><code>git clone https://github.com/ruanyl/bigvim.git
+</code></pre>
+</li>
+<li>
+<p>安装依赖包</p>
+
+<pre><code>sudo apt-get install ctags
+sudo apt-get install python-pip
+sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
+brew install ctags     (mac用户)
+</code></pre>
+</li>
+<li><p>安装Nodejs
+    nodejs.org</p></li>
+<li>
+<p>安装插件</p>
+
+<pre><code>cd bigvim/
+
+sh -x install.sh
+
+install.sh
+本质上做的事情
+1.将vimrc/vim文件夹软链接到$HOME，编程系统vim配置
+2.git clone安装vundle（clone到bundle目录下）
+3.通过vundle安装其他所有插件（相当于进入vimrc, 命令行执行:BundleInstall）,从github全部搞到本地
+4.安装必须的nodejs包
+</code></pre>
+</li>
+<li>
+<p>可能遇到的问题:</p>
+
+<ul>
+<li>相对行号</li>
+</ul>
+<p>vimrc中配置,如果不习惯,可以去掉,<a href="http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/">相关参考</a></p>
+
+<ul>
+<li>配置主题</li>
+</ul>
+<p>到vimrc中修改colortheme,可以使用molokai(用惯sublimetext2的童鞋很熟悉)</p>
+
+<p>默认配置的是<a href="https://github.com/altercation/vim-colors-solarized">solarized dark主题</a></p>
+
+<p>想要修改终端配色为solarized可以参考 <a href="https://github.com/sigurdga/gnome-terminal-colors-solarized">这里</a></p>
+
+<ul>
+<li>Powerline美化字体</li>
+</ul>
+<p>推荐<a href="https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf">Monaco for Powerline</a> 或者去<a href="https://github.com/Lokaltog/powerline-fonts">Lokaltog/powerline-fonts</a> 自行寻找</p>
+</li>
+</ol><h3>
+<a name="%E5%85%B6%E4%BB%96" class="anchor" href="#%E5%85%B6%E4%BB%96"><span class="octicon octicon-link"></span></a>其他</h3>
+
+<ol>
+<li>
+<p>安装/卸载/更新插件：</p>
+
+<p>可能发现打开vim很慢，可能是插件有点多了，这个配置插件全开</p>
+
+<p>去掉某些自己用不到的插件: 编辑vimrc，注释掉插件对应Bundle行即可(加一个双引号),保存退出即可</p>
+
+<pre><code>"Bundle 'scrooloose/syntastic'
+</code></pre>
+
+<p>如果想从物理上清除（删除插件文件），注释保存后再次进入vim</p>
+
+<p>命令行模式，执行:</p>
+
+<pre><code>:BundleClean
+</code></pre>
+
+<p>如果要安装新插件，在vimrc中加入bundle，然后执行</p>
+
+<pre><code>:BundleInstall
+</code></pre>
+
+<p>更新插件</p>
+
+<pre><code>:BundleUpdate
+</code></pre>
+</li>
+<li>
+<p>给mac用户</p>
+
+<p>安装<a href="http://brew.sh/">homebrew</a></p>
+
+<p>使用brew install vim</p>
+</li>
+<li>
+<p>冲突和问题排查</p>
+
+<p>插件很多，并且其默认快捷键或者配置可能发生冲突</p>
+
+<p>当加入新插件发现有冲突或者展现有问题</p>
+
+<p>排除法进行排查：注掉所有插件或配置，然后二分法逐一恢复，可以定位到出现问题的插件或配置</p>
+</li>
+</ol><hr><h3>
+<a name="%E6%88%AA%E5%9B%BE" class="anchor" href="#%E6%88%AA%E5%9B%BE"><span class="octicon octicon-link"></span></a>截图</h3>
+
+<p>solarized主题</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/solarized.png" alt="solarized"> 我的终端颜色显示不对，不过这个色调也很舒服</p>
+
+<p>molokai主题</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/molokai.png" alt="molokai"></p>
+
+<hr><h3>
+<a name="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AF%B4%E6%98%8E" class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AF%B4%E6%98%8E"><span class="octicon octicon-link"></span></a>自定义快捷键说明</h3>
+
+<pre><code>F1  关掉，防止跳出帮助
+F2  set nu/nonu
+F3  set list/nolist
+F4  set wrap/nowrap
+F5  set paste/nopaste
+F6  syntax on/off
+空格 /开启查找
+Y   =y$   复制到行尾
+w!!  以sudo的权限保存
+t    新起一行，下面，不进入插入模式
+T    新起一行，上面
+,sa   全选(select all)
+ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
+
+,y 展示历史剪贴板
+,yc 清空
+yy/dd -&gt; p -&gt; ctrl+p可以替换非最近一次剪贴内容
+
+,f 开启文件搜索 ctrlp
+,/ 去除匹配高亮
+
+当打开多个Buffer时：
+映射：' :b，输入数字，:b3快速切换到第三个Tab
+qq 关闭当前Buffer
+qo 关闭除当前buffer之外的所有buffer
+m 在Buffer之间顺序切换
+M 在Buffer之间逆序切换
+</code></pre>
+
+<hr><h3>
+<a name="%E6%8F%92%E4%BB%B6%E5%8F%8A%E5%85%B6%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AF%B4%E6%98%8E" class="anchor" href="#%E6%8F%92%E4%BB%B6%E5%8F%8A%E5%85%B6%E5%BF%AB%E6%8D%B7%E9%94%AE%E8%AF%B4%E6%98%8E"><span class="octicon octicon-link"></span></a>插件及其快捷键说明</h3>
+
+<h5>
+<a name="%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86" class="anchor" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="octicon octicon-link"></span></a>插件管理</h5>
+
+<ol>
+<li>
+<h4>
+<a name="gmarikvundle" class="anchor" href="#gmarikvundle"><span class="octicon octicon-link"></span></a><a href="https://github.com/gmarik/vundle">gmarik/vundle</a>
+</h4>
+
+<p>必装,用于管理所有插件</p>
+
+<p>命令行模式下管理命令:</p>
+
+<pre><code>:BundleInstall     install
+:BundleInstall!    update
+:BundleClean       remove plugin not in list
+</code></pre>
+</li>
+</ol><h5>
+<a name="%E5%AF%BC%E8%88%AA%E5%8F%8A%E6%90%9C%E7%B4%A2" class="anchor" href="#%E5%AF%BC%E8%88%AA%E5%8F%8A%E6%90%9C%E7%B4%A2"><span class="octicon octicon-link"></span></a>导航及搜索</h5>
+
+<ol>
+<li>
+<h4>
+<a name="scrooloosenerdtree" class="anchor" href="#scrooloosenerdtree"><span class="octicon octicon-link"></span></a><a href="https://github.com/scrooloose/nerdtree">scrooloose/nerdtree</a>
+</h4>
+
+<p>必装,开启目录树导航</p>
+
+<pre><code>    ,e  打开 关闭树形目录结构
+
+    m   根据提示执行新建文件，目录，拷贝等操作
+
+    在nerdtree窗口常用操作：(小写当前，大写root)
+    x.......Close the current nodes parent收起当前目录树
+    R.......Recursively refresh the current root刷新根目录树
+    r.......Recursively refresh the current directory刷新当前目录
+    P.......Jump to the root node
+    p.......Jump to current nodes parent
+    K.......Jump up inside directories at the current tree depth  到同目录第一个节点
+    J.......Jump down inside directories at the current tree depth 最后一个节点
+    o.......Open files, directories and bookmarks
+    i.......Open selected file in a split window上下分屏
+    s.......Open selected file in a new vsplit左右分屏
+</code></pre>
+
+<p>演示</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdtree.gif" alt="thenerdtree"></p>
+</li>
+<li>
+<h4>
+<a name="majutsushitagbar" class="anchor" href="#majutsushitagbar"><span class="octicon octicon-link"></span></a><a href="https://github.com/majutsushi/tagbar">majutsushi/tagbar</a>
+</h4>
+
+<pre><code>&lt;F9&gt; 打开
+</code></pre>
+
+<p>演示</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tagbar.gif" alt="tagbar"></p>
+</li>
+<li>
+<h4>
+<a name="kienctrlpvim" class="anchor" href="#kienctrlpvim"><span class="octicon octicon-link"></span></a><a href="https://github.com/hdima/python-syntax">kien/ctrlp.vim</a>
+</h4>
+
+<p>文件搜索,ack/Command-T需要依赖于外部包,不喜欢有太多依赖的,除非十分强大, 具体 <a href="http://kien.github.io/ctrlp.vim/">文档</a></p>
+
+<pre><code>,f  默认查找 最近使用的+文件搜索+buffer
+,m  相当于mru功能，most recently used
+,b  查找buffer
+
+ctrl + j/k 进行上下移动 或者小键盘方向键
+</code></pre>
+
+<p>演示</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp.gif" alt="ctrlp"></p>
+</li>
+<li>
+<h4>
+<a name="tacahiroyctrlp-funky" class="anchor" href="#tacahiroyctrlp-funky"><span class="octicon octicon-link"></span></a><a href="https://github.com/tacahiroy/ctrlp-funky">tacahiroy/ctrlp-funky</a>
+</h4>
+
+<p>CtrlP插件，类似go to definition的功能</p>
+
+<pre><code>,fu 打开搜索
+</code></pre>
+
+<p>演示</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp-funky.gif" alt="ctrlp-funky"></p>
+</li>
+</ol><h5>
+<a name="%E6%98%BE%E7%A4%BA%E5%A2%9E%E5%BC%BA" class="anchor" href="#%E6%98%BE%E7%A4%BA%E5%A2%9E%E5%BC%BA"><span class="octicon octicon-link"></span></a>显示增强</h5>
+
+<pre><code>被动技能,无快捷键
+</code></pre>
+
+<ol>
+<li>
+<h4>
+<a name="blingvim-airline" class="anchor" href="#blingvim-airline"><span class="octicon octicon-link"></span></a><a href="https://github.com/bling/vim-airline">bling/vim-airline</a>
+</h4>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-airline.png" alt="vim-airline"></p>
+</li>
+<li>
+<h4>
+<a name="gorodinskiyvim-coloresque" class="anchor" href="#gorodinskiyvim-coloresque"><span class="octicon octicon-link"></span></a><a href="https://github.com/gorodinskiy/vim-coloresque">gorodinskiy/vim-coloresque</a>
+</h4>
+
+<p>高亮显示文档中颜色代码</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-colorsque.png" alt="vim-coloresque"></p>
+</li>
+<li>
+<h4>
+<a name="bronsonvim-trailing-whitespace" class="anchor" href="#bronsonvim-trailing-whitespace"><span class="octicon octicon-link"></span></a><a href="https://github.com/bronson/vim-trailing-whitespace">bronson/vim-trailing-whitespace</a>
+</h4>
+
+<p>将代码行最后无效的空格标红</p>
+
+<pre><code>,空格    去掉当前行末尾空格
+</code></pre>
+</li>
+<li>
+<h4>
+<a name="altercationvim-colors-solarized" class="anchor" href="#altercationvim-colors-solarized"><span class="octicon octicon-link"></span></a><a href="https://github.com/altercation/vim-colors-solarized">altercation/vim-colors-solarized</a>
+</h4>
+
+<p>经典主题, 但是颜色需要终端导入色彩方案，我的颜色显示不对，但是看着还是舒服，就那样了。。</p>
+</li>
+<li>
+<h4>
+<a name="tomasrmolokai" class="anchor" href="#tomasrmolokai"><span class="octicon octicon-link"></span></a><a href="https://github.com/tomasr/molokai">tomasr/molokai</a>
+</h4>
+
+<p>另外一个经典主题</p>
+</li>
+</ol><h5>
+<a name="%E5%BF%AB%E9%80%9F%E7%A7%BB%E5%8A%A8" class="anchor" href="#%E5%BF%AB%E9%80%9F%E7%A7%BB%E5%8A%A8"><span class="octicon octicon-link"></span></a>快速移动</h5>
+
+<pre><code>主动技能,需要快捷键
+</code></pre>
+
+<ol>
+<li>
+<h4>
+<a name="lokaltogvim-easymotion" class="anchor" href="#lokaltogvim-easymotion"><span class="octicon octicon-link"></span></a><a href="https://github.com/Lokaltog/vim-easymotion">Lokaltog/vim-easymotion</a>
+</h4>
+
+<p>跳转到任意位置</p>
+
+<pre><code>s  查找2个字符，例如想要跳到某个方法，只需输入该方法前2个字符，就能跳转到该位置
+,, + f  向后查找1个字符
+/  替代vim默认的搜索功能，如果不喜欢可以去除
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/easy-motion.gif" alt="easy_motion"></p>
+</li>
+<li>
+<h4>
+<a name="valloricmatchtagalways" class="anchor" href="#valloricmatchtagalways"><span class="octicon octicon-link"></span></a><a href="https://github.com/Valloric/MatchTagAlways">Valloric/MatchTagAlways</a>
+</h4>
+
+<p>高亮显示匹配的标签</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif" alt="matchtagalways"></p>
+</li>
+<li>
+<h4>
+<a name="vim-scriptsmatchitzip" class="anchor" href="#vim-scriptsmatchitzip"><span class="octicon octicon-link"></span></a><a href="https://github.com/vim-scripts/matchit.zip">vim-scripts/matchit.zip</a>
+</h4>
+
+<p>% 匹配标签，不只是单个的字符，还可以匹配单词，如html标签</p>
+</li>
+</ol><h5>
+<a name="%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91" class="anchor" href="#%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91"><span class="octicon octicon-link"></span></a>快速编辑</h5>
+
+<ol>
+<li>
+<h3>
+<a name="gcmtwildfirevim" class="anchor" href="#gcmtwildfirevim"><span class="octicon octicon-link"></span></a><a href="https://github.com/gcmt/wildfire.vim">gcmt/wildfire.vim</a>
+</h3>
+
+<p>快速选取代码块</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif" alt="wildfire"></p>
+</li>
+<li>
+<h3>
+<a name="alvanvim-closetag" class="anchor" href="#alvanvim-closetag"><span class="octicon octicon-link"></span></a><a href="https://github.com/alvan/vim-closetag">alvan/vim-closetag</a>
+</h3>
+
+<p>自动关闭html, xml标签</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/CloseTag.gif" alt="closetag"></p>
+</li>
+<li>
+<h3>
+<a name="drmingdrmerxptemplate" class="anchor" href="#drmingdrmerxptemplate"><span class="octicon octicon-link"></span></a><a href="https://github.com/drmingdrmer/xptemplate">drmingdrmer/xptemplate</a>
+</h3>
+
+<p>代码片段工具</p>
+
+<pre><code>&lt;C-\&gt; 触发
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/xptemplate.gif" alt="xptemplate"></p>
+</li>
+<li>
+<h4>
+<a name="scrooloosenerdcommenter" class="anchor" href="#scrooloosenerdcommenter"><span class="octicon octicon-link"></span></a><a href="https://github.com/scrooloose/nerdcommenter">scrooloose/nerdcommenter</a>
+</h4>
+
+<pre><code>shift+v 选择要注释的行
+,cc  注释单行或者选中行
+,cm  多行注释
+,cu  解开注释
+,ci  在注释和取消注释之间切换
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdcomment.gif" alt="nerdcomment"></p>
+</li>
+<li>
+<h4>
+<a name="tpopevim-surround" class="anchor" href="#tpopevim-surround"><span class="octicon octicon-link"></span></a><a href="https://github.com/tpope/vim-surround">tpope/vim-surround</a>
+</h4>
+
+<p>配合vim-repeat进行增强,'.'可以重复命令</p>
+
+<pre><code>ysiw"
+Hello -&gt; "Hello"
+cs"'
+"Hello world!" -&gt; 'Hello world!'
+ds"
+"Hello world!" -&gt; Hello world!
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/surround.gif" alt="surround"></p>
+</li>
+<li>
+<h3>
+<a name="tpopevim-repeat" class="anchor" href="#tpopevim-repeat"><span class="octicon octicon-link"></span></a><a href="https://github.com/tpope/vim-repeat">tpope/vim-repeat</a>
+</h3>
+
+<p>重复命令</p>
+
+<pre><code> .  重复上一次命令
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="raimondidelimitmate" class="anchor" href="#raimondidelimitmate"><span class="octicon octicon-link"></span></a><a href="https://github.com/Raimondi/delimitMate">Raimondi/delimitMate</a>
+</h3>
+
+<p>自动补全：(), [], {}, &lt;&gt;</p>
+</li>
+<li>
+<h3>
+<a name="godlygeektabular" class="anchor" href="#godlygeektabular"><span class="octicon octicon-link"></span></a><a href="https://github.com/godlygeek/tabular">godlygeek/tabular</a>
+</h3>
+
+<p>代码按=或者: 对齐</p>
+
+<pre><code>,a=   按等号对齐
+,a:   安冒号对齐
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tabular.gif" alt="tabular"></p>
+</li>
+<li>
+<h3>
+<a name="terrymavim-multiple-cursors" class="anchor" href="#terrymavim-multiple-cursors"><span class="octicon octicon-link"></span></a><a href="https://github.com/terryma/vim-multiple-cursors">terryma/vim-multiple-cursors</a>
+</h3>
+
+<p>多光标操作</p>
+
+<pre><code>,n  开始选择
+,x  跳过当前
+,p  返回选择
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif" alt="multicursor"></p>
+</li>
+<li>
+<h3>
+<a name="mattnemmet-vim" class="anchor" href="#mattnemmet-vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/mattn/emmet-vim">mattn/emmet-vim</a>
+</h3>
+
+<p>快速书写html</p>
+
+<pre><code>&lt;C-y&gt;,  触发
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif" alt="emmet"></p>
+</li>
+</ol><h4>
+<a name="%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8" class="anchor" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="octicon octicon-link"></span></a>自动补全</h4>
+
+<ol>
+<li>
+<h3>
+<a name="davidhalterjedi-vim" class="anchor" href="#davidhalterjedi-vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/davidhalter/jedi-vim">davidhalter/jedi-vim</a>
+</h3>
+
+<p>Python 自动补全以及快速跳转，详情请见其Github主页</p>
+</li>
+<li>
+<h3>
+<a name="shougoneocomplcachevim" class="anchor" href="#shougoneocomplcachevim"><span class="octicon octicon-link"></span></a><a href="https://github.com/Shougo/neocomplcache.vim">Shougo/neocomplcache.vim</a>
+</h3>
+
+<p>自动补全，演示请见项目主页</p>
+</li>
+</ol><h4>
+<a name="%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5" class="anchor" href="#%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5"><span class="octicon octicon-link"></span></a>语法检查</h4>
+
+<ol>
+<li>
+<h3>
+<a name="scrooloosesyntastic" class="anchor" href="#scrooloosesyntastic"><span class="octicon octicon-link"></span></a><a href="https://github.com/scrooloose/syntastic">scrooloose/syntastic</a>
+</h3>
+
+<p>建议安装，静态语法及风格检查,支持多种语言</p>
+
+<p>修改了下标记一列的背景色,原有的背景色在solarized下太难看了…..</p>
+
+<p>演示</p>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.png" alt="syntastic"></p>
+</li>
+<li>
+<h3>
+<a name="kevinwpyflakes-vim" class="anchor" href="#kevinwpyflakes-vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/kevinw/pyflakes-vim">kevinw/pyflakes-vim</a>
+</h3>
+
+<p>Python语法检查</p>
+</li>
+</ol><h4>
+<a name="%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE" class="anchor" href="#%E8%AF%AD%E6%B3%95%E9%AB%98%E4%BA%AE"><span class="octicon octicon-link"></span></a>语法高亮</h4>
+
+<ol>
+<li><h3>
+<a name="python-syntax" class="anchor" href="#python-syntax"><span class="octicon octicon-link"></span></a><a href="https://github.com/hdima/python-syntax">python-syntax</a>
+</h3></li>
+<li>
+<h3>
+<a name="tpopevim-markdown" class="anchor" href="#tpopevim-markdown"><span class="octicon octicon-link"></span></a><a href="https://github.com/tpope/vim-markdown">tpope/vim-markdown</a>
+</h3>
+
+<p>markdown语法高亮</p>
+</li>
+<li><h3>
+<a name="panglossvim-javascript" class="anchor" href="#panglossvim-javascript"><span class="octicon octicon-link"></span></a><a href="https://github.com/pangloss/vim-javascript">pangloss/vim-javascript</a>
+</h3></li>
+<li><h3>
+<a name="hail2uvim-css3-syntax" class="anchor" href="#hail2uvim-css3-syntax"><span class="octicon octicon-link"></span></a><a href="https://github.com/hail2u/vim-css3-syntax">hail2u/vim-css3-syntax</a>
+</h3></li>
+<li><h3>
+<a name="kchmckvim-coffee-script" class="anchor" href="#kchmckvim-coffee-script"><span class="octicon octicon-link"></span></a><a href="https://github.com/kchmck/vim-coffee-script">kchmck/vim-coffee-script</a>
+</h3></li>
+</ol><h4>
+<a name="%E8%AF%AD%E8%A8%80%E7%9B%B8%E5%85%B3" class="anchor" href="#%E8%AF%AD%E8%A8%80%E7%9B%B8%E5%85%B3"><span class="octicon octicon-link"></span></a>语言相关</h4>
+
+<ol>
+<li>
+<h3>
+<a name="heavenshellvim-jsdoc" class="anchor" href="#heavenshellvim-jsdoc"><span class="octicon octicon-link"></span></a><a href="https://github.com/heavenshell/vim-jsdoc">heavenshell/vim-jsdoc</a>
+</h3>
+
+<pre><code>,,d  光标定位在方法上面，自动生成js doc
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="marijnhtern_for_vim" class="anchor" href="#marijnhtern_for_vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/marijnh/tern_for_vim">marijnh/tern_for_vim</a>
+</h3>
+
+<p>前端开发需要，支持jquery自动补全，还有其它插件支持</p>
+
+<pre><code>,d  go to definition功能
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="spf13piv" class="anchor" href="#spf13piv"><span class="octicon octicon-link"></span></a><a href="https://github.com/spf13/PIV">spf13/PIV</a>
+</h3>
+
+<p>PHP手册</p>
+
+<pre><code>K 大写的K，打开光标下方法的PHP Doc
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="fatihvim-go" class="anchor" href="#fatihvim-go"><span class="octicon octicon-link"></span></a><a href="https://github.com/fatih/vim-go">fatih/vim-go</a>
+</h3>
+
+<p>go语言支持</p>
+</li>
+</ol><h4>
+<a name="%E5%85%B6%E4%BB%96-1" class="anchor" href="#%E5%85%B6%E4%BB%96-1"><span class="octicon octicon-link"></span></a>其他</h4>
+
+<ol>
+<li>
+<p><a href="https://github.com/mattn/gist-vim">mattn/gist-vim</a></p>
+
+<pre><code>:Gist  github gist, 支持查看自己和别人的gist，以及编辑修改新建gist
+</code></pre>
+</li>
+<li>
+<h4>
+<a name="sjlgundovim" class="anchor" href="#sjlgundovim"><span class="octicon octicon-link"></span></a><a href="https://github.com/sjl/gundo.vim">sjl/gundo.vim</a>
+</h4>
+
+<p>历史操作记录</p>
+
+<pre><code>,h  查看文件编辑历史
+</code></pre>
+
+<p><img src="https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.png" alt="gundo"></p>
+</li>
+<li>
+<h4>
+<a name="chiel92vim-autoformat" class="anchor" href="#chiel92vim-autoformat"><span class="octicon octicon-link"></span></a><a href="https://github.com/Chiel92/vim-autoformat">Chiel92/vim-autoformat</a>
+</h4>
+
+<p>格式化js,json,html,css,scss</p>
+
+<pre><code>,,f  自动格式化
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="thincavim-quickrun" class="anchor" href="#thincavim-quickrun"><span class="octicon octicon-link"></span></a><a href="https://github.com/thinca/vim-quickrun">thinca/vim-quickrun</a>
+</h3>
+
+<pre><code>,r  运行当前文件，如运行javascript
+</code></pre>
+</li>
+<li><h3>
+<a name="mattnwebapi-vim" class="anchor" href="#mattnwebapi-vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/mattn/webapi-vim">mattn/webapi-vim</a>
+</h3></li>
+<li>
+<h3>
+<a name="tpopevim-fugitive" class="anchor" href="#tpopevim-fugitive"><span class="octicon octicon-link"></span></a><a href="https://github.com/tpope/vim-fugitive">tpope/vim-fugitive</a>
+</h3>
+
+<p>git 支持</p>
+</li>
+<li>
+<h3>
+<a name="maxbrunsfeldvim-yankstack" class="anchor" href="#maxbrunsfeldvim-yankstack"><span class="octicon octicon-link"></span></a><a href="https://github.com/maxbrunsfeld/vim-yankstack">maxbrunsfeld/vim-yankstack</a>
+</h3>
+
+<p>剪切板历史
+    zn
+    zp</p>
+</li>
+<li>
+<h3>
+<a name="mollvim-bbye" class="anchor" href="#mollvim-bbye"><span class="octicon octicon-link"></span></a><a href="https://github.com/moll/vim-bbye">moll/vim-bbye</a>
+</h3>
+
+<pre><code>qq 删除当前buff
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="vim-scriptsbufonlyvim" class="anchor" href="#vim-scriptsbufonlyvim"><span class="octicon octicon-link"></span></a><a href="https://github.com/vim-scripts/BufOnly.vim">vim-scripts/BufOnly.vim</a>
+</h3>
+
+<pre><code>qo 关闭所有buff，当前除外
+</code></pre>
+</li>
+<li>
+<h3>
+<a name="editorconfigeditorconfig-vim" class="anchor" href="#editorconfigeditorconfig-vim"><span class="octicon octicon-link"></span></a><a href="https://github.com/editorconfig/editorconfig-vim">editorconfig/editorconfig-vim</a>
+</h3>
+
+<p>支持.editorconfig文件</p>
+</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/ruanyl">ruanyl</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
