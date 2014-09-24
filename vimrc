@@ -61,6 +61,8 @@ set noerrorbells         " don't beep
 set t_vb=
 set tm=500
 
+set nostartofline
+
 "==========================================
 " Show:User Interface settings
 "==========================================
