@@ -448,6 +448,15 @@ let g:solarized_visibility="high"
 Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
 
+Bundle 'MattesGroeger/vim-bookmarks'
+nmap <Leader><Leader>m <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>j <Plug>BookmarkNext
+nmap <Leader>k <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+
 "################### fast move ###################"
 
 " Move to anywhere
