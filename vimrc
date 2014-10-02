@@ -324,14 +324,6 @@ nnoremap <silent> g* g*zz
 noremap m :bn<CR>
 noremap M :bp<CR>
 
-""Jump to start and end of line using the home row keys
-""
-nmap t o<ESC>k
-nmap T O<ESC>j
-
-" Quickly close the current window
-nnoremap <leader>q :q<CR>
-
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
