@@ -454,6 +454,13 @@ Bundle 'vim-scripts/matchit.zip'
 
 Bundle 'Valloric/MatchTagAlways'
 
+Bundle 'MattesGroeger/vim-bookmarks'
+nmap <Leader><Leader>m <Plug>BookmarkToggle
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+nmap <Leader>j <Plug>BookmarkNext
+nmap <Leader>k <Plug>BookmarkPrev
+
 "################### auto complete and fast edit ###################"
 " Select blocks quickly
 " Mapping: <Enter>
@@ -645,7 +652,10 @@ let g:gundo_auto_preview = 0
 "format js, html, css files
 "require: npm install -g js-beautify
 Bundle "Chiel92/vim-autoformat"
-autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+autocmd FileType json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+
+Bundle "ruanyl/vim-fixmyjs"
+autocmd FileType javascript noremap <buffer>  <leader><leader>f :Fixmyjs<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
