@@ -375,7 +375,7 @@ let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
 "for file search ctrlp
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>f :CtrlPMixed<CR>
