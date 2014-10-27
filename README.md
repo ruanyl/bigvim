@@ -1,6 +1,8 @@
 bigvim
 ======================
 
+Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
+
 ### 配置步骤
 
 1. clone到本地任意目录
