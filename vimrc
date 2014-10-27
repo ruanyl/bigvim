@@ -326,14 +326,6 @@ nnoremap <silent> g* g*zz
 noremap m :bn<CR>
 noremap M :bp<CR>
 
-""Jump to start and end of line using the home row keys
-""
-nmap t o<ESC>k
-nmap T O<ESC>j
-
-" Quickly close the current window
-nnoremap <leader>q :q<CR>
-
 " remap U to <C-r> for easier redo
 nnoremap U <C-r>
 
@@ -385,7 +377,7 @@ let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
 "for file search ctrlp
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>f :CtrlPMixed<CR>
@@ -664,7 +656,10 @@ let g:gundo_auto_preview = 0
 "format js, html, css files
 "require: npm install -g js-beautify
 Bundle "Chiel92/vim-autoformat"
-autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+autocmd FileType json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+
+Bundle "ruanyl/vim-fixmyjs"
+autocmd FileType javascript noremap <buffer>  <leader><leader>f :Fixmyjs<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
