@@ -13,7 +13,7 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
         sudo apt-get install ctags
         sudo apt-get install python-pip
-        sudo apt-get install build-essential cmake python-dev  #编译YCM自动补全插件依赖
+        sudo apt-get install build-essential cmake python-dev
         brew install ctags     (mac用户)
 
 3. 安装Nodejs
