@@ -253,9 +253,6 @@ nnoremap <silent> ) g,
 vnoremap p "_dP
 inoremap <C-V> <C-R>"
 
-"add ; at the end of a line and begin a new line
-inoremap LL <ESC>$a
-
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -339,6 +336,9 @@ map <leader>ev :vsp %%
 
 nnoremap dp :diffput<CR>
 nnoremap dg :diffget<CR>
+
+" toggle between current buffer and last buffer
+nnoremap t <C-^>
 
 "==========================================
 " Bundle:Plgin management and setting
