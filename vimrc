@@ -415,16 +415,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
 
-"Bundle 'oblitum/rainbow'
-let g:rainbow_active = 1
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 "show whitespaces not used and call :FixWhitespace to remove them
 " Mapping: <leader><space>
@@ -571,8 +561,6 @@ Bundle 'tpope/vim-surround'
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
 
-" auto close " ( [ ...
-"Bundle 'jiangmiao/auto-pairs'
 Bundle 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -615,7 +603,9 @@ Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
 " for markdown
-Bundle 'tpope/vim-markdown'
+Bundle 'gabrielelana/vim-markdown'
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_insert_mode_mappings = 0
 
 " for javascript
 Bundle 'pangloss/vim-javascript'
@@ -623,7 +613,15 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+Bundle 'ruanyl/vim-spider'
+
 Bundle 'kchmck/vim-coffee-script'
+
+"Syntax for JavaScript libraries
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+"AngularJS with Vim
+Bundle 'burnettk/vim-angular'
 
 "################## Language Specific ##################
 "generate javascript doc
@@ -656,10 +654,7 @@ let g:gundo_auto_preview = 0
 "format js, html, css files
 "require: npm install -g js-beautify
 Bundle "Chiel92/vim-autoformat"
-autocmd FileType json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
-
-Bundle "ruanyl/vim-fixmyjs"
-autocmd FileType javascript noremap <buffer>  <leader><leader>f :Fixmyjs<cr>
+autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
