@@ -654,6 +654,13 @@ let g:DisableAutoPHPFolding = 1
 Bundle 'fatih/vim-go'
 let g:go_disable_autoinstall = 1
 
+Bundle 'Shougo/vimproc.vim'
+
+Bundle 'm2mdas/phpcomplete-extended'
+let g:phpcomplete_index_composer_command = 'composer'
+
+Bundle 'm2mdas/phpcomplete-extended-laravel'
+
 "################### Others ###################"
 
 " Github Gist
