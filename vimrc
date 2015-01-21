@@ -720,13 +720,19 @@ Bundle 'marijnh/tern_for_vim'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
 "PHP Doc gen and better completion
-Bundle 'spf13/PIV'
-let g:DisableAutoPHPFolding = 1
+"Bundle 'spf13/PIV'
+"let g:DisableAutoPHPFolding = 1
+
+" up to date php syntax
+Bundle 'StanAngeloff/php.vim'
+
+"Improved PHP omnicompletion
+Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'fatih/vim-go'
 let g:go_disable_autoinstall = 1
 
-Bundle 'Shougo/vimproc'
+"Bundle 'Shougo/vimproc'
 
 "Bundle 'm2mdas/phpcomplete-extended'
 "let g:phpcomplete_index_composer_command = "composer"
