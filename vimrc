@@ -400,8 +400,6 @@ let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
 " You will need the ack(>= 2.0)
-"Bundle 'mileszs/ack.vim'
-"nnoremap <Leader><Leader>a :Ack! ""<Left>
 Bundle 'rking/ag.vim'
 nnoremap <Leader><Leader>a :Ag<space>
 
@@ -417,16 +415,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 "underlays the CSS colorcodes with their real color
 Bundle 'gorodinskiy/vim-coloresque'
 
-"Bundle 'oblitum/rainbow'
-let g:rainbow_active = 1
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-let g:rainbow_guifgs = ['RoyalBlue3', 'DarkOrange3', 'DarkOrchid3', 'FireBrick']
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
 
 "show whitespaces not used and call :FixWhitespace to remove them
 " Mapping: <leader><space>
@@ -569,75 +557,7 @@ endif
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 
-"for neocomplcache
-"Bundle 'Shougo/neocomplcache.vim'
-"" Disable AutoComplPop.
-"let g:acp_enableAtStartup = 0
-"" Use neocomplcache.
-"let g:neocomplcache_enable_at_startup = 1
-"" Use smartcase.
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_auto_delimiter = 1
-"let g:neocomplcache_max_list = 15
-"" Set minimum syntax keyword length.
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-"
-"" Define dictionary.
-"let g:neocomplcache_dictionary_filetype_lists = {
-"    \ 'default' : '',
-"    \ 'vimshell' : $HOME.'/.vimshell_hist',
-"    \ 'scheme' : $HOME.'/.gosh_completions'
-"        \ }
-"
-"" Define keyword.
-"if !exists('g:neocomplcache_keyword_patterns')
-"    let g:neocomplcache_keyword_patterns = {}
-"endif
-"let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-"
-"" Plugin key-mappings.
-"inoremap <expr><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"
-"" Recommended key-mappings.
-"" <CR>: close popup and save indent.
-"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-"function! s:my_cr_function()
-"  return neocomplcache#smart_close_popup() . "\<CR>"
-"  " For no inserting <CR> key.
-"  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-"endfunction
-"" <TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-"
-"" <C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-"
-"" Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd Filetype css setlocal equalprg=csstidy\ -\ --silent=true
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-""autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-""autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-"
-"" Enable heavy omni completion.
-"if !exists('g:neocomplcache_omni_patterns')
-"  let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"
-"" For perlomni.vim setting.
-"" https://github.com/c9s/perlomni.vim
-"let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-"==================================End of neocomplcache=======================
+"==================================End of neocomplete=======================
 
 "for xptemplate
 "powerful snippets plugin, ctrl+\ to trigger
@@ -655,8 +575,6 @@ Bundle 'tpope/vim-surround'
 "for repeat -> enhance surround.vim, . to repeat command
 Bundle 'tpope/vim-repeat'
 
-" auto close " ( [ ...
-"Bundle 'jiangmiao/auto-pairs'
 Bundle 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
 
@@ -699,15 +617,22 @@ Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
 " for markdown
-Bundle 'tpope/vim-markdown'
+Bundle 'gabrielelana/vim-markdown'
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_insert_mode_mappings = 0
 
 " for javascript
 Bundle 'pangloss/vim-javascript'
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
+
+Bundle 'ruanyl/vim-spider'
 
 Bundle 'kchmck/vim-coffee-script'
+
+"Syntax for JavaScript libraries
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+"AngularJS with Vim
+Bundle 'burnettk/vim-angular'
 
 "################## Language Specific ##################
 "generate javascript doc
@@ -735,9 +660,8 @@ let g:go_disable_autoinstall = 1
 "Bundle 'Shougo/vimproc'
 
 "Bundle 'm2mdas/phpcomplete-extended'
-"let g:phpcomplete_index_composer_command = "composer"
-"autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
-
+"let g:phpcomplete_index_composer_command = 'composer'
+"
 "Bundle 'm2mdas/phpcomplete-extended-laravel'
 
 "################### Others ###################"
@@ -754,10 +678,7 @@ let g:gundo_auto_preview = 0
 "format js, html, css files
 "require: npm install -g js-beautify
 Bundle "Chiel92/vim-autoformat"
-autocmd FileType json,html,css,scss,javascript noremap <buffer>  <leader><leader>f :Autoformat<cr>
-
-"Bundle "ruanyl/vim-fixmyjs"
-"autocmd FileType javascript noremap <buffer>  <leader><leader>f :Fixmyjs<cr>
+autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
