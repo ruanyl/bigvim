@@ -73,8 +73,8 @@ set number
 set nowrap
 
 " list setting
-set list
-set listchars=tab:▸-,trail:⋅,extends:❯,precedes:❮
+"set list
+"set listchars=tab:▸-,trail:⋅,extends:❯,precedes:❮
 
 " show matched brackets
 set showmatch
@@ -423,7 +423,7 @@ map <leader><space> :FixWhitespace<cr>
 
 "theme solarized
 Bundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=256
+let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
@@ -617,9 +617,10 @@ Bundle 'hdima/python-syntax'
 let python_highlight_all = 1
 
 " for markdown
-Bundle 'gabrielelana/vim-markdown'
-let g:markdown_enable_mappings = 0
-let g:markdown_enable_insert_mode_mappings = 0
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_frontmatter=1
 
 " for javascript
 Bundle 'pangloss/vim-javascript'
@@ -644,25 +645,13 @@ autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 Bundle 'marijnh/tern_for_vim'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
-"PHP Doc gen and better completion
-"Bundle 'spf13/PIV'
-"let g:DisableAutoPHPFolding = 1
-
-" up to date php syntax
+" Up to date PHP syntax
 Bundle 'StanAngeloff/php.vim'
 
-"Improved PHP omnicompletion
+" improved PHP omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
 
-Bundle 'fatih/vim-go'
-let g:go_disable_autoinstall = 1
-
-"Bundle 'Shougo/vimproc'
-
-"Bundle 'm2mdas/phpcomplete-extended'
-"let g:phpcomplete_index_composer_command = 'composer'
-"
-"Bundle 'm2mdas/phpcomplete-extended-laravel'
+Bundle 'alvan/vim-php-manual'
 
 "################### Others ###################"
 
