@@ -432,6 +432,9 @@ let g:solarized_visibility="high"
 Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
 
+Bundle 'tpope/vim-obsession'
+Bundle 'dhruvasagar/vim-prosession'
+
 Bundle 'MattesGroeger/vim-bookmarks'
 nmap <Leader><Leader>m <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
