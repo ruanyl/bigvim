@@ -242,7 +242,8 @@ let mapleader = ','
 let g:mapleader = ','
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! %!sudo tee > /dev/null %
+"cmap w!! w !sudo tee %
+command W w !sudo tee % > /dev/null
 
 "goto older/newer position in change list
 nnoremap <silent> ( g;
@@ -420,6 +421,9 @@ Bundle 'gorodinskiy/vim-coloresque'
 " Mapping: <leader><space>
 Bundle 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
+
+Bundle 'ruanyl/trailing-tab.vim'
+"let g:extra_tab_ignored_filetypes = ['php']
 
 "theme solarized
 Bundle 'altercation/vim-colors-solarized'
