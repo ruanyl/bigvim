@@ -95,11 +95,11 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
 solarized主题
 
-![solarized](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/solarized.png) 我的终端颜色显示不对，不过这个色调也很舒服
+![solarized](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/solarized.png) 我的终端颜色显示不对，不过这个色调也很舒服
 
 molokai主题
 
-![molokai](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/molokai.png)
+![molokai](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/molokai.png)
 
 -------------
 
@@ -173,7 +173,7 @@ molokai主题
             s.......Open selected file in a new vsplit左右分屏
    演示
 
-   ![thenerdtree](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdtree.gif)
+   ![thenerdtree](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/nerdtree.gif)
 
 2. ####[majutsushi/tagbar](https://github.com/majutsushi/tagbar)
 
@@ -181,7 +181,7 @@ molokai主题
 
    演示
 
-   ![tagbar](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tagbar.gif)
+   ![tagbar](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/tagbar.gif)
 
 3. ####[kien/ctrlp.vim](https://github.com/hdima/python-syntax)
 
@@ -195,7 +195,7 @@ molokai主题
 
    演示
 
-   ![ctrlp](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp.gif)
+   ![ctrlp](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp.gif)
 
 4. ####[tacahiroy/ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky)
 
@@ -205,7 +205,7 @@ molokai主题
 
    演示
 
-   ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/ctrlp-funky.gif)
+   ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp-funky.gif)
 
 ##### 显示增强
 
@@ -213,13 +213,13 @@ molokai主题
 
 1. ####[bling/vim-airline](https://github.com/bling/vim-airline)
 
-   ![vim-airline](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-airline.png)
+   ![vim-airline](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/vim-airline.png)
 
 2. ####[gorodinskiy/vim-coloresque](https://github.com/gorodinskiy/vim-coloresque)
 
    高亮显示文档中颜色代码
 
-   ![vim-coloresque](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/vim-colorsque.png)
+   ![vim-coloresque](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/vim-colorsque.png)
 
 3. ####[bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
 
@@ -247,13 +247,13 @@ molokai主题
         ,, + f  向后查找1个字符
         /  替代vim默认的搜索功能，如果不喜欢可以去除
 
-   ![easy_motion](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/easy-motion.gif)
+   ![easy_motion](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/easy-motion.gif)
 
 2. ####[Valloric/MatchTagAlways](https://github.com/Valloric/MatchTagAlways)
 
    高亮显示匹配的标签
 
-   ![matchtagalways](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/matchtagalways.gif)
+   ![matchtagalways](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/matchtagalways.gif)
 
 3. ####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
 
@@ -265,13 +265,13 @@ molokai主题
 
    快速选取代码块
 
-   ![wildfire](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/wildfire.gif)
+   ![wildfire](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/wildfire.gif)
 
 2. ###[alvan/vim-closetag](https://github.com/alvan/vim-closetag)
 
     自动关闭html, xml标签
 
-    ![closetag](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/CloseTag.gif)
+    ![closetag](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/CloseTag.gif)
 
 3. ###[drmingdrmer/xptemplate](https://github.com/drmingdrmer/xptemplate)
 
@@ -279,7 +279,7 @@ molokai主题
 
         <C-\> 触发
         
-    ![xptemplate](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/xptemplate.gif)
+    ![xptemplate](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/xptemplate.gif)
 
 4. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 
@@ -290,7 +290,7 @@ molokai主题
         ,cu  解开注释
         ,ci  在注释和取消注释之间切换
 
-    ![nerdcomment](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/nerdcomment.gif)
+    ![nerdcomment](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/nerdcomment.gif)
 
 5. ####[tpope/vim-surround](https://github.com/tpope/vim-surround)
 
@@ -303,7 +303,7 @@ molokai主题
         ds"
         "Hello world!" -> Hello world!
 
-   ![surround](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/surround.gif)
+   ![surround](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/surround.gif)
 
 6. ###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 
@@ -322,7 +322,7 @@ molokai主题
         ,a=   按等号对齐
         ,a:   安冒号对齐
 
-    ![tabular](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/tabular.gif)
+    ![tabular](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/tabular.gif)
 
 9. ###[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 
@@ -332,7 +332,7 @@ molokai主题
         ,x  跳过当前
         ,p  返回选择
 
-    ![multicursor](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/multicursor.gif)
+    ![multicursor](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/multicursor.gif)
 
 10. ###[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 
@@ -340,7 +340,7 @@ molokai主题
 
         <C-y>,  触发
 
-    ![emmet](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/emmet.gif)
+    ![emmet](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/emmet.gif)
 
 #### 自动补全
 
@@ -363,7 +363,7 @@ molokai主题
 
    演示
 
-   ![syntastic](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/syntastic.png)
+   ![syntastic](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/syntastic.png)
 
 2. ###[kevinw/pyflakes-vim](https://github.com/kevinw/pyflakes-vim)
 
@@ -419,7 +419,7 @@ molokai主题
 
         ,h  查看文件编辑历史
 
-	![gundo](https://raw.githubusercontent.com/ruanyl/ruanyl.github.io/master/images/gundo.png)
+	![gundo](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/gundo.png)
 
 3. ####[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
 
