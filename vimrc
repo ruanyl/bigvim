@@ -243,7 +243,7 @@ let g:mapleader = ','
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 "cmap w!! w !sudo tee %
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 "goto older/newer position in change list
 nnoremap <silent> ( g;
