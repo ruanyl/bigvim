@@ -19,124 +19,82 @@
 " General Settings
 "==========================================
 
-"history: number of command-lines remembered
-set history=200
+set history=200           "history: number of command-lines remembered
 
-"detect filetype
-filetype on
-"differet indentation for differet filetype
-filetype indent on
-"allow plugins
-filetype plugin on
-"allow plugin indent
-filetype plugin indent on
+filetype on               " detect filetype
+filetype indent on        " differet indentation for differet filetype
+filetype plugin on        " allow plugins
+filetype plugin indent on " allow plugin indent
 
-"Do not compatible with VI
-set nocompatible
-set autoread          " auto reload file after being modified
-set shortmess=atI       " do not show initial page
+set nocompatible          " Do not compatible with VI
+set autoread              " auto reload file after being modified
+set shortmess=atI         " do not show initial page
 
-" cancel backup
 set nobackup
 set noswapfile
 
-" highlight current column and line
-set cursorcolumn
-set cursorline
+set cursorcolumn          " highlight current column
+set cursorline            " highlight current line
 
-" alway show the content on the screen after exist VIM
-" in case if i did some stupid deleting, and i can find them back
-set t_ti= t_te=
+set t_ti= t_te=           " alway show the content on the screen after exist VIM
+                          " in case if i did some stupid deleting, and i can find them back
 
-" disable mouse
-set mouse-=a
-"set selection=exclusive
-set selection=inclusive
+set mouse-=a              " disable mouse
+
+set selection=inclusive   "set selection=exclusive
 set selectmode=mouse,key
 
-" No annoying sound on errors
-set title                " change the terminal's title
-set novisualbell           " don't beep
-set noerrorbells         " don't beep
+                          " No annoying sound on errors
+set title                 " change the terminal's title
+set novisualbell          " don't beep
+set noerrorbells          " don't beep
 set t_vb=
 set tm=500
 
-set nostartofline
+set nostartofline         " keep cursor postion when switching between buffers
 
 "==========================================
 " Show:User Interface settings
 "==========================================
 
-" show line number
-set number
-" disable wrap
-set nowrap
+set number " show line number
+set nowrap " disable wrap
 
-" list setting
-"set list
-"set listchars=tab:▸-,trail:⋅,extends:❯,precedes:❮
+set list
+set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮
 
-" show matched brackets
-set showmatch
-" How many tenths of a second to blink when matching brackets
-set mat=2
+set showmatch         " show matched brackets
+set mat=2             " How many tenths of a second to blink when matching brackets
 
-" highlight the searching words
-set hlsearch
-" ingnore case when do searching
-set ignorecase
-" instant search
-set incsearch
-" ignore case if search pattern is all lowercase, case-sensitive otherwise
-set smartcase
+set hlsearch          " highlight the searching words
+set ignorecase        " ingnore case when do searching
 
-" code folding
-set foldenable
-" folding methods
-" manual
-" indent    use indentation
-" expr      use expressions
-" syntax    use syntax based on language
-" diff      fold the content which not modified
-" marker    use marker to indent, the default are {{{ and }}}
-set foldmethod=indent
+set incsearch         " instant search
+set smartcase         " ignore case if search pattern is all lowercase, case-sensitive otherwise
+
+set foldenable        " code folding
+set foldmethod=indent " options: manual, indent, expr, syntax, diff, marker
 set foldlevel=99
 
-" Do smart autoindenting when starting a new line.
-set smartindent
-set autoindent    " always set autoindenting on
-" never add copyindent, case error   " copy the previous indentation on autoindenting
+set smartindent       " Do smart autoindenting when starting a new line
+set autoindent        " always set autoindenting on
 
-" Number of spaces that a <Tab> in the file counts for.
-set tabstop=4
-" number of spaces to use for autoindenting
-set shiftwidth=4
-" Number of spaces that a <Tab> counts for while performing editing operations
-set softtabstop=4
-" When on, a <Tab> in front of a line inserts blanks according to
-" 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places.  A
-" <BS> will delete a 'shiftwidth' worth of space at the start of the line.
+set tabstop=4         " Number of spaces that a <Tab> in the file counts for.
+set shiftwidth=4      " number of spaces to use for autoindenting
+set softtabstop=4     " Number of spaces that a <Tab> counts for while performing editing operations
 set smarttab
+set expandtab         " when typing <Tab>, use <space> instead
+set shiftround        " use multiple of shiftwidth when indenting with '<' and '>'
 
-"when type <Tab>, it auto generate to <spale>
-set expandtab
+set showcmd           " Show partial commands in status line and Selected characters/lines in visual mode
 
-set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
-
-set showcmd
-" A buffer becomes hidden when it is abandoned
-set hidden
+set hidden            " A buffer becomes hidden when it is abandoned
 set wildmode=longest:full,full
 set ttyfast
 
-
-"relative line number
-set relativenumber
-au FocusLost * :set number
-au FocusGained * :set relativenumber
-"absolte line number in Insert mode, relative line number in Normal mode
-autocmd InsertEnter * :set number
-autocmd InsertLeave * :set relativenumber
+set relativenumber                          " show relative line number
+autocmd InsertEnter * :set norelativenumber " no relativenumber in insert mode
+autocmd InsertLeave * :set relativenumber   " show relativenumber when leave insert mode
 
 "create undo file
 if has('persistent_undo')
@@ -146,25 +104,13 @@ if has('persistent_undo')
   set undodir=~/.undodir/
 endif
 
-set wildignore=*.swp,*.bak,*.pyc,*.class
+set ruler       " show the current line number and column number
+set showcmd     " show the current typing command
+set showmode    " Show current mode
+set scrolloff=7 " Set 7 lines to the cursor - when moving vertically using j/k
 
-"show the current line number and column number
-set ruler
-"show the current typing command
-set showcmd
-" Show current mode
-set showmode
-
-" Set 7 lines to the cursor - when moving vertically using j/k
-set scrolloff=7
-
-"height of command line 2
-" Always show the status line
-"set laststatus=2
 if has('statusline')
     set laststatus=2
-
-    " Broken down into easily includeable segments
     set statusline=%<%f\                     " Filename
     set statusline+=%w%h%m%r                 " Options
     set statusline+=%{fugitive#statusline()} " Git Hotness
@@ -178,49 +124,29 @@ endif
 "==========================================
 
 set encoding=utf-8
-"auto detect file encodings
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=en
 set termencoding=utf-8
 
-" Use Unix as the standard file type
-set ffs=unix,dos,mac
-
+set ffs=unix,dos,mac         " Use Unix as the standard file type
 set formatoptions+=m
-"When joining lines, don't insert a space between two multi-byte characters.
-set formatoptions+=B
+set formatoptions+=B         " When joining lines, don't insert a space between two multi-byte characters.
+set completeopt=longest,menu " behaviour of insert mode completion
+set wildmenu                 " auto complete command
+set wildignore=**.o,*~,.swp,*.bak,*.pyc,*.class " Ignore compiled files
 
-"behaviour of insert mode completion
-set completeopt=longest,menu
-
-"auto complete command
-set wildmenu
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.class
-
-" if this not work ,make sure .viminfo is writable for you
-if has("autocmd")
+                    " if this not work ,make sure .viminfo is writable for you
+if has("autocmd")   " remember the last cursor postion when reopen a file
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+set viminfo^=% " Remember info about open buffers on close
+set magic      " For regular expressions turn magic on
 
-" Remember info about open buffers on close"
-set viminfo^=%
-
-" For regular expressions turn magic on
-set magic
-
-" Configure backspace so it acts as it should act
-set backspace=eol,start,indent
+set backspace=eol,start,indent               " Configure backspace so it acts as it should act
 set whichwrap+=<,>,h,l
-
-" when in insert mode, toggle between 'paste' and 'nopaste'
-set pastetoggle=<F5>
-
-" disbale paste mode when leaving insert mode
-au InsertLeave * set nopaste
-
-"auto load vimrc file after modify. linux
-autocmd! bufwritepost .vimrc source $MYVIMRC
+set pastetoggle=<F5>                         " when in insert mode, toggle between 'paste' and 'nopaste'
+au InsertLeave * set nopaste                 " disbale paste mode when leaving insert mode
+autocmd! bufwritepost .vimrc source $MYVIMRC " auto load vimrc file after modify
 
 "close popup menu when leave insert mode
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
@@ -229,10 +155,7 @@ inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
 inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
 inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
-" setting for Python file
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
-
-" setting for javascript file
 autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
 
 "==========================================
@@ -241,17 +164,14 @@ autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expand
 let mapleader = ','
 let g:mapleader = ','
 
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-"cmap w!! w !sudo tee %
-command! W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null "sudo write with W
 
 "goto older/newer position in change list
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
-
-
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
+" use <C-V> to paste yanked content
 inoremap <C-V> <C-R>"
 
 " Quickly edit/reload the vimrc file
@@ -277,28 +197,14 @@ map <C-l> <C-W>l
 " Go to home and end using capitalized directions
 noremap H 0
 noremap L $
-
+map Y y$
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
-
-"为方便复制，用<F2>开启/关闭行号显示:
-nnoremap <F2> :set nonumber! number?<CR>
-nnoremap <F3> :set list! list?<CR>
-nnoremap <F4> :set wrap! wrap?<CR>
-
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
-
-
-" Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
-"map <space><space> /
-"map <c-space> ?"
-
-map Y y$
-
+"no Highlight
 noremap <silent><leader>/ :nohls<CR>
 
 " I can type :help on my own, thanks.
@@ -309,7 +215,7 @@ nnoremap ' :b
 
 nnoremap <leader>v V`}
 
-"Use sane regexes"
+"Use sane regexes
 nnoremap / /\v
 vnoremap / /\v
 
@@ -320,7 +226,7 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-"Use 'm' key to change buffer"
+"Use 'm/M' to move among buffers
 noremap m :bn<CR>
 noremap M :bp<CR>
 
@@ -338,7 +244,7 @@ map <leader>ev :vsp %%
 nnoremap dp :diffput<CR>
 nnoremap dg :diffget<CR>
 
-" toggle between current buffer and last buffer
+" toggle between two buffers
 nnoremap t <C-^>
 
 "==========================================
@@ -591,6 +497,8 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
 vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a" :Tabularize /"<CR>
+vmap <Leader>a" :Tabularize /"<CR>
 
 "for mutil cursor
 Bundle 'terryma/vim-multiple-cursors'
@@ -631,8 +539,6 @@ let g:vim_markdown_frontmatter=1
 
 " for javascript
 Bundle 'pangloss/vim-javascript'
-
-Bundle 'ruanyl/vim-spider'
 
 Bundle 'kchmck/vim-coffee-script'
 
