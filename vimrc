@@ -169,8 +169,10 @@ command! W w !sudo tee % > /dev/null "sudo write with W
 "goto older/newer position in change list
 nnoremap <silent> ( g;
 nnoremap <silent> ) g,
+
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
+
 " use <C-V> to paste yanked content
 inoremap <C-V> <C-R>"
 
@@ -198,12 +200,14 @@ map <C-l> <C-W>l
 noremap H 0
 noremap L $
 map Y y$
+
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
 nnoremap <C-y> 2<C-y>
+
 "no Highlight
 noremap <silent><leader>/ :nohls<CR>
 
@@ -215,7 +219,7 @@ nnoremap ' :b
 
 nnoremap <leader>v V`}
 
-"Use sane regexes
+"Use sane regexes !not used!
 nnoremap / /\v
 vnoremap / /\v
 
@@ -267,7 +271,6 @@ Bundle 'gmarik/vundle'
 " :BundleClean       remove plugin not in list
 
 "################### Navigation ###################"
-"for nerdtree
 Bundle 'scrooloose/nerdtree'
 map <leader>e :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
@@ -277,13 +280,11 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-"for tagbar
 Bundle 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
-"for file search ctrlp
 Bundle 'ctrlpvim/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
@@ -306,9 +307,9 @@ Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
-" You will need the ack(>= 2.0)
 Bundle 'rking/ag.vim'
-nnoremap <Leader><Leader>a :Ag<space>
+nnoremap <Leader><Leader>a :Ag!<space>
+
 
 "################### Display Enhancements ###################"
 
@@ -319,9 +320,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-"underlays the CSS colorcodes with their real color
+" css/less/sass/html color preview
 Bundle 'gorodinskiy/vim-coloresque'
-
 
 "show whitespaces not used and call :FixWhitespace to remove them
 " Mapping: <leader><space>
@@ -331,17 +331,8 @@ map <leader><space> :FixWhitespace<cr>
 Bundle 'ruanyl/trailing-tab.vim'
 "let g:extra_tab_ignored_filetypes = ['php']
 
-"theme solarized
-Bundle 'altercation/vim-colors-solarized'
-let g:solarized_termcolors=16
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
-
-"theme molokai
-Bundle 'tomasr/molokai'
-"let g:molokai_original = 1
-
+" auto save views when exist vim
+" auto open views when open vim
 Bundle 'tpope/vim-obsession'
 Bundle 'dhruvasagar/vim-prosession'
 
@@ -354,6 +345,23 @@ nmap <Leader>k <Plug>BookmarkPrev
 nmap <Leader>c <Plug>BookmarkClear
 nmap <Leader>x <Plug>BookmarkClearAll
 
+Bundle 'Valloric/MatchTagAlways'
+
+
+"################### Themes ###################"
+
+"theme solarized
+Bundle 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+
+"theme molokai
+Bundle 'tomasr/molokai'
+"let g:molokai_original = 1
+
+
 "################### fast move ###################"
 
 " Move to anywhere
@@ -365,8 +373,6 @@ omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 
 Bundle 'vim-scripts/matchit.zip'
-
-Bundle 'Valloric/MatchTagAlways'
 
 "################### auto complete and fast edit ###################"
 " Select blocks quickly
@@ -388,7 +394,6 @@ autocmd FileType python noremap noremap <leader>g :call jedi#goto_assignments()<
 " auto close html tag when press >
 Bundle 'alvan/vim-closetag'
 
-"for neocomplete
 Bundle 'Shougo/neocomplete.vim'
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -472,7 +477,6 @@ endif
 
 "==================================End of neocomplete=======================
 
-"for xptemplate
 "powerful snippets plugin, ctrl+\ to trigger
 Bundle 'drmingdrmer/xptemplate'
 
