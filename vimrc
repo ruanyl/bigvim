@@ -509,6 +509,8 @@ Bundle 'terryma/vim-multiple-cursors'
 
 Bundle 'mattn/emmet-vim'
 
+Bundle 'Ioannis-Kapoulas/vim-autoprefixer'
+
 "################# syntax check ###############
 
 Bundle 'scrooloose/syntastic'
