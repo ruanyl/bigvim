@@ -60,8 +60,8 @@ set nostartofline         " keep cursor postion when switching between buffers
 set number " show line number
 set nowrap " disable wrap
 
-set list
-set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮
+"set list
+"set listchars=tab:›\ ,trail:•,extends:❯,precedes:❮
 
 set showmatch         " show matched brackets
 set mat=2             " How many tenths of a second to blink when matching brackets
@@ -328,7 +328,7 @@ Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
 
-Bundle 'ruanyl/trailing-tab.vim'
+"Bundle 'ruanyl/trailing-tab.vim'
 "let g:extra_tab_ignored_filetypes = ['php']
 
 " auto save views when exist vim
@@ -518,6 +518,7 @@ let g:syntastic_error_symbol='>>'
 let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
+let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
 let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_quiet_messages = { "type": "style",
@@ -554,6 +555,10 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 "AngularJS with Vim
 Bundle 'burnettk/vim-angular'
 
+" ReactJS
+Bundle 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
+
 "################## Language Specific ##################
 "generate javascript doc
 Bundle 'heavenshell/vim-jsdoc'
@@ -570,7 +575,8 @@ Bundle 'StanAngeloff/php.vim'
 " improved PHP omnicompletion
 Bundle 'shawncplus/phpcomplete.vim'
 
-Bundle 'alvan/vim-php-manual'
+Bundle 'ruanyl/vim-php-manual'
+let g:php_manual_enable_online_search = 1
 
 "################### Others ###################"
 
