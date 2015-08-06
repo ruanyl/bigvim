@@ -578,6 +578,8 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ruanyl/vim-php-manual'
 let g:php_manual_enable_online_search = 1
 
+Bundle 'ruanyl/vim-caniuse'
+
 "################### Others ###################"
 
 " Github Gist
