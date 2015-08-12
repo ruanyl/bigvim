@@ -518,6 +518,14 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ruanyl/vim-php-manual'
 let g:php_manual_enable_online_search = 1
 
+" composer project php auto completion
+" Generate Index: :call padawan#GenerateIndex()
+" Start Server: :call padawan#StartServer()
+" Stop Server: :call padawan#StopServer()
+" Restart Server: :call padawan#RestartServer()
+" cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
+Bundle 'mkusher/padawan.vim'
+
 Bundle 'ruanyl/vim-caniuse'
 
 "################### Others ###################"
