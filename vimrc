@@ -164,7 +164,7 @@ autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expand
 let mapleader = ','
 let g:mapleader = ','
 
-command! W w !sudo tee % > /dev/null "sudo write with W
+command! W w !sudo tee % > /dev/null
 
 "goto older/newer position in change list
 nnoremap <silent> ( g;
@@ -516,7 +516,7 @@ Bundle 'StanAngeloff/php.vim'
 Bundle 'shawncplus/phpcomplete.vim'
 
 Bundle 'ruanyl/vim-php-manual'
-let g:php_manual_enable_online_search = 1
+let g:php_manual_enable_online_search = 0
 
 " composer project php auto completion
 " Generate Index: :call padawan#GenerateIndex()
