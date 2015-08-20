@@ -293,12 +293,6 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
-"\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
 let g:ctrlp_follow_symlinks=1
 
 " CtrlP extensions, go to defination
@@ -307,12 +301,16 @@ Bundle 'tacahiroy/ctrlp-funky'
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
+Bundle 'dyng/ctrlsf.vim'
+vmap <Leader>s <Plug>CtrlSFVwordExec
+
 Bundle 'rking/ag.vim'
 nnoremap <Leader><Leader>a :Ag!<space>
+let g:ag_working_path_mode='r'
 
 
 "################### Display Enhancements ###################"
-
+let g:netrw_liststyle=3
 "Enhances status bar
 Bundle 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
@@ -333,6 +331,7 @@ map <leader><space> :FixWhitespace<cr>
 
 " auto save views when exist vim
 " auto open views when open vim
+" this will create a `session` dir in your `.vim` dir
 Bundle 'tpope/vim-obsession'
 Bundle 'dhruvasagar/vim-prosession'
 
@@ -345,8 +344,12 @@ nmap <Leader>k <Plug>BookmarkPrev
 nmap <Leader>c <Plug>BookmarkClear
 nmap <Leader>x <Plug>BookmarkClearAll
 
+" highlights the enclosing html/xml tags
 Bundle 'Valloric/MatchTagAlways'
 
+" Maximize split window
+Bundle 'szw/vim-maximizer'
+nmap <tab> :MaximizerToggle<CR>
 
 "################### Themes ###################"
 
@@ -372,6 +375,7 @@ map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 
+" extended % matching for HTML, LaTeX, and many other languages
 Bundle 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
