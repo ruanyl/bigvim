@@ -173,6 +173,9 @@ nnoremap <silent> ) g,
 "replace currently selected text with default register without yanking it
 vnoremap p "_dP
 
+" use ctrl-c to copy to system clipboard
+vnoremap <C-c> "*y
+
 " use <C-V> to paste yanked content
 inoremap <C-V> <C-R>"
 
@@ -349,7 +352,7 @@ Bundle 'Valloric/MatchTagAlways'
 
 " Maximize split window
 Bundle 'szw/vim-maximizer'
-nmap <tab> :MaximizerToggle<CR>
+nnoremap <tab> :MaximizerToggle<CR>
 
 "################### Themes ###################"
 
