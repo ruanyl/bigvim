@@ -5,89 +5,43 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
 ### 配置步骤
 
+> 注意，该配置需要vim7.4.x
+
 1. clone到本地任意目录
 
-        git clone https://github.com/ruanyl/bigvim.git
+	```
+	git clone https://github.com/ruanyl/bigvim.git
+	```
 
-2. 安装依赖包
+2. 安装Nodejs，建议使用nvm
 
-        sudo apt-get install ctags
-        sudo apt-get install python-pip
-        sudo apt-get install build-essential cmake python-dev
-        brew install ctags     (mac用户)
+	```
+    brew install nvm
+	nvm install v0.xx.x
+    ```
 
-3. 安装Nodejs
-        nodejs.org
+3. 安装相关node module
+
+	```
+    npm install -g eslint js-beautify
+    ```
 
 4. 安装插件
 
-        cd bigvim/
-
-        sh -x install.sh
-
-        install.sh
-        本质上做的事情
-        1.将vimrc/vim文件夹软链接到$HOME，编程系统vim配置
-        2.git clone安装vundle（clone到bundle目录下）
-        3.通过vundle安装其他所有插件（相当于进入vimrc, 命令行执行:BundleInstall）,从github全部搞到本地
-        4.安装必须的nodejs包
+	```
+    cd bigvim/
+    sh -x install.sh
+    install.sh
+	```
 
 5. 可能遇到的问题:
 
-   * 相对行号
+   界面显示乱码
 
-   vimrc中配置,如果不习惯,可以去掉,[相关参考](http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/)
-
-   * 配置主题
-
-   到vimrc中修改colortheme,可以使用molokai(用惯sublimetext2的童鞋很熟悉)
-
-   默认配置的是[solarized dark主题](https://github.com/altercation/vim-colors-solarized)
-
-   想要修改终端配色为solarized可以参考 [这里](https://github.com/sigurdga/gnome-terminal-colors-solarized)
-
-   * Powerline美化字体
+   * 需要安装Powerline美化字体
 
    推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
 
-
-### 其他
-
-5. 安装/卸载/更新插件：
-
-   可能发现打开vim很慢，可能是插件有点多了，这个配置插件全开
-
-   去掉某些自己用不到的插件: 编辑vimrc，注释掉插件对应Bundle行即可(加一个双引号),保存退出即可
-
-        "Bundle 'scrooloose/syntastic'
-
-   如果想从物理上清除（删除插件文件），注释保存后再次进入vim
-
-   命令行模式，执行:
-
-        :BundleClean
-
-   如果要安装新插件，在vimrc中加入bundle，然后执行
-
-        :BundleInstall
-
-   更新插件
-
-        :BundleUpdate
-
-6. 给mac用户
-
-   安装[homebrew](http://brew.sh/)
-
-   使用brew install vim
-
-7. 冲突和问题排查
-
-   插件很多，并且其默认快捷键或者配置可能发生冲突
-
-   当加入新插件发现有冲突或者展现有问题
-
-   排除法进行排查：注掉所有插件或配置，然后二分法逐一恢复，可以定位到出现问题的插件或配置
 
 -------------
 
@@ -95,7 +49,7 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
 solarized主题
 
-![solarized](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/solarized.png) 我的终端颜色显示不对，不过这个色调也很舒服
+![solarized](https://github.com/altercation/solarized/raw/master/img/solarized-vim.png)
 
 molokai主题
 
@@ -103,37 +57,23 @@ molokai主题
 
 -------------
 
-### 自定义快捷键说明
+### 自定义快捷键
 
-    F1  关掉，防止跳出帮助
-    F2  set nu/nonu
-    F3  set list/nolist
-    F4  set wrap/nowrap
-    F5  set paste/nopaste
-    F6  syntax on/off
-    空格 /开启查找
-    Y   =y$   复制到行尾
-    w!!  以sudo的权限保存
-    t    新起一行，下面，不进入插入模式
-    T    新起一行，上面
-    ,sa   全选(select all)
+    空格  开启查找
+    W    以sudo的权限保存
+    ,sa  全选(select all)
     ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
+    ,f   开启文件搜索 ctrlp
+    ,/   去除匹配高亮
+    '    :b
+    :b3  快速切换到number 3 buffer
+    qq   关闭当前Buffer
+    qo   关闭除当前buffer之外的所有buffer
+    m    在Buffer之间顺序切换
+    M    在Buffer之间逆序切换
 
-    ,y 展示历史剪贴板
-    ,yc 清空
-    yy/dd -> p -> ctrl+p可以替换非最近一次剪贴内容
+> 更多地快捷键，请在vimrc中对应的插件查找
 
-    ,f 开启文件搜索 ctrlp
-    ,/ 去除匹配高亮
-
-    当打开多个Buffer时：
-    映射：' :b，输入数字，:b3快速切换到第三个Tab
-    qq 关闭当前Buffer
-    qo 关闭除当前buffer之外的所有buffer
-    m 在Buffer之间顺序切换
-    M 在Buffer之间逆序切换
-
---------------------
 
 ### 插件及其快捷键说明
 
@@ -146,7 +86,7 @@ molokai主题
     命令行模式下管理命令:
 
         :BundleInstall     install
-        :BundleInstall!    update
+        :BundleUpdate      update
         :BundleClean       remove plugin not in list
 
 
@@ -154,46 +94,25 @@ molokai主题
 
 1. ####[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 
-   必装,开启目录树导航
-
-            ,e  打开 关闭树形目录结构
-
-            m   根据提示执行新建文件，目录，拷贝等操作
-
-            在nerdtree窗口常用操作：(小写当前，大写root)
-            x.......Close the current nodes parent收起当前目录树
-            R.......Recursively refresh the current root刷新根目录树
-            r.......Recursively refresh the current directory刷新当前目录
-            P.......Jump to the root node
-            p.......Jump to current nodes parent
-            K.......Jump up inside directories at the current tree depth  到同目录第一个节点
-            J.......Jump down inside directories at the current tree depth 最后一个节点
-            o.......Open files, directories and bookmarks
-            i.......Open selected file in a split window上下分屏
-            s.......Open selected file in a new vsplit左右分屏
-   演示
+	```
+	,e
+    ```
 
    ![thenerdtree](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/nerdtree.gif)
 
 2. ####[majutsushi/tagbar](https://github.com/majutsushi/tagbar)
 
-        <F9> 打开
-
-   演示
-
-   ![tagbar](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/tagbar.gif)
+	```
+	F9
+    ```
 
 3. ####[kien/ctrlp.vim](https://github.com/hdima/python-syntax)
-
-   文件搜索,ack/Command-T需要依赖于外部包,不喜欢有太多依赖的,除非十分强大, 具体 [文档](http://kien.github.io/ctrlp.vim/)
 
         ,f  默认查找 最近使用的+文件搜索+buffer
         ,m  相当于mru功能，most recently used
         ,b  查找buffer
 
         ctrl + j/k 进行上下移动 或者小键盘方向键
-
-   演示
 
    ![ctrlp](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp.gif)
 
@@ -203,13 +122,9 @@ molokai主题
 
         ,fu 打开搜索
 
-   演示
-
    ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp-funky.gif)
 
 ##### 显示增强
-
-    被动技能,无快捷键
 
 1. ####[bling/vim-airline](https://github.com/bling/vim-airline)
 
@@ -225,15 +140,8 @@ molokai主题
 
    将代码行最后无效的空格标红
 
-        ,空格    去掉当前行末尾空格
+        ,空格    去掉多余空格
 
-4. ####[altercation/vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-
-   经典主题, 但是颜色需要终端导入色彩方案，我的颜色显示不对，但是看着还是舒服，就那样了。。
-
-5. ####[tomasr/molokai](https://github.com/tomasr/molokai)
-
-   另外一个经典主题
 
 ##### 快速移动
 
@@ -243,9 +151,8 @@ molokai主题
 
    跳转到任意位置
 
-        s  查找2个字符，例如想要跳到某个方法，只需输入该方法前2个字符，就能跳转到该位置
-        ,, + f  向后查找1个字符
-        /  替代vim默认的搜索功能，如果不喜欢可以去除
+        空格  搜索两个字符，快速跳转
+        /    替代vim默认的搜索功能，如果不喜欢可以去除
 
    ![easy_motion](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/easy-motion.gif)
 
@@ -278,7 +185,7 @@ molokai主题
     代码片段工具
 
         <C-\> 触发
-        
+
     ![xptemplate](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/xptemplate.gif)
 
 4. ####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
