@@ -301,8 +301,11 @@ let g:ctrlp_follow_symlinks=1
 " CtrlP extensions, go to defination
 " Mapping: <Leader>fu
 Bundle 'tacahiroy/ctrlp-funky'
-let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_matchtype = 'path'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
+
+Bundle 'sgur/ctrlp-extensions.vim'
+nnoremap <Leader>cy :CtrlPYankring<Cr>
 
 Bundle 'dyng/ctrlsf.vim'
 vmap <Leader>s <Plug>CtrlSFVwordExec
@@ -392,12 +395,6 @@ let g:wildfire_objects = {
 let g:wildfire_fuel_map = "<ENTER>"
 let g:wildfire_water_map = "<BS>"
 
-"python autocomplete
-Bundle 'davidhalter/jedi-vim'
-let g:jedi#auto_initialization = 0
-autocmd FileType python noremap <leader>d :call jedi#goto_definitions()<CR>
-autocmd FileType python noremap noremap <leader>g :call jedi#goto_assignments()<CR>
-
 " auto close html tag when press >
 Bundle 'alvan/vim-closetag'
 
@@ -420,7 +417,8 @@ let g:ycm_semantic_triggers =  {
             \   'ruby' : ['.', '::'],
             \   'lua' : ['.', ':'],
             \   'erlang' : [':'],
-            \   'haskell' : ['.', 're!.']
+            \   'haskell' : ['.', 're!.'],
+            \   'css': [ 're!^\s{2,4}', 're!:\s+' ],
             \ }
 
 "powerful snippets plugin, ctrl+\ to trigger
@@ -467,23 +465,12 @@ let g:syntastic_style_warning_symbol='⚠'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
-let g:syntastic_python_checkers=['pyflakes']
 let g:syntastic_quiet_messages = { "type": "style",
                                  \ "level": "warnings" }
-
-" python fly check
-Bundle 'kevinw/pyflakes-vim'
-let g:pyflakes_use_quickfix = 0
-
 "################# Highlight ###############
 
 "highlight for css3
 Bundle 'hail2u/vim-css3-syntax'
-
-" for python syntax highlight
-Bundle 'hdima/python-syntax'
-let python_highlight_all = 1
 
 " for markdown
 Bundle 'plasticboy/vim-markdown'
@@ -537,10 +524,6 @@ Bundle 'ruanyl/vim-caniuse'
 
 "################### Others ###################"
 
-" Github Gist
-" Command: :Gist
-Bundle 'mattn/gist-vim'
-
 "edit history, historical edit tree
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
@@ -559,10 +542,6 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'mattn/webapi-vim'
 
 Bundle 'tpope/vim-fugitive'
-
-Bundle 'maxbrunsfeld/vim-yankstack'
-nmap zn <Plug>yankstack_substitute_older_paste
-nmap zp <Plug>yankstack_substitute_newer_paste
 
 " delete current buffer
 Bundle 'moll/vim-bbye'
