@@ -418,7 +418,10 @@ let g:ycm_semantic_triggers =  {
             \ }
 
 "powerful snippets plugin, ctrl+\ to trigger
-Plug 'drmingdrmer/xptemplate'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-\\>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 "add comment quickly
 Plug 'scrooloose/nerdcommenter'
