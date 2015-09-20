@@ -259,22 +259,18 @@ nnoremap t <C-^>
 "==========================================
 "package dependent:  ctags
 "awesome javascript autocomplete dependent: nodejs
-"python dependent:  pep8, pyflake
 
-filetype off " required! turn off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call plug#begin('~/.vim/bundle')
 
 "################### Plugins Management ###################"
 
-Bundle 'gmarik/vundle'
 " vim plugin bundle control, command model
-" :BundleInstall     install
-" :BundleInstall!    update
-" :BundleClean       remove plugin not in list
+" :PlugInstall     install
+" :PlugInstall!    update
+" :PlugClean       remove plugin not in list
 
 "################### Navigation ###################"
-Bundle 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 map <leader>e :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeQuitOnOpen=1
@@ -283,12 +279,12 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-Bundle 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 nmap <F9> :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
-Bundle 'ctrlpvim/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>f :CtrlPMixed<CR>
@@ -300,17 +296,17 @@ let g:ctrlp_follow_symlinks=1
 
 " CtrlP extensions, go to defination
 " Mapping: <Leader>fu
-Bundle 'tacahiroy/ctrlp-funky'
+Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_funky_matchtype = 'path'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
-Bundle 'sgur/ctrlp-extensions.vim'
+Plug 'sgur/ctrlp-extensions.vim'
 nnoremap <Leader>cy :CtrlPYankring<Cr>
 
-Bundle 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim'
 vmap <Leader>s <Plug>CtrlSFVwordExec
 
-Bundle 'rking/ag.vim'
+Plug 'rking/ag.vim'
 nnoremap <Leader><Leader>a :Ag!<space>
 let g:ag_working_path_mode='r'
 
@@ -318,30 +314,30 @@ let g:ag_working_path_mode='r'
 "################### Display Enhancements ###################"
 let g:netrw_liststyle=3
 "Enhances status bar
-Bundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " css/less/sass/html color preview
-Bundle 'gorodinskiy/vim-coloresque'
+Plug 'gorodinskiy/vim-coloresque'
 
 "show whitespaces not used and call :FixWhitespace to remove them
 " Mapping: <leader><space>
-Bundle 'bronson/vim-trailing-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 map <leader><space> :FixWhitespace<cr>
 
-"Bundle 'ruanyl/trailing-tab.vim'
+"Plug 'ruanyl/trailing-tab.vim'
 "let g:extra_tab_ignored_filetypes = ['php']
 
 " auto save views when exist vim
 " auto open views when open vim
 " this will create a `session` dir in your `.vim` dir
-Bundle 'tpope/vim-obsession'
-Bundle 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 
-Bundle 'MattesGroeger/vim-bookmarks'
+Plug 'MattesGroeger/vim-bookmarks'
 nmap <Leader><Leader>m <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
 nmap <Leader>a <Plug>BookmarkShowAll
@@ -351,23 +347,23 @@ nmap <Leader>c <Plug>BookmarkClear
 nmap <Leader>x <Plug>BookmarkClearAll
 
 " highlights the enclosing html/xml tags
-Bundle 'Valloric/MatchTagAlways'
+Plug 'Valloric/MatchTagAlways'
 
 " Maximize split window
-Bundle 'szw/vim-maximizer'
+Plug 'szw/vim-maximizer'
 nnoremap <tab> :MaximizerToggle<CR>
 
 "################### Themes ###################"
 
 "theme solarized
-Bundle 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
 
 "theme molokai
-Bundle 'tomasr/molokai'
+Plug 'tomasr/molokai'
 "let g:molokai_original = 1
 
 
@@ -375,19 +371,19 @@ Bundle 'tomasr/molokai'
 
 " Move to anywhere
 " Mapping: s
-Bundle 'Lokaltog/vim-easymotion'
+Plug 'Lokaltog/vim-easymotion'
 map <space> <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
 
 " extended % matching for HTML, LaTeX, and many other languages
-Bundle 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/matchit.zip'
 
 "################### auto complete and fast edit ###################"
 " Select blocks quickly
 " Mapping: <Enter>
-Bundle 'gcmt/wildfire.vim'
+Plug 'gcmt/wildfire.vim'
 let g:wildfire_objects = {
     \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
     \ "html,xml" : ["at"],
@@ -396,9 +392,9 @@ let g:wildfire_fuel_map = "<ENTER>"
 let g:wildfire_water_map = "<BS>"
 
 " auto close html tag when press >
-Bundle 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 
-Bundle 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
@@ -422,25 +418,25 @@ let g:ycm_semantic_triggers =  {
             \ }
 
 "powerful snippets plugin, ctrl+\ to trigger
-Bundle 'drmingdrmer/xptemplate'
+Plug 'drmingdrmer/xptemplate'
 
 "add comment quickly
-Bundle 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdcommenter'
 
 "add surround character quickly
 " Mappings:
 " surround with: ysiw
 " unsurround with: ds
-Bundle 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 "for repeat -> enhance surround.vim, . to repeat command
-Bundle 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 
-Bundle 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
 
 "for code alignment
-Bundle 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:<CR>
@@ -449,15 +445,15 @@ nmap <Leader>a" :Tabularize /"<CR>
 vmap <Leader>a" :Tabularize /"<CR>
 
 "for mutil cursor
-Bundle 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
-Bundle 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
-Bundle 'Ioannis-Kapoulas/vim-autoprefixer'
+Plug 'Ioannis-Kapoulas/vim-autoprefixer'
 
 "################# syntax check ###############
 
-Bundle 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 let g:syntastic_error_symbol='✖'
 let g:syntastic_warning_symbol='►'
 let g:syntastic_style_error_symbol='~'
@@ -470,46 +466,46 @@ let g:syntastic_quiet_messages = { "type": "style",
 "################# Highlight ###############
 
 "highlight for css3
-Bundle 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax'
 
 " for markdown
-Bundle 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
 
 " for javascript
-Bundle 'pangloss/vim-javascript'
+Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 
-Bundle 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 
 "Syntax for JavaScript libraries
-Bundle 'othree/javascript-libraries-syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 "AngularJS with Vim
-Bundle 'burnettk/vim-angular'
+Plug 'burnettk/vim-angular'
 
 " ReactJS
-Bundle 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
 
 "################## Language Specific ##################
 "generate javascript doc
-Bundle 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc'
 let g:jsdoc_default_mapping = 0
 autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " Provides Tern-based JavaScript editing support. Require Nodejs installed
-Bundle 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 
 " Up to date PHP syntax
-Bundle 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim'
 
 " improved PHP omnicompletion
-Bundle 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim'
 
-Bundle 'ruanyl/vim-php-manual'
+Plug 'ruanyl/vim-php-manual'
 let g:php_manual_enable_online_search = 0
 
 " composer project php auto completion
@@ -518,41 +514,43 @@ let g:php_manual_enable_online_search = 0
 " Stop Server: :call padawan#StopServer()
 " Restart Server: :call padawan#RestartServer()
 " cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
-Bundle 'mkusher/padawan.vim'
+Plug 'mkusher/padawan.vim'
 
-Bundle 'ruanyl/vim-caniuse'
+Plug 'ruanyl/vim-caniuse'
 
 "################### Others ###################"
 
 "edit history, historical edit tree
-Bundle 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim'
 nnoremap <leader>h :GundoToggle<CR>
 let g:gundo_auto_preview = 0
 
 "format js, html, css files
 "require: npm install -g js-beautify
-Bundle "Chiel92/vim-autoformat"
+Plug 'Chiel92/vim-autoformat'
 autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
-Bundle 'thinca/vim-quickrun'
+Plug 'thinca/vim-quickrun'
 "autocmd FileType go noremap <buffer>  <leader>r :!go run %<cr>
 
-Bundle 'mattn/webapi-vim'
+Plug 'mattn/webapi-vim'
 
-Bundle 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " delete current buffer
-Bundle 'moll/vim-bbye'
+Plug 'moll/vim-bbye'
 nnoremap qq :Bdelete<cr>
 
 " delete all buffers except current one.
 " call :BufOnly
-Bundle 'vim-scripts/BufOnly.vim'
+Plug 'vim-scripts/BufOnly.vim'
 nnoremap <silent> qo :BufOnly<CR>
 
-Bundle 'editorconfig/editorconfig-vim'
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
 
 "==========================================
 " Color&Theme
