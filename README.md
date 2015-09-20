@@ -59,7 +59,7 @@ molokai主题
 
 ### 自定义快捷键
 
-    空格  开启查找
+    空格  开启查找(Easymotion模式)
     W    以sudo的权限保存
     ,sa  全选(select all)
     ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
@@ -71,6 +71,7 @@ molokai主题
     qo   关闭除当前buffer之外的所有buffer
     m    在Buffer之间顺序切换
     M    在Buffer之间逆序切换
+    Tab  最大化当前split窗口/切换
 
 > 更多地快捷键，请在vimrc中对应的插件查找
 
@@ -304,15 +305,6 @@ molokai主题
 
         ,d  go to definition功能
 
-3. ###[spf13/PIV](https://github.com/spf13/PIV)
-
-	PHP手册
-
-    	K 大写的K，打开光标下方法的PHP Doc
-
-4. ###[fatih/vim-go](https://github.com/fatih/vim-go)
-
-	go语言支持
 
 #### 其他
 
