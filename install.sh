@@ -32,16 +32,17 @@ lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
 lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
 
 
-if [ ! -e $CURRENT_DIR/vundle ]; then
-    echo "Installing Vundle"
-    git clone http://github.com/gmarik/vundle.git $CURRENT_DIR/bundle/vundle
+if [ ! -e $CURRENT_DIR/autoload/plug.vim ]; then
+    echo "Installing Vim-Plug"
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 
-echo "update/install plugins using Vundle"
+echo "update/install plugins using vim-plug"
 system_shell=$SHELL
 export SHELL="/bin/sh"
-vim -u $CURRENT_DIR/vimrc +BundleInstall! +BundleClean +qall
+vim -u $CURRENT_DIR/vimrc +PlugInstall! +PlugClean +qall
 export SHELL=$system_shell
 
 
@@ -55,7 +56,7 @@ cd $CURRENT_DIR/bundle/tern_for_vim/
 npm install
 
 echo "install jshint for javascript syntax check"
-sudo npm install -g jshint
+sudo npm install -g eslint
 
 #vim undo dir
 if [ ! -d ~/.undodir ]
