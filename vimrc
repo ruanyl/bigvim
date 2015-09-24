@@ -19,14 +19,10 @@
 " General Settings
 "==========================================
 
+set nocompatible          " Do not compatible with VI
+
 set history=200           "history: number of command-lines remembered
 
-filetype on               " detect filetype
-filetype indent on        " differet indentation for differet filetype
-filetype plugin on        " allow plugins
-filetype plugin indent on " allow plugin indent
-
-set nocompatible          " Do not compatible with VI
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
 
@@ -106,7 +102,7 @@ endif
 
 set ruler       " show the current line number and column number
 set showcmd     " show the current typing command
-set showmode    " Show current mode
+set noshowmode    " Show current mode
 set scrolloff=7 " Set 7 lines to the cursor - when moving vertically using j/k
 
 if has('statusline')
@@ -500,7 +496,9 @@ autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " Provides Tern-based JavaScript editing support. Require Nodejs installed
 Plug 'marijnh/tern_for_vim'
+let tern_show_signature_in_pum = 1
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " Up to date PHP syntax
 Plug 'StanAngeloff/php.vim'
