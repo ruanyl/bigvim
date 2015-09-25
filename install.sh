@@ -46,17 +46,17 @@ vim -u $CURRENT_DIR/vimrc +PlugInstall! +PlugClean +qall
 export SHELL=$system_shell
 
 
-#echo "compile YouCompleteMe"
-#echo "if error,you need to compile it yourself"
-#cd $CURRENT_DIR/bundle/YouCompleteMe/
-#bash -x install.sh --clang-completer
+echo "compile YouCompleteMe"
+echo "You can also go to ./bundle/YouCompleteMe/ to install by yourself"
+cd $CURRENT_DIR/bundle/YouCompleteMe/
+python install.py
 
 echo "install ternjs dependences"
 cd $CURRENT_DIR/bundle/tern_for_vim/
 npm install
 
-echo "install jshint for javascript syntax check"
-sudo npm install -g eslint
+echo "install eslint for javascript syntax check"
+command -v eslint >/dev/null || npm install -g eslint
 
 #vim undo dir
 if [ ! -d ~/.undodir ]
