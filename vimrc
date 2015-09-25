@@ -250,6 +250,20 @@ nnoremap dg :diffget<CR>
 " toggle between two buffers
 nnoremap t <C-^>
 
+"" Vmap for maintain Visual Mode after shifting > and <
+vmap < <gv
+vmap > >gv
+
+"" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+if has('macunix')
+  " pbcopy for OSX copy/paste
+  vmap <C-x> :!pbcopy<CR>
+  vmap <C-c> :w !pbcopy<CR><CR>
+endif
+
 "==========================================
 " Bundle:Plgin management and setting
 "==========================================
@@ -285,7 +299,7 @@ map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>f :CtrlPMixed<CR>
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+    \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
 let g:ctrlp_follow_symlinks=1
@@ -453,8 +467,8 @@ Plug 'Ioannis-Kapoulas/vim-autoprefixer'
 "################# syntax check ###############
 
 Plug 'scrooloose/syntastic'
-let g:syntastic_error_symbol='✖'
-let g:syntastic_warning_symbol='►'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 let g:syntastic_style_error_symbol='~'
 let g:syntastic_style_warning_symbol='⚠'
 let g:syntastic_check_on_open=1
