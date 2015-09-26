@@ -474,8 +474,6 @@ let g:syntastic_style_warning_symbol='⚠'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_quiet_messages = { "type": "style",
-                                 \ "level": "warnings" }
 "################# Highlight ###############
 
 "highlight for css3
@@ -489,6 +487,8 @@ let g:vim_markdown_frontmatter=1
 
 " for javascript
 Plug 'pangloss/vim-javascript', {'branch': 'develop'}
+
+Plug 'ruanyl/vim-fixmyjs'
 
 Plug 'kchmck/vim-coffee-script'
 
