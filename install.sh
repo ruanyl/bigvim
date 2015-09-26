@@ -30,6 +30,7 @@ lnif $CURRENT_DIR/vimrc $HOME/.vimrc
 lnif $CURRENT_DIR/ $HOME/.vim
 lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
 lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
+lnif $CURRENT_DIR/others/eslintrc $HOME/.eslintrc
 
 
 if [ ! -e $CURRENT_DIR/autoload/plug.vim ]; then
