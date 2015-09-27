@@ -280,7 +280,7 @@ call plug#begin('~/.vim/bundle')
 " :PlugClean       remove plugin not in list
 
 "################### Navigation ###################"
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 map <leader>e :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeQuitOnOpen=1
@@ -313,7 +313,7 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 Plug 'sgur/ctrlp-extensions.vim'
 nnoremap <Leader>cy :CtrlPYankring<Cr>
 
-Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim', {'on': 'CtrlSFVwordExec'}
 vmap <Leader>s <Plug>CtrlSFVwordExec
 
 Plug 'rking/ag.vim'
@@ -488,9 +488,9 @@ let g:vim_markdown_frontmatter=1
 " for javascript
 Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 
-Plug 'ruanyl/vim-fixmyjs'
+Plug 'ruanyl/vim-fixmyjs', {'on': 'Fixmyjs'}
 
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 
 "Syntax for JavaScript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -515,12 +515,12 @@ autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " Up to date PHP syntax
-Plug 'StanAngeloff/php.vim'
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
 
 " improved PHP omnicompletion
-Plug 'shawncplus/phpcomplete.vim'
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 
-Plug 'ruanyl/vim-php-manual'
+Plug 'ruanyl/vim-php-manual', {'for': 'php'}
 let g:php_manual_enable_online_search = 0
 
 " composer project php auto completion
@@ -529,20 +529,20 @@ let g:php_manual_enable_online_search = 0
 " Stop Server: :call padawan#StopServer()
 " Restart Server: :call padawan#RestartServer()
 " cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
-Plug 'mkusher/padawan.vim'
+Plug 'mkusher/padawan.vim', {'for': 'php'}
 
-Plug 'ruanyl/vim-caniuse'
+Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse'}
 
 "################### Others ###################"
 
 "edit history, historical edit tree
-Plug 'sjl/gundo.vim'
+Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 nnoremap <leader>h :GundoToggle<CR>
 let g:gundo_auto_preview = 0
 
 "format js, html, css files
 "require: npm install -g js-beautify
-Plug 'Chiel92/vim-autoformat'
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
