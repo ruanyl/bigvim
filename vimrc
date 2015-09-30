@@ -234,6 +234,20 @@ if has('macunix')
   vmap <C-c> :w !pbcopy<CR><CR>
 endif
 
+hi! link SignColumn   LineNr
+hi! link ShowMarksHLl DiffAdd
+hi! link ShowMarksHLu DiffChange
+
+" for error highlight
+highlight clear SpellBad
+highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+highlight clear SpellCap
+highlight SpellCap term=underline cterm=underline
+highlight clear SpellRare
+highlight SpellRare term=underline cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal term=underline cterm=underline
+
 "Load plugins
 if filereadable(expand("~/.vim/vimrc.local"))
   source ~/.vim/vimrc.local
