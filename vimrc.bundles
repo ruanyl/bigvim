@@ -1,0 +1,305 @@
+"==========================================
+" Vim-Plug:Plgin management and setting
+"==========================================
+"package dependent:  ctags
+"awesome javascript autocomplete dependent: nodejs
+
+call plug#begin('~/.vim/bundle')
+
+let mapleader = ','
+let g:mapleader = ','
+
+"################### Plugins Management ###################"
+
+" vim plugin bundle control, command model
+" :PlugInstall     install
+" :PlugInstall!    update
+" :PlugClean       remove plugin not in list
+
+"################### Navigation ###################"
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+map <leader>e :NERDTreeToggle<CR>
+let NERDTreeHighlightCursorline=1
+let NERDTreeQuitOnOpen=1
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
+let g:netrw_home='~/bak'
+"close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
+
+Plug 'majutsushi/tagbar'
+nmap <F9> :TagbarToggle<CR>
+let g:tagbar_autofocus = 1
+let g:tagbar_width = 50
+
+Plug 'ctrlpvim/ctrlp.vim'
+map <leader>m :CtrlPMRU<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>f :CtrlPMixed<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
+    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+    \ }
+let g:ctrlp_follow_symlinks=1
+
+" CtrlP extensions, go to defination
+" Mapping: <Leader>fu
+Plug 'tacahiroy/ctrlp-funky'
+let g:ctrlp_funky_matchtype = 'path'
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+
+Plug 'sgur/ctrlp-extensions.vim'
+nnoremap <Leader>cy :CtrlPYankring<Cr>
+
+Plug 'dyng/ctrlsf.vim', {'on': 'CtrlSFVwordExec'}
+vmap <Leader>s <Plug>CtrlSFVwordExec
+
+Plug 'rking/ag.vim'
+nnoremap <Leader><Leader>a :Ag!<space>
+let g:ag_working_path_mode='r'
+
+
+"################### Display Enhancements ###################"
+let g:netrw_liststyle=3
+"Enhances status bar
+Plug 'bling/vim-airline'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+
+" css/less/sass/html color preview
+Plug 'gorodinskiy/vim-coloresque'
+
+"show whitespaces not used and call :FixWhitespace to remove them
+" Mapping: <leader><space>
+Plug 'bronson/vim-trailing-whitespace'
+map <leader><space> :FixWhitespace<cr>
+
+"Plug 'ruanyl/trailing-tab.vim'
+"let g:extra_tab_ignored_filetypes = ['php']
+
+" auto save views when exist vim
+" auto open views when open vim
+" this will create a `session` dir in your `.vim` dir
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
+
+Plug 'MattesGroeger/vim-bookmarks'
+nmap <Leader><Leader>m <Plug>BookmarkToggle
+nmap <Leader>i <Plug>BookmarkAnnotate
+nmap <Leader>a <Plug>BookmarkShowAll
+nmap <Leader>j <Plug>BookmarkNext
+nmap <Leader>k <Plug>BookmarkPrev
+nmap <Leader>c <Plug>BookmarkClear
+nmap <Leader>x <Plug>BookmarkClearAll
+
+" highlights the enclosing html/xml tags
+Plug 'Valloric/MatchTagAlways'
+
+" Maximize split window
+Plug 'szw/vim-maximizer'
+nnoremap <tab> :MaximizerToggle<CR>
+
+"################### Themes ###################"
+
+"theme solarized
+Plug 'altercation/vim-colors-solarized'
+let g:solarized_termcolors=16
+let g:solarized_termtrans=1
+let g:solarized_contrast="high"
+let g:solarized_visibility="high"
+
+"theme molokai
+Plug 'tomasr/molokai'
+"let g:molokai_original = 1
+
+
+"################### fast move ###################"
+
+" Move to anywhere
+" Mapping: s
+Plug 'Lokaltog/vim-easymotion'
+map <space> <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+let g:EasyMotion_smartcase = 1
+
+" extended % matching for HTML, LaTeX, and many other languages
+Plug 'vim-scripts/matchit.zip'
+
+"################### auto complete and fast edit ###################"
+" Select blocks quickly
+" Mapping: <Enter>
+Plug 'gcmt/wildfire.vim'
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip"],
+    \ "html,xml" : ["at"],
+\ }
+let g:wildfire_fuel_map = "<ENTER>"
+let g:wildfire_water_map = "<BS>"
+
+" auto close html tag when press >
+Plug 'alvan/vim-closetag'
+
+Plug 'Valloric/YouCompleteMe'
+let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_complete_in_strings = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_key_list_select_completion = ['<Tab>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_semantic_triggers =  {
+            \   'c' : ['->', '.'],
+            \   'objc' : ['->', '.'],
+            \   'ocaml' : ['.', '#'],
+            \   'cpp,objcpp' : ['->', '.', '::'],
+            \   'perl' : ['->'],
+            \   'php' : ['->', '::', '(', 'use ', 'namespace ', '\'],
+            \   'cs,java,typescript,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'html': ['<', '"', '</', ' '],
+            \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
+            \   'ruby' : ['.', '::'],
+            \   'lua' : ['.', ':'],
+            \   'erlang' : [':'],
+            \   'haskell' : ['.', 're!.'],
+            \   'css': [ 're!^\s{2,4}', 're!:\s+' ],
+            \ }
+
+"powerful snippets plugin, ctrl+\ to trigger
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-\\>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"add comment quickly
+Plug 'scrooloose/nerdcommenter'
+
+"add surround character quickly
+" Mappings:
+" surround with: ysiw
+" unsurround with: ds
+Plug 'tpope/vim-surround'
+
+"for repeat -> enhance surround.vim, . to repeat command
+Plug 'tpope/vim-repeat'
+
+Plug 'Raimondi/delimitMate'
+let delimitMate_matchpairs = "(:),[:],{:}"
+
+"for code alignment
+Plug 'godlygeek/tabular'
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:<CR>
+vmap <Leader>a: :Tabularize /:<CR>
+nmap <Leader>a" :Tabularize /"<CR>
+vmap <Leader>a" :Tabularize /"<CR>
+
+"for mutil cursor
+Plug 'terryma/vim-multiple-cursors'
+
+Plug 'mattn/emmet-vim'
+
+Plug 'Ioannis-Kapoulas/vim-autoprefixer'
+
+"################# syntax check ###############
+
+Plug 'scrooloose/syntastic'
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+let g:syntastic_style_error_symbol='~'
+let g:syntastic_style_warning_symbol='⚠'
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 0
+let g:syntastic_javascript_checkers = ['eslint']
+"################# Highlight ###############
+
+"highlight for css3
+Plug 'hail2u/vim-css3-syntax'
+
+" for markdown
+Plug 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+let g:vim_markdown_frontmatter=1
+
+" for javascript
+Plug 'pangloss/vim-javascript', {'branch': 'develop'}
+
+Plug 'ruanyl/vim-fixmyjs', {'on': 'Fixmyjs'}
+
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+
+"Syntax for JavaScript libraries
+Plug 'othree/javascript-libraries-syntax.vim'
+
+"AngularJS with Vim
+Plug 'burnettk/vim-angular'
+
+" ReactJS
+Plug 'mxw/vim-jsx'
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
+
+"################## Language Specific ##################
+"generate javascript doc
+Plug 'heavenshell/vim-jsdoc'
+let g:jsdoc_default_mapping = 0
+autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
+
+" Provides Tern-based JavaScript editing support. Require Nodejs installed
+Plug 'marijnh/tern_for_vim'
+let tern_show_signature_in_pum = 1
+autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+
+" Up to date PHP syntax
+Plug 'StanAngeloff/php.vim', {'for': 'php'}
+
+" improved PHP omnicompletion
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+
+Plug 'ruanyl/vim-php-manual', {'for': 'php'}
+let g:php_manual_enable_online_search = 0
+
+" composer project php auto completion
+" Generate Index: :call padawan#GenerateIndex()
+" Start Server: :call padawan#StartServer()
+" Stop Server: :call padawan#StopServer()
+" Restart Server: :call padawan#RestartServer()
+" cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
+Plug 'mkusher/padawan.vim', {'for': 'php'}
+
+Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse'}
+
+"################### Others ###################"
+
+"edit history, historical edit tree
+Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
+nnoremap <leader>h :GundoToggle<CR>
+let g:gundo_auto_preview = 0
+
+"format js, html, css files
+"require: npm install -g js-beautify
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
+autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+
+" quick run current buffer or selected code
+" Command: :QuickRun or :QuickRun {language}
+Plug 'thinca/vim-quickrun'
+"autocmd FileType go noremap <buffer>  <leader>r :!go run %<cr>
+
+Plug 'mattn/webapi-vim'
+
+Plug 'tpope/vim-fugitive'
+
+" delete current buffer
+Plug 'moll/vim-bbye'
+nnoremap qq :Bdelete<cr>
+
+" delete all buffers except current one.
+" call :BufOnly
+Plug 'vim-scripts/BufOnly.vim'
+nnoremap <silent> qo :BufOnly<CR>
+
+Plug 'editorconfig/editorconfig-vim'
+
+call plug#end()
