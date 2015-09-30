@@ -85,6 +85,7 @@ Plug 'tpope/vim-obsession'
 Plug 'dhruvasagar/vim-prosession'
 
 Plug 'MattesGroeger/vim-bookmarks'
+let g:bookmark_no_default_key_mappings = 1
 nmap <Leader><Leader>m <Plug>BookmarkToggle
 nmap <Leader>i <Plug>BookmarkAnnotate
 nmap <Leader>a <Plug>BookmarkShowAll
