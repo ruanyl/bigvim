@@ -142,7 +142,7 @@ let g:wildfire_water_map = "<BS>"
 " auto close html tag when press >
 Plug 'alvan/vim-closetag'
 
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
@@ -240,6 +240,8 @@ Plug 'burnettk/vim-angular'
 Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
 
+Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
+
 "################## Language Specific ##################
 "generate javascript doc
 Plug 'heavenshell/vim-jsdoc'
@@ -268,6 +270,9 @@ let g:php_manual_enable_online_search = 0
 " Restart Server: :call padawan#RestartServer()
 " cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
 Plug 'mkusher/padawan.vim', {'for': 'php'}
+
+" syntax for laravel blade
+Plug 'xsbeats/vim-blade'
 
 Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse'}
 
