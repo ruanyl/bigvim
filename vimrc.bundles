@@ -27,7 +27,12 @@ let g:netrw_home='~/bak'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 Plug 'majutsushi/tagbar'
-nmap <F9> :TagbarToggle<CR>
+" require jsctags
+" npm install -g git+https://github.com/ramitos/jsctags.git
+let g:tagbar_type_javascript = {
+    \ 'ctagsbin' : 'jsctags'
+    \ }
+nmap <leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
@@ -50,7 +55,7 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 Plug 'sgur/ctrlp-extensions.vim'
 nnoremap <Leader>cy :CtrlPYankring<Cr>
 
-Plug 'dyng/ctrlsf.vim', {'on': 'CtrlSFVwordExec'}
+Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
 vmap <Leader>s <Plug>CtrlSFVwordExec
 
 Plug 'rking/ag.vim'
@@ -81,8 +86,7 @@ map <leader><space> :FixWhitespace<cr>
 " auto save views when exist vim
 " auto open views when open vim
 " this will create a `session` dir in your `.vim` dir
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 
 Plug 'MattesGroeger/vim-bookmarks'
 let g:bookmark_no_default_key_mappings = 1
@@ -185,6 +189,7 @@ Plug 'tpope/vim-repeat'
 
 Plug 'Raimondi/delimitMate'
 let delimitMate_matchpairs = "(:),[:],{:}"
+let delimitMate_expand_cr = 1
 
 "for code alignment
 Plug 'godlygeek/tabular'
