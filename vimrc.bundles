@@ -249,7 +249,7 @@ let g:jsdoc_default_mapping = 0
 autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " Provides Tern-based JavaScript editing support. Require Nodejs installed
-Plug 'marijnh/tern_for_vim'
+Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 let tern_show_signature_in_pum = 1
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 autocmd FileType javascript setlocal omnifunc=tern#Complete
