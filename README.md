@@ -8,38 +8,33 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 > 注意，该配置需要vim7.4.x. 在MacOS下测试过。
 
 1. clone到本地任意目录
-
-```
-git clone https://github.com/ruanyl/bigvim.git
-```
+  ```
+  git clone https://github.com/ruanyl/bigvim.git
+  ```
 
 2. 安装Nodejs，建议使用nvm
-
-```
-brew install nvm
-nvm install v0.xx.x
-```
+  ```
+  brew install nvm
+  nvm install v0.xx.x
+  ```
 
 3. 安装相关node module（install.sh会默认检查并安装，如果失败需要手动安装）
-
-```
-npm install -g eslint js-beautify
-```
-
-  	相关eslint插件请自行安装
+  ```
+  npm install -g eslint js-beautify
+  ```
+  相关eslint插件请自行安装
 
 4. 安装插件
-
-```
-cd bigvim/
-sh -x install.sh
-install.sh
-```
+  ```
+  cd bigvim/
+  sh -x install.sh
+  install.sh
+  ```
 
 5. 安装powerline美化字体:
+  推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
 
-   推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
-
+6. 复制vimrc.bundles.example 到 vimrc.bundles，在这里加入你自己的自定配置
 
 ### 内置主题
 
