@@ -40,7 +40,7 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
 solarized主题
 
-![solarized](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/solarized-vim.png)
+![solarized](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/solarized.png)
 
 molokai主题
 
