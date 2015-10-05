@@ -3,3 +3,5 @@ bundle/*
 *.bak
 *.bk
 .DS_Store
+vimrc.local
+vimrc.bundles.local
