@@ -250,7 +250,7 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
-"Load plugins
+"Load local settings
 if filereadable(expand("~/.vim/vimrc.local"))
   source ~/.vim/vimrc.local
 endif

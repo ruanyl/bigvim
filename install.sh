@@ -32,6 +32,10 @@ lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
 lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
 lnif $CURRENT_DIR/others/eslintrc $HOME/.eslintrc
 
+echo "copy vimrc.bundles.local.example and vimrc.local.example"
+cp $HOME/.vim/vimrc.local.example $HOME/.vim/vimrc.local
+cp $HOME/.vim/vimrc.bundles.local.example $HOME/.vim/vimrc.bundles.local
+
 
 if [ ! -e $CURRENT_DIR/autoload/plug.vim ]; then
     echo "Installing Vim-Plug"

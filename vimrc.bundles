@@ -313,4 +313,9 @@ nnoremap <silent> qo :BufOnly<CR>
 
 Plug 'editorconfig/editorconfig-vim'
 
+"Load local plugins
+if filereadable(expand("~/.vim/vimrc.bundles.local"))
+  source ~/.vim/vimrc.bundles.local
+endif
+
 call plug#end()
