@@ -26,7 +26,7 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', {'do': 'npm i -g git+https://github.com/ramitos/jsctags.git'}
 " require jsctags
 " npm install -g git+https://github.com/ramitos/jsctags.git
 let g:tagbar_type_javascript = {
@@ -220,10 +220,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 "################# Highlight ###############
 
 "highlight for css3
-Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 
 " for markdown
-Plug 'plasticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
@@ -242,14 +242,14 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'burnettk/vim-angular'
 
 " ReactJS
-Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx', {'for': ['javascript', 'jsx']}
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
 
 Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
 
 "################## Language Specific ##################
 "generate javascript doc
-Plug 'heavenshell/vim-jsdoc'
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx']}
 let g:jsdoc_default_mapping = 0
 autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 
@@ -277,9 +277,9 @@ let g:php_manual_enable_online_search = 0
 Plug 'mkusher/padawan.vim', {'for': 'php'}
 
 " syntax for laravel blade
-Plug 'xsbeats/vim-blade'
+Plug 'xsbeats/vim-blade', {'for': 'blade'}
 
-Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse'}
+Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
 
 "################### Others ###################"
 
@@ -290,7 +290,7 @@ let g:gundo_auto_preview = 0
 
 "format js, html, css files
 "require: npm install -g js-beautify
-Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat', 'do': 'npm i js-beautify -g'}
 autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
