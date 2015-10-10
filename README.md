@@ -20,21 +20,31 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
 
 3. 安装相关node module（install.sh会默认检查并安装，如果失败需要手动安装）
   ```
-  npm install -g eslint js-beautify
+  npm i -g eslint #JS 语法，代码规范检查
+  npm i -g js-beautify # JS, CSS, HTML 快速格式化
+  npm i -g git+https://github.com/ramitos/jsctags.git # tagbar JS 支持
   ```
   相关eslint插件请自行安装
 
-4. 安装插件
+4. 其他依赖
+  ```
+  ctags, ag
+  ```
+  安装YouCompleteMe如果出现问题，请前往项目主页寻找解决方法,
+  [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
+  [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
+
+5. 安装插件
   ```
   cd bigvim/
   sh -x install.sh
   install.sh
   ```
 
-5. 安装powerline美化字体:
+6. 安装powerline美化字体:
   推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
 
-6. 复制vimrc.bundles.example 到 vimrc.bundles，在这里加入你自己的自定配置
+7. 复制vimrc.bundles.example 到 vimrc.bundles，在这里加入你自己的自定配置
 
 ### 内置主题
 
