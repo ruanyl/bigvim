@@ -1,8 +1,6 @@
 bigvim
 ======================
 
-Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
-
 ### 配置步骤
 
 > 注意，该配置需要vim7.4.x. 在MacOS下测试过。
@@ -12,9 +10,8 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
   git clone https://github.com/ruanyl/bigvim.git
   ```
 
-2. 安装Nodejs，建议使用nvm
+2. 安装Nodejs，建议使用[nvm](https://github.com/creationix/nvm)
   ```
-  brew install nvm
   nvm install v0.xx.x
   ```
 
@@ -31,8 +28,8 @@ Inspired by [k-vim](https://github.com/wklken/k-vim), but more front-end stuffs
   ctags, ag
   ```
   安装YouCompleteMe如果出现问题，请前往项目主页寻找解决方法,
-  [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
-  [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
+  1. [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
+  2. [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
 5. 安装插件
   ```
@@ -383,3 +380,7 @@ qo 关闭所有buff，当前除外
 
 ####[editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 支持.editorconfig文件
+
+#### Inspired by:
+1. [k-vim](https://github.com/wklken/k-vim)
+2. [spf13-vim](https://github.com/spf13/spf13-vim)
