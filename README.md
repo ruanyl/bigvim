@@ -10,9 +10,8 @@ bigvim
   git clone https://github.com/ruanyl/bigvim.git
   ```
 
-2. 安装Nodejs，建议使用nvm
+2. 安装Nodejs，建议使用[nvm](https://github.com/creationix/nvm)
   ```
-  brew install nvm
   nvm install v0.xx.x
   ```
 
