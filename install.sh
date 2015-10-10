@@ -19,39 +19,41 @@ lnif() {
     fi
 }
 
-echo "backing up current vim config"
+echo ">>>>>>>>backing up current vim config"
 today=`date +%Y%m%d`
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.editorconfig $HOME/.tern-config; do [ -e $i ] && [ ! -L $i ] && mv $i $i.$today; done
 for i in $HOME/.vim $HOME/.vimrc $HOME/.gvimrc $HOME/.editorconfig $HOME/.tern-config; do [ -L $i ] && unlink $i ; done
 
 
-echo "setting up symlinks"
+echo ">>>>>>>>setting up symlinks"
 lnif $CURRENT_DIR/vimrc $HOME/.vimrc
 lnif $CURRENT_DIR/ $HOME/.vim
 lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
 lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
 lnif $CURRENT_DIR/others/eslintrc $HOME/.eslintrc
 
-echo "copy vimrc.bundles.local.example and vimrc.local.example"
+echo ">>>>>>>>copy vimrc.bundles.local.example and vimrc.local.example"
 cp $HOME/.vim/vimrc.local.example $HOME/.vim/vimrc.local
 cp $HOME/.vim/vimrc.bundles.local.example $HOME/.vim/vimrc.bundles.local
 
 
 if [ ! -e $CURRENT_DIR/autoload/plug.vim ]; then
-    echo "Installing Vim-Plug"
+    echo ">>>>>>>>Installing Vim-Plug"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 
-echo "update/install plugins using vim-plug"
+echo ">>>>>>>>update/install plugins using vim-plug"
 system_shell=$SHELL
 export SHELL="/bin/sh"
 vim -u $CURRENT_DIR/vimrc +PlugInstall! +PlugClean +qall
 export SHELL=$system_shell
 
-echo "install eslint for javascript syntax check"
-command -v eslint >/dev/null || npm install -g eslint
+echo ">>>>>>>>install eslint for javascript syntax check"
+command -v eslint >/dev/null || npm i -g eslint
+command -v jsctags >/dev/null || npm i -g git+https://github.com/ramitos/jsctags.git
+command -v js-beautify >/dev/null || npm i js-beautify -g
 
 #vim undo dir
 if [ ! -d ~/.undodir ]
