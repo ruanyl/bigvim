@@ -26,8 +26,8 @@ let g:netrw_home='~/bak'
 "close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
-Plug 'majutsushi/tagbar', {'do': 'npm i -g git+https://github.com/ramitos/jsctags.git'}
-" require jsctags
+Plug 'majutsushi/tagbar'
+" require ctags, jsctags
 " npm install -g git+https://github.com/ramitos/jsctags.git
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
@@ -39,7 +39,7 @@ let g:tagbar_width = 50
 Plug 'ctrlpvim/ctrlp.vim'
 map <leader>m :CtrlPMRU<CR>
 map <leader>b :CtrlPBuffer<CR>
-map <leader>f :CtrlPMixed<CR>
+map <leader>f :CtrlP<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -53,7 +53,7 @@ let g:ctrlp_funky_matchtype = 'path'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
 
 Plug 'sgur/ctrlp-extensions.vim'
-nnoremap <Leader>cy :CtrlPYankring<Cr>
+nnoremap <Leader>fy :CtrlPYankring<Cr>
 
 Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
 vmap <Leader>s <Plug>CtrlSFVwordExec
@@ -150,8 +150,8 @@ Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
-let g:ycm_key_list_select_completion = ['<Tab>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<Tab>', '<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 let g:ycm_semantic_triggers =  {
             \   'c' : ['->', '.'],
             \   'objc' : ['->', '.'],
@@ -290,8 +290,8 @@ let g:gundo_auto_preview = 0
 
 "format js, html, css files
 "require: npm install -g js-beautify
-Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat', 'do': 'npm i js-beautify -g'}
-autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
+autocmd FileType javascript.jsx,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
