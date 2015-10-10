@@ -3,7 +3,7 @@ bigvim
 
 ### 配置步骤
 
-> 注意，该配置需要vim7.4.x. 在MacOS下测试过。
+> 注意，该配置需要vim7.4.x. 在MacOS 和Ubuntu 14.04Server下安装测试过。
 
 1. clone到本地任意目录
   ```
@@ -24,12 +24,19 @@ bigvim
   相关eslint插件请自行安装
 
 4. 其他依赖
+  
+  for tabbar和ag插件：
+  - Mac: `brew install ctags silversearcher-ag`
+  - Ubuntu: `apt-get install ctags silversearcher-ag`
+  
+  for YoucomplateMe插件：
   ```
-  ctags, ag
+  apt-get install install build-essential cmake python-dev #Ubuntu
+  brew install cmake #MacOS
   ```
   安装YouCompleteMe如果出现问题，请前往项目主页寻找解决方法,
-  1. [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
-  2. [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
+  - [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
+  - [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
 5. 安装插件
   ```
