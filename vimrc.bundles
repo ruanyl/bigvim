@@ -18,7 +18,7 @@ let g:mapleader = ','
 
 "################### Navigation ###################"
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-map <leader>e :NERDTreeToggle<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -32,14 +32,14 @@ Plug 'majutsushi/tagbar'
 let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
     \ }
-nmap <leader>t :TagbarToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
 Plug 'ctrlpvim/ctrlp.vim'
-map <leader>m :CtrlPMRU<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>f :CtrlP<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap f :CtrlP<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -50,10 +50,8 @@ let g:ctrlp_follow_symlinks=1
 " Mapping: <Leader>fu
 Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
 nnoremap <Leader>fu :CtrlPFunky<Cr>
-
-Plug 'sgur/ctrlp-extensions.vim'
-nnoremap <Leader>fy :CtrlPYankring<Cr>
 
 Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
 vmap <Leader>s <Plug>CtrlSFVwordExec
@@ -242,7 +240,7 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'burnettk/vim-angular'
 
 " ReactJS
-Plug 'mxw/vim-jsx', {'for': ['javascript', 'jsx']}
+Plug 'mxw/vim-jsx'
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
 
 Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
@@ -291,7 +289,7 @@ let g:gundo_auto_preview = 0
 "format js, html, css files
 "require: npm install -g js-beautify
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
-autocmd FileType javascript.jsx,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
 
 " quick run current buffer or selected code
 " Command: :QuickRun or :QuickRun {language}
