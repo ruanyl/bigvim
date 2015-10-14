@@ -83,7 +83,7 @@ set scrolloff=7    " Set 7 lines to the cursor - when moving vertically using j/
 
 " File encode:encode for varied filetype
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
+set fileencodings=utf-8,ucs-bom,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set helplang=en
 set termencoding=utf-8
 
@@ -163,8 +163,8 @@ vnoremap <C-c> "*y
 inoremap <C-V> <C-R>"
 
 "Treat long lines as break lines (useful when moving around in them)
-map j gj
-map k gk
+noremap j gj
+noremap k gk
 
 " better command line editing
 cnoremap <C-j> <t_kd>
@@ -173,18 +173,18 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 "Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
 
 " Go to home and end using capitalized directions
 noremap H 0
 noremap L $
-map Y y$
+noremap Y y$
 
 " Remap VIM 0 to first non-blank character
-map 0 ^
+noremap 0 ^
 
 " Speed up scrolling of the viewport slightly
 nnoremap <C-e> 2<C-e>
@@ -214,7 +214,7 @@ noremap M :bp<CR>
 nnoremap U <C-r>
 
 " select all
-map <Leader>sa ggVG"
+noremap <Leader>sa ggVG"
 
 nnoremap dp :diffput<CR>
 nnoremap dg :diffget<CR>
@@ -223,8 +223,8 @@ nnoremap dg :diffget<CR>
 nnoremap t <C-^>
 
 "" Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
@@ -232,8 +232,8 @@ vnoremap K :m '<-2<CR>gv=gv
 
 if has('macunix')
   " pbcopy for OSX copy/paste
-  vmap <C-x> :!pbcopy<CR>
-  vmap <C-c> :w !pbcopy<CR><CR>
+  vnoremap <C-x> :!pbcopy<CR>
+  vnoremap <C-c> :w !pbcopy<CR><CR>
 endif
 
 hi! link SignColumn   LineNr
