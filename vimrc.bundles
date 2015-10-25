@@ -218,10 +218,10 @@ let g:syntastic_javascript_checkers = ['eslint']
 "################# Highlight ###############
 
 "highlight for css3
-Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
+Plug 'hail2u/vim-css3-syntax'
 
 " for markdown
-Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
@@ -231,7 +231,7 @@ Plug 'pangloss/vim-javascript', {'branch': 'develop'}
 
 Plug 'ruanyl/vim-fixmyjs', {'on': 'Fixmyjs'}
 
-Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
+Plug 'kchmck/vim-coffee-script'
 
 "Syntax for JavaScript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
