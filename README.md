@@ -140,6 +140,15 @@ CtrlP插件，提供sublime类似的grep搜索
 ,,a     #然后输入要检索的内容
 ```
 
+####[ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch)
+模糊查找的功能
+
+```
+,/     #然后输入要检索的内容
+```
+
+![ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch/raw/master/doc/example.gif)
+
 ####[bling/vim-airline](https://github.com/bling/vim-airline)
 状态栏，buffer兰美化
 

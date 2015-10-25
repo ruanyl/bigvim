@@ -60,6 +60,8 @@ Plug 'rking/ag.vim'
 nnoremap <Leader><Leader>a :Ag!<space>
 let g:ag_working_path_mode='r'
 
+Plug 'ggVGc/vim-fuzzysearch'
+nnoremap <leader>/ :FuzzySearch<cr>
 
 "################### Display Enhancements ###################"
 let g:netrw_liststyle=3
