@@ -1,9 +1,11 @@
 bigvim
 ======================
 
+该配置比较适合平时主要写JS的同学，对PHP也有支持。Key mappings需要的话，请根据自己的习惯修改。使用过程中如果有问题，可以提`issue`。也非常欢迎`pull request`.
+
 ### 配置步骤
 
-> 注意，该配置需要vim7.4.x. 在MacOS下测试过。
+> 注意，该配置需要vim7.4.x. 在MacOS 和Ubuntu 14.04Server下安装测试过。
 
 1. clone到本地任意目录
   ```
@@ -24,12 +26,19 @@ bigvim
   相关eslint插件请自行安装
 
 4. 其他依赖
+  
+  for tabbar和ag插件：
+  - Mac: `brew install ctags silversearcher-ag`
+  - Ubuntu: `apt-get install ctags silversearcher-ag`
+  
+  for YoucomplateMe插件：
   ```
-  ctags, ag
+  apt-get install install build-essential cmake python-dev #Ubuntu
+  brew install cmake #MacOS
   ```
   安装YouCompleteMe如果出现问题，请前往项目主页寻找解决方法,
-  1. [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
-  2. [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
+  - [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
+  - [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
 5. 安装插件
   ```
@@ -41,7 +50,9 @@ bigvim
 6. 安装powerline美化字体:
   推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
 
-7. 复制vimrc.bundles.example 到 vimrc.bundles，在这里加入你自己的自定配置
+7. 复制vimrc.bundles.local.example 到 vimrc.bundles.local，在这里加入你自己的插件
+8. 复制vimrc.local.example 到 vimrc.local，这里加入你自己的vim设置、按键映射
+9. 注意：该配置默认会备份替换你HOME目录下的`.tern-config`,`.editorconfig`, `.eslintrc`. 正在考虑修改这个行为。
 
 ### 内置主题
 
@@ -59,9 +70,11 @@ molokai主题
 ```
 空格  开启查找(Easymotion模式)
 :W    以sudo的权限保存
+(     左括号，在changelist 逆序切换
+)     右括号，在changelist 顺序切换，文件内跳转非常有用
 ,sa  全选(select all)
 ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
-,f   开启文件搜索 ctrlp
+f   开启文件搜索 ctrlp
 ,/   去除匹配高亮
 '    :b
 qq   关闭当前Buffer
@@ -72,9 +85,11 @@ Tab  最大化当前split窗口/切换
 ,r   快速运行当前文件
 H    到行首
 L    到行尾
+,d   javascript go to defination
+,,d  快速添加JS Doc
 ```
 
-> 更多地快捷键，请在vimrc中对应的插件查找
+> 更多地快捷键，请在vimrc中对应的插件寻找
 
 
 ## 主要插件列表
@@ -108,7 +123,7 @@ L    到行尾
 ####[kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
 快速文件搜索+导航
 ```
-,f  默认查找 最近使用的+文件搜索+buffer
+f   默认CtrlP查找
 ,m  相当于mru功能，most recently used
 ,b  查找buffer
 ```
@@ -217,6 +232,10 @@ tab    # 快捷键设置为tab
 ####[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 强大的自动补全，如果安装失败，请前往该项目的github wiki查找帮助
 ![YCM](https://camo.githubusercontent.com/1f3f922431d5363224b20e99467ff28b04e810e2/687474703a2f2f692e696d6775722e636f6d2f304f50346f6f642e676966)
+```
+向下选择：<tab> 或<c-j>或方向键
+向上选择：<c-k>或者方向键
+```
 
 
 ###[SirVer/ultisnips](https://github.com/SirVer/ultisnips)
