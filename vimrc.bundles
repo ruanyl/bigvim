@@ -39,7 +39,6 @@ let g:tagbar_width = 50
 Plug 'ctrlpvim/ctrlp.vim'
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap f :CtrlP<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
@@ -61,7 +60,7 @@ nnoremap <Leader><Leader>a :Ag!<space>
 let g:ag_working_path_mode='r'
 
 Plug 'ggVGc/vim-fuzzysearch'
-nnoremap <leader>/ :FuzzySearch<cr>
+nnoremap <leader><leader>/ :FuzzySearch<cr>
 
 "################### Display Enhancements ###################"
 let g:netrw_liststyle=3
@@ -128,6 +127,8 @@ map <space> <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 let g:EasyMotion_smartcase = 1
+
+Plug 'unblevable/quick-scope'
 
 " extended % matching for HTML, LaTeX, and many other languages
 Plug 'vim-scripts/matchit.zip'
@@ -204,8 +205,6 @@ vmap <Leader>a" :Tabularize /"<CR>
 Plug 'terryma/vim-multiple-cursors'
 
 Plug 'mattn/emmet-vim'
-
-Plug 'Ioannis-Kapoulas/vim-autoprefixer'
 
 "################# syntax check ###############
 
@@ -301,6 +300,8 @@ Plug 'thinca/vim-quickrun'
 Plug 'mattn/webapi-vim'
 
 Plug 'tpope/vim-fugitive'
+
+Plug 'airblade/vim-gitgutter'
 
 " delete current buffer
 Plug 'moll/vim-bbye'

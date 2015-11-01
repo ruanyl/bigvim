@@ -74,7 +74,7 @@ molokai主题
 )     右括号，在changelist 顺序切换，文件内跳转非常有用
 ,sa  全选(select all)
 ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
-f   开启文件搜索 ctrlp
+ctrl+p   开启文件搜索 ctrlp
 ,/   去除匹配高亮
 '    :b
 qq   关闭当前Buffer
@@ -159,7 +159,7 @@ CtrlP插件，提供sublime类似的grep搜索
 模糊查找的功能
 
 ```
-,/     #然后输入要检索的内容
+,,/     #然后输入要检索的内容
 ```
 
 ![ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch/raw/master/doc/example.gif)
