@@ -88,6 +88,12 @@ Plug 'xsbeats/vim-blade', {'for': 'blade'}
 Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
 Plug 'hail2u/vim-css3-syntax'
 
+"Load local plugins
+if filereadable(expand("~/.vim/vimrc.bundles.local"))
+  source ~/.vim/vimrc.bundles.local
+endif
+call plug#end()
+
 " ----------------------------------------------------------------------------
 " NERDTree
 " ----------------------------------------------------------------------------
@@ -318,9 +324,3 @@ nnoremap qq :Bdelete<cr>
 " ----------------------------------------------------------------------------
 nnoremap <silent> qo :BufOnly<CR>
 
-"Load local plugins
-if filereadable(expand("~/.vim/vimrc.bundles.local"))
-  source ~/.vim/vimrc.bundles.local
-endif
-
-call plug#end()

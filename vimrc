@@ -1,7 +1,7 @@
-"==========================================
+" ----------------------------------------------------------------------------
 " Author:  ruanyl
-" Version: 0.9.9
-"==========================================
+" Version: 1.1
+" ----------------------------------------------------------------------------
 
 set nocompatible
 
@@ -9,10 +9,6 @@ set nocompatible
 if filereadable(expand("~/.vim/vimrc.bundles"))
   source ~/.vim/vimrc.bundles
 endif
-
-"==========================================
-" General Settings
-"==========================================
 
 filetype plugin indent on
 syntax enable
@@ -143,9 +139,9 @@ autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expand
 
 autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
 
-"==========================================
-"Key Mappings:Customized keys
-"==========================================
+" ----------------------------------------------------------------------------
+" Key Mappings:Customized keys
+" ----------------------------------------------------------------------------
 
 command! W w !sudo tee % > /dev/null
 
