@@ -6,6 +6,10 @@ call plug#begin('~/.vim/bundle')
 let mapleader = ','
 let g:mapleader = ','
 
+if !exists('g:bigvim_plug_groups')
+    let g:bigvim_minor_plugins=['php', 'css',]
+endif
+
 " ----------------------------------------------------------------------------
 " vim plugin bundle control, command model
 " :PlugInstall     install
@@ -78,15 +82,19 @@ Plug 'burnettk/vim-angular'
 Plug 'mxw/vim-jsx'
 
 " PHP
-Plug 'StanAngeloff/php.vim', {'for': 'php'}
-Plug 'mkusher/padawan.vim', {'for': 'php'}
-Plug 'ruanyl/vim-php-manual', {'for': 'php'}
-Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-Plug 'xsbeats/vim-blade', {'for': 'blade'}
+if count(g:bigvim_minor_plugins, 'php')
+    Plug 'StanAngeloff/php.vim', {'for': 'php'}
+    Plug 'mkusher/padawan.vim', {'for': 'php'}
+    Plug 'ruanyl/vim-php-manual', {'for': 'php'}
+    Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
+    Plug 'jwalton512/vim-blade', {'for': 'blade'}
+endif
 
 " CSS
-Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
-Plug 'hail2u/vim-css3-syntax'
+if count(g:bigvim_minor_plugins, 'css')
+    Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
+    Plug 'hail2u/vim-css3-syntax'
+endif
 
 "Load local plugins
 if filereadable(expand("~/.vim/vimrc.bundles.local"))
