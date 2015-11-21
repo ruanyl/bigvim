@@ -323,4 +323,3 @@ nnoremap qq :Bdelete<cr>
 " BufOnly.vim
 " ----------------------------------------------------------------------------
 nnoremap <silent> qo :BufOnly<CR>
-
