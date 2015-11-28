@@ -1,3 +1,32 @@
+v1.2 - 2015-11-28
+=======
+
+### Important
+1. `vimrc.bundle` is more readable now
+2. Add settings(experimental feature) for selective loading plugin groups, for example:
+```
+let g:bigvim_minor_plugins=['php', 'css',]
+```
+Remove plugin group from the array to disable the plugins, settings can be changed at `vimrc.before`
+The idea here is, since the number of plugin is growing, give it the capability to only load the plugins that are needed.
+
+### New plugins
+####1. [inside/vim-search-pulse](https://github.com/inside/vim-search-pulse)
+
+![vim-search-pulse](https://camo.githubusercontent.com/d2668b3edb833254fa8f235651df3d6e52e7e8db/687474703a2f2f692e696d6775722e636f6d2f756b5a757469322e676966)
+
+####2. [fantasyczl/blade-php-vim](https://github.com/fantasyczl/blade-php-vim)
+Use this `balde` syntax plugin instead of `jwalton512/vim-blade`, because the old one causes vim sometimes gets stucked
+
+### Minor changes
+Add setting `let tern_show_argument_hints = 'on_hold'` for `tern_for_vim`, it will shows the argument hint when cursor
+stay on a function for a while
+
+### Removed
+####1. [mattn/webapi-vim](https://github.com/mattn/webapi-vim)
+this plugin should be installed as a dependency.
+
+
 v1.1 - 2015-11-01
 =======
 ### New plugins
