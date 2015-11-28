@@ -1,0 +1,4 @@
+" in order to make your local setting works
+" copy this file and rename it as vimrc.before.local
+" add your vimrc configurations here
+let g:bigvim_minor_plugins=['php', 'css',]

@@ -6,6 +6,11 @@
 set nocompatible
 
 "Load plugins
+if filereadable(expand("~/.vim/vimrc.before"))
+  source ~/.vim/vimrc.before
+endif
+
+"Load plugins
 if filereadable(expand("~/.vim/vimrc.bundles"))
   source ~/.vim/vimrc.bundles
 endif

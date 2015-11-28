@@ -5,3 +5,4 @@ bundle/*
 .DS_Store
 vimrc.local
 vimrc.bundles.local
+vimrc.before

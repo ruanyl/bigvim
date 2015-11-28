@@ -32,9 +32,10 @@ lnif $CURRENT_DIR/others/tern-config $HOME/.tern-config
 lnif $CURRENT_DIR/others/editorconfig $HOME/.editorconfig
 lnif $CURRENT_DIR/others/eslintrc $HOME/.eslintrc
 
-echo ">>>>>>>>copy vimrc.bundles.local.example and vimrc.local.example"
+echo ">>>>>>>>copy vimrc.bundles.local.example, vimrc.local.example and vimrc.before.example"
 cp $HOME/.vim/vimrc.local.example $HOME/.vim/vimrc.local
 cp $HOME/.vim/vimrc.bundles.local.example $HOME/.vim/vimrc.bundles.local
+cp $HOME/.vim/vimrc.before.example $HOME/.vim/vimrc.before
 
 
 if [ ! -e $CURRENT_DIR/autoload/plug.vim ]; then
