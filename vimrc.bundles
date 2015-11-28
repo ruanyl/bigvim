@@ -6,7 +6,7 @@ call plug#begin('~/.vim/bundle')
 let mapleader = ','
 let g:mapleader = ','
 
-if !exists('g:bigvim_plug_groups')
+if !exists('g:bigvim_minor_plugins')
     let g:bigvim_minor_plugins=['php', 'css',]
 endif
 
@@ -22,6 +22,7 @@ Plug 'Valloric/MatchTagAlways'
 Plug 'bling/vim-airline'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
+Plug 'inside/vim-search-pulse'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -51,7 +52,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
 Plug 'thinca/vim-quickrun'
-Plug 'mattn/webapi-vim'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
@@ -87,7 +87,7 @@ if count(g:bigvim_minor_plugins, 'php')
     Plug 'mkusher/padawan.vim', {'for': 'php'}
     Plug 'ruanyl/vim-php-manual', {'for': 'php'}
     Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-    Plug 'jwalton512/vim-blade', {'for': 'blade'}
+    Plug 'fantasyczl/blade-php-vim'
 endif
 
 " CSS
@@ -298,6 +298,7 @@ autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 " tern_for_vim
 " ----------------------------------------------------------------------------
 let tern_show_signature_in_pum = 1
+let tern_show_argument_hints = 'on_hold'
 autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
 autocmd FileType javascript setlocal omnifunc=tern#Complete
 
