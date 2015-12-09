@@ -17,9 +17,13 @@ bigvim
 
 > 注意，该配置需要vim7.4.x. 在MacOS 和Ubuntu 14.04Server下安装测试过。
 
-1. clone到本地任意目录
+1. 安装（需要Git）
   ```
-  git clone https://github.com/ruanyl/bigvim.git
+  curl -o- https://raw.githubusercontent.com/ruanyl/bigvim/master/install.sh | bash
+  ```
+  或者
+  ```
+  wget -qO- https://raw.githubusercontent.com/ruanyl/bigvim/master/install.sh | bash
   ```
 
 2. 安装Nodejs，建议使用[nvm](https://github.com/creationix/nvm)
