@@ -47,7 +47,7 @@ Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 " tools
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 Plug 'scrooloose/syntastic'
-Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
+"Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
 Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'

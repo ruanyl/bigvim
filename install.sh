@@ -63,7 +63,7 @@ lnif $VIM_PATH/vimrc $HOME/.vimrc
 lnif $VIM_PATH/ $HOME/.vim
 lnif $VIM_PATH/others/tern-config $HOME/.tern-config
 lnif $VIM_PATH/others/editorconfig $HOME/.editorconfig
-lnif $VIM_PATH/others/eslintrc $HOME/.eslintrc
+#lnif $VIM_PATH/others/eslintrc $HOME/.eslintrc
 success "Successfully created symbol links"
 
 info "copy vimrc.bundles.local.example, vimrc.local.example and vimrc.before.example"
