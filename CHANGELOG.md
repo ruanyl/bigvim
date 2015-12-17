@@ -1,3 +1,13 @@
+v1.3 - 2015-12-13
+=======
+
+### Important
+Update installation script, new there is a new way to install this vim configuration. see `README` for more information
+
+### New plugins
+####1. [ruanyl/vim-eslint](https://github.com/ruanyl/vim-eslint)
+This is temporaly fix for slow linting of eslint. 
+
 v1.2 - 2015-11-28
 =======
 

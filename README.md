@@ -5,8 +5,8 @@ bigvim
 
 **版本1.3的更新计划:**
 
-- [ ] 提高eslint的速度
-- [ ] 更新安装脚本 `install.sh`
+- [x] 提高eslint的速度
+- [x] 更新安装脚本 `install.sh`
 
 **版本1.2的更新计划:**
 
