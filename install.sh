@@ -1,7 +1,7 @@
 #!/bin/bash
 
 APP_NAME='bigvim'
-REQUIRE="npm node"
+REQUIRE="npm node git"
 [ -z "$VIM_PATH" ] && VIM_PATH="$HOME/.bigvim"
 [ -z "$REPO_URI" ] && REPO_URI='https://github.com/ruanyl/bigvim.git'
 
