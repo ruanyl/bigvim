@@ -17,7 +17,12 @@ bigvim
 
 > 注意，该配置需要vim7.4.x. 在MacOS 和Ubuntu 14.04Server下安装测试过。
 
-1. 安装（需要Git）
+1. 安装依赖(必须)
+  ```
+  Git, node, npm
+  ```
+
+2. 安装步骤
   ```
   curl -o- https://raw.githubusercontent.com/ruanyl/bigvim/master/install.sh | bash
   ```
@@ -26,12 +31,11 @@ bigvim
   wget -qO- https://raw.githubusercontent.com/ruanyl/bigvim/master/install.sh | bash
   ```
 
-2. 安装Nodejs，建议使用[nvm](https://github.com/creationix/nvm)
-  ```
-  nvm install v0.xx.x
-  ```
+#### 选装
 
-3. 安装相关node module（install.sh会默认检查并安装，如果失败需要手动安装）
+> 建议安装以下依赖以达到最好的使用体验
+
+1. 相关node module
   ```
   npm i -g eslint #JS 语法，代码规范检查
   npm i -g js-beautify # JS, CSS, HTML 快速格式化
@@ -39,9 +43,9 @@ bigvim
   ```
   相关eslint插件请自行安装
 
-4. 其他依赖
+2. 其他依赖
   
-  for tabbar和ag插件：
+  ag快速搜索插件：
   - Mac: `brew install ctags silversearcher-ag`
   - Ubuntu: `apt-get install ctags silversearcher-ag`
   
@@ -54,19 +58,9 @@ bigvim
   - [Ubuntu Linux x64 super-quick installation](https://github.com/Valloric/YouCompleteMe#ubuntu-linux-x64-super-quick-installation)
   - [Mac OS X super-quick installation](https://github.com/Valloric/YouCompleteMe#mac-os-x-super-quick-installation)
 
-5. 安装插件
-  ```
-  cd bigvim/
-  sh -x install.sh
-  install.sh
-  ```
-
-6. 安装powerline美化字体:
+3. 安装powerline美化字体:
   推荐[Monaco for Powerline](https://gist.github.com/ruanyl/ea38de37683951c20bf5/raw/5fa73caa4af86285f11539a6b4b6c26cfca2c04b/Monaco%20for%20Powerline.otf) 或者去[Lokaltog/powerline-fonts](https://github.com/Lokaltog/powerline-fonts) 自行寻找
 
-7. 复制vimrc.bundles.local.example 到 vimrc.bundles.local，在这里加入你自己的插件
-8. 复制vimrc.local.example 到 vimrc.local，这里加入你自己的vim设置、按键映射
-9. 注意：该配置默认会备份替换你HOME目录下的`.tern-config`,`.editorconfig`, `.eslintrc`. 正在考虑修改这个行为。
 
 ### 内置主题
 
