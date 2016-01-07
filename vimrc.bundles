@@ -233,7 +233,7 @@ let g:ycm_semantic_triggers =  {
             \   'cpp,objcpp' : ['->', '.', '::'],
             \   'perl' : ['->'],
             \   'php' : ['->', '::', '(', 'use ', 'namespace ', '\'],
-            \   'cs,java,typescript,javascript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+            \   'cs,java,typescript,d,python,perl6,scala,vb,elixir,go' : ['.', 're!(?=[a-zA-Z]{3,4})'],
             \   'html': ['<', '"', '</', ' '],
             \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
             \   'ruby' : ['.', '::'],
@@ -241,6 +241,7 @@ let g:ycm_semantic_triggers =  {
             \   'erlang' : [':'],
             \   'haskell' : ['.', 're!.'],
             \   'css': [ 're!^\s{2,4}', 're!:\s+' ],
+            \   'javascript': ['.', 're!(?=[a-zA-Z]{3,4})'],
             \ }
 
 " ----------------------------------------------------------------------------
