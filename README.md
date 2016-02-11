@@ -37,18 +37,20 @@ bigvim
 
 1. 相关node module
   ```
-  npm i -g eslint #JS 语法，代码规范检查
+  npm i -g eslint eslint-config-airbnb babel-eslint eslint-plugin-react #JS 语法，代码规范检查
+  或者
+  npm i --save-dev eslint eslint-config-airbnb babel-eslint eslint-plugin-react
   npm i -g js-beautify # JS, CSS, HTML 快速格式化
   npm i -g git+https://github.com/ramitos/jsctags.git # tagbar JS 支持
   ```
   相关eslint插件请自行安装
 
 2. 其他依赖
-  
+
   ag快速搜索插件：
   - Mac: `brew install ctags silversearcher-ag`
   - Ubuntu: `apt-get install ctags silversearcher-ag`
-  
+
   for YoucomplateMe插件：
   ```
   apt-get install install build-essential cmake python-dev #Ubuntu

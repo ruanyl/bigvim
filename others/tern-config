@@ -1,7 +1,8 @@
 {
   "libs": [
     "browser",
-    "jquery"
+    "jquery",
+    "ecma5"
   ],
   "loadEagerly": [
     "importantfile.js"
