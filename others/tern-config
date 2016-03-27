@@ -1,18 +1,23 @@
 {
   "libs": [
     "browser",
-    "jquery",
-    "ecma5"
+    "jquery"
   ],
   "loadEagerly": [
-    "importantfile.js"
+    "src/**/*.js"
+  ],
+  "dontLoad": [
+    "lib/**/*.js"
   ],
   "plugins": {
     "requirejs": {
       "baseURL": "./",
       "paths": {}
     },
-    "node": {
-    }
+    "node": {},
+    "complete_strings": {},
+    "angular": {},
+    "modules": {},
+    "es_modules": {}
   }
 }
