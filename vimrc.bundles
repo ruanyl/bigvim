@@ -46,10 +46,10 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 
 " tools
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+Plug 'Valloric/YouCompleteMe', {'do': './install.py --tern-completer'}
 Plug 'scrooloose/syntastic'
 "Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', {'do': 'npm install -g git+https://github.com/ramitos/jsctags.git'}
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
@@ -77,7 +77,7 @@ Plug 'rking/ag.vim'
 
 " javascript
 Plug 'pangloss/vim-javascript', {'branch': 'develop'}
-Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+"Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx']}
@@ -124,6 +124,7 @@ let g:tagbar_type_javascript = {
     \ 'ctagsbin' : 'jsctags'
     \ }
 nnoremap <leader>t :TagbarToggle<CR>
+let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_autofocus = 1
 let g:tagbar_width = 50
 
@@ -135,6 +136,12 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+    \ }
+let g:ctrlp_buftag_types = {
+    \ 'javascript': {
+    \ 'bin': 'jsctags',
+    \ 'args': '-f -',
+    \ },
     \ }
 let g:ctrlp_follow_symlinks=1
 
@@ -223,6 +230,7 @@ let g:wildfire_water_map = "<BS>"
 " ----------------------------------------------------------------------------
 " YouCompleteMe
 " ----------------------------------------------------------------------------
+autocmd FileType javascript nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 let g:ycm_autoclose_preview_window_after_completion = 1
 "let g:ycm_complete_in_strings = 1
 let g:ycm_complete_in_comments = 1
@@ -279,6 +287,7 @@ let g:syntastic_style_warning_symbol='•'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " ----------------------------------------------------------------------------
 " vim-markdown
@@ -303,8 +312,8 @@ autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
 " ----------------------------------------------------------------------------
 let tern_show_signature_in_pum = 1
 let tern_show_argument_hints = 'on_hold'
-autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
-autocmd FileType javascript setlocal omnifunc=tern#Complete
+"autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
+"autocmd FileType javascript setlocal omnifunc=tern#Complete
 
 " ----------------------------------------------------------------------------
 " padawan.vim
