@@ -344,10 +344,10 @@ React JSX语法高亮
 ####[othree/javascript-libraries-syntax.vim](https://github.com/othree/javascript-libraries-syntax.vim)
 一些javascript library的语法高亮
 
-####[burnettk/vim-angular](https://github.com/othree/burnettk/vim-angular)
+####[burnettk/vim-angular](https://github.com/burnettk/vim-angular)
 Angular相关
 
-####[ruanyl/vim-fidget](https://github.com/othree/ruanyl/vim-fidget)
+####[ruanyl/vim-fidget](https://github.com/ruanyl/vim-fidget)
 vim版jsfiddle，打开3个split窗口，分别是css,js,html，快速写点小demo时比较实用
 ```
 :VimFidget   # 进入3个窗口，并自动打开浏览器。并且是livereload的
