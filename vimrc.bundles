@@ -76,7 +76,7 @@ Plug 'ggVGc/vim-fuzzysearch'
 Plug 'rking/ag.vim'
 
 " javascript
-Plug 'pangloss/vim-javascript', {'branch': 'develop'}
+Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
@@ -96,7 +96,10 @@ endif
 " CSS
 if count(g:bigvim_minor_plugins, 'css')
     Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
-    Plug 'hail2u/vim-css3-syntax'
+    "Plug 'hail2u/vim-css3-syntax'
+    Plug 'cakebaker/scss-syntax.vim'
+    Plug 'JulesWang/css.vim'
+    au BufRead,BufNewFile *.scss set filetype=scss.css
 endif
 
 "Load local plugins
@@ -242,7 +245,7 @@ let g:ycm_semantic_triggers =  {
             \   'lua' : ['.', ':'],
             \   'erlang' : [':'],
             \   'haskell' : ['.', 're!.'],
-            \   'css': [ 're!^\s{2,4}', 're!:\s+' ],
+            \   'scss,css': [ 're!^\s{2,4}', 're!:\s+' ],
             \   'javascript': ['.', 're!(?=[a-zA-Z]{3,4})'],
             \ }
 
