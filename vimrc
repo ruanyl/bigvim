@@ -103,7 +103,7 @@ set whichwrap+=<,>,h,l
 set pastetoggle=<F5>                         " when in insert mode, toggle between 'paste' and 'nopaste'
 
 "let &colorcolumn="80,".join(range(120,999),",")
-let &colorcolumn="80"
+let &colorcolumn="120"
 
 autocmd InsertEnter * :set norelativenumber " no relativenumber in insert mode
 autocmd InsertLeave * :set relativenumber   " show relativenumber when leave insert mode
@@ -231,6 +231,11 @@ vnoremap > >gv
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+
+" Quick move in insert mode
+inoremap <C-o> <Esc>o
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 
 if has('macunix')
   " pbcopy for OSX copy/paste
