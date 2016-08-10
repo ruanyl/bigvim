@@ -216,7 +216,7 @@ noremap M :bp<CR>
 nnoremap U <C-r>
 
 " select all
-noremap <Leader>sa ggVG"
+noremap <Leader>sa ggVG
 
 nnoremap dp :diffput<CR>
 nnoremap dg :diffget<CR>
