@@ -31,7 +31,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'unblevable/quick-scope'
 
 " fast edit
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
 Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
@@ -231,6 +231,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_key_list_select_completion = ['<Tab>', '<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_semantic_triggers =  {
             \   'c' : ['->', '.'],
             \   'objc' : ['->', '.'],
@@ -246,13 +247,12 @@ let g:ycm_semantic_triggers =  {
             \   'erlang' : [':'],
             \   'haskell' : ['.', 're!.'],
             \   'scss,css': [ 're!^\s{2,4}', 're!:\s+' ],
-            \   'javascript': ['.', 're!(?=[a-zA-Z]{3,4})'],
             \ }
 
 " ----------------------------------------------------------------------------
 " ultisnips
 " ----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-\\>"
+let g:UltiSnipsExpandTrigger="<c-l>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
@@ -282,6 +282,13 @@ let g:syntastic_style_warning_symbol='•'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_javascript_checkers = ['eslint']
+if executable('eslint_d')
+    let g:syntastic_javascript_eslint_exec = 'eslint_d'
+endif
+let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": ["java"] }
 
 " ----------------------------------------------------------------------------
 " vim-markdown
