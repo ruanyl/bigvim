@@ -145,6 +145,8 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 
 " ----------------------------------------------------------------------------
 " ctrlp-funky
