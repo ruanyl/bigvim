@@ -50,6 +50,7 @@ Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 if s:vim8
     Plug 'w0rp/ale'
+    let g:airline_section_error = '%{ALEGetStatusLine()}'
 else
     Plug 'scrooloose/syntastic'
 endif
@@ -291,7 +292,6 @@ let g:ale_statusline_format = ['✘ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
-let g:airline_section_error = '%{ALEGetStatusLine()}'
 
 " ----------------------------------------------------------------------------
 " syntastic
