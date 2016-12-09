@@ -19,7 +19,8 @@ filetype plugin indent on
 syntax enable
 syntax on
 
-colorscheme solarized
+colorscheme gruvbox
+"colorscheme solarized
 "colorscheme molokai
 "colorscheme desert
 

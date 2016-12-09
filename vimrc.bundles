@@ -75,6 +75,7 @@ Plug 'vim-scripts/BufOnly.vim'
 " theme
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
 
 " search
 Plug 'ctrlpvim/ctrlp.vim'
