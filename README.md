@@ -3,16 +3,6 @@ bigvim
 
 该配置比较适合平时主要写JS的同学，对PHP也有支持。Key mappings需要的话，请根据自己的习惯修改。使用过程中如果有问题，可以提`issue`。也非常欢迎`pull request`.
 
-**版本1.3的更新计划:**
-
-- [x] 提高eslint的速度
-- [x] 更新安装脚本 `install.sh`
-
-**版本1.2的更新计划:**
-
-- [x] 修改vimrc.bundles的结构，使之更加简洁明了，方便阅读和修改
-- [x] 增加配置项，使之能够选择加载需要的插件
-
 ### 配置步骤
 
 > 注意，该配置需要vim7.4.x. 在MacOS 和Ubuntu 14.04Server下安装测试过。
@@ -85,7 +75,7 @@ molokai主题
 ,sa  全选(select all)
 ctrl + jkhl 进行上下左右窗口跳转,不需要ctrl+w+jkhl
 ctrl+p   开启文件搜索 ctrlp
-,/   去除匹配高亮
+,/   去除匹配高亮
 '    :b
 qq   关闭当前Buffer
 qo   关闭除当前buffer之外的所有buffer
@@ -228,7 +218,6 @@ tab    # 快捷键设置为tab
 
    `%` 匹配标签，不只是单个的字符，还可以匹配单词，如html标签
 
-
 ####[gcmt/wildfire.vim](https://github.com/gcmt/wildfire.vim)
 快速选取代码块
 
@@ -286,6 +275,11 @@ ds"
 ```
  . # 快捷键
 ```
+
+####[vim-swap](https://github.com/machakann/vim-swap)
+快速交换函数参数位置
+
+![vim-swap](https://camo.githubusercontent.com/b8f954e6c61f74bc03da8251dffa95c16d393563/687474703a2f2f617274392e70686f746f7a6f752e6a702f7075622f3938362f333038303938362f70686f746f2f3233323836383939375f6f72672e76313435333831353530342e676966)
 
 
 #### [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
@@ -418,6 +412,10 @@ qo 关闭所有buff，当前除外
 
 ####[editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 支持.editorconfig文件
+
+####[romainl/vim-cool](https://github.com/romainl/vim-cool)
+
+智能高亮搜索
 
 #### Inspired by:
 1. [k-vim](https://github.com/wklken/k-vim)
