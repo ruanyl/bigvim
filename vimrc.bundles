@@ -77,6 +77,7 @@ Plug 'tomasr/molokai'
 " search
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
+Plug 'j5shi/ctrlp_bdelete.vim'
 Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
 Plug 'ggVGc/vim-fuzzysearch'
 Plug 'rking/ag.vim'
@@ -105,7 +106,7 @@ if count(g:bigvim_minor_plugins, 'css')
     "Plug 'hail2u/vim-css3-syntax'
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'JulesWang/css.vim'
-    au BufRead,BufNewFile *.scss set filetype=scss.css
+    "au BufRead,BufNewFile *.scss set filetype=scss.css
 endif
 
 "Load local plugins
@@ -148,6 +149,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_follow_symlinks=1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
+call ctrlp_bdelete#init()
 
 " ----------------------------------------------------------------------------
 " ctrlp-funky
@@ -288,7 +290,7 @@ let g:ale_sign_warning = '❗'
 let g:ale_echo_msg_error_str = '✷ Error'
 let g:ale_echo_msg_warning_str = '⚠ Warning'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['✘ %d', '⚠ %d', '⬥ ok']
+let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
