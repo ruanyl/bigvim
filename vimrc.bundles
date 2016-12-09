@@ -25,6 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
+Plug 'romainl/vim-cool'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -45,6 +46,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
+" key mapping: g< and  g>
+Plug 'machakann/vim-swap'
 
 " tools
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
@@ -66,9 +69,8 @@ Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ruanyl/vim-fixmyjs', {'on': 'Fixmyjs'}
 Plug 'moll/vim-bbye'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'junegunn/gv.vim'
 
 " theme
 Plug 'altercation/vim-colors-solarized'
