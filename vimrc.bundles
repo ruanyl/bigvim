@@ -26,10 +26,11 @@ Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
 Plug 'romainl/vim-cool'
+Plug 'henrik/vim-indexed-search'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
-Plug 'Lokaltog/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 
 " fast edit
