@@ -281,6 +281,11 @@ ds"
 
 ![vim-swap](https://camo.githubusercontent.com/b8f954e6c61f74bc03da8251dffa95c16d393563/687474703a2f2f617274392e70686f746f7a6f752e6a702f7075622f3938362f333038303938362f70686f746f2f3233323836383939375f6f72672e76313435333831353530342e676966)
 
+####[vim-sort-motion](https://github.com/christoomey/vim-sort-motion)
+快速排序
+
+![vim-sort-motion](https://cloud.githubusercontent.com/assets/486382/21075611/0d57ddec-bf1f-11e6-89ae-df1939d67c0e.gif)
+
 
 #### [Raimondi/delimitMate](https://github.com/Raimondi/delimitMate)
 自动补全：(), [], {}, <>

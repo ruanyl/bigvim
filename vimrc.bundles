@@ -48,6 +48,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 " key mapping: g< and  g>
 Plug 'machakann/vim-swap'
+" Visual mode: gs
+" text objects, for example: gsi(
+Plug 'christoomey/vim-sort-motion'
 
 " tools
 Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
