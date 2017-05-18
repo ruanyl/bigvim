@@ -43,7 +43,7 @@ bigvim
 
   for YoucomplateMe插件：
   ```
-  apt-get install install build-essential cmake python-dev #Ubuntu
+  apt-get install build-essential cmake python-dev #Ubuntu
   brew install cmake #MacOS
   ```
   安装YouCompleteMe如果出现问题，请前往项目主页寻找解决方法,
