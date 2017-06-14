@@ -94,7 +94,7 @@ L    到行尾
 
 ## 主要插件列表
 
-####[junegunn/vim-plug](https://github.com/junegunn/vim-plug)
+#### [junegunn/vim-plug](https://github.com/junegunn/vim-plug)
 使用vim-plug来管理插件，vim-plug能够选择branch，执行插件初始命令,
 延迟加载插件等功能
 
@@ -104,7 +104,7 @@ L    到行尾
 :PlugClean       remove plugin not in list
 ```
 
-####[scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
+#### [scrooloose/nerdtree](https://github.com/scrooloose/nerdtree)
 文件浏览器
 ```
 ,e
@@ -113,14 +113,14 @@ L    到行尾
 ![thenerdtree](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/nerdtree.gif)
 
 
-####[majutsushi/tagbar](https://github.com/majutsushi/tagbar)
+#### [majutsushi/tagbar](https://github.com/majutsushi/tagbar)
 浏览taglist
 
 ```
 ,t
 ```
 
-####[kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
+#### [kien/ctrlp.vim](https://github.com/kien/ctrlp.vim)
 快速文件搜索+导航
 ```
 f   默认CtrlP查找
@@ -131,7 +131,7 @@ f   默认CtrlP查找
 ctrl + j/k 进行上下移动 或者小键盘方向键
 ![ctrlp](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp.gif)
 
-####[tacahiroy/ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky)
+#### [tacahiroy/ctrlp-funky](https://github.com/tacahiroy/ctrlp-funky)
 CtrlP插件，类似go to definition的功能
 
 ```
@@ -139,7 +139,7 @@ CtrlP插件，类似go to definition的功能
 ```
 ![ctrlp-funky](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/ctrlp-funky.gif)
 
-####[dyng/ctrlsf.vim](https://github.com/tacahiroy/ctrlp-funky)
+#### [dyng/ctrlsf.vim](https://github.com/tacahiroy/ctrlp-funky)
 CtrlP插件，提供sublime类似的grep搜索
 
 ```
@@ -148,14 +148,14 @@ CtrlP插件，提供sublime类似的grep搜索
 
 ![dyng/ctrlsf.vim](https://camo.githubusercontent.com/a7eef846eae3efe4f021f34c9b8526300b872b0f/687474703a2f2f692e696d6775722e636f6d2f4e4f793867776a2e676966)
 
-####[rking/ag.vim](https://github.com/rking/ag.vim)
+#### [rking/ag.vim](https://github.com/rking/ag.vim)
 提供快速grep功能
 
 ```
 ,,a     #然后输入要检索的内容
 ```
 
-####[ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch)
+#### [ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch)
 模糊查找的功能
 
 ```
@@ -164,46 +164,46 @@ CtrlP插件，提供sublime类似的grep搜索
 
 ![ggVGc/vim-fuzzysearch](https://github.com/ggVGc/vim-fuzzysearch/raw/master/doc/example.gif)
 
-####[bling/vim-airline](https://github.com/bling/vim-airline)
+#### [bling/vim-airline](https://github.com/bling/vim-airline)
 状态栏，buffer兰美化
 
 ![vim-airline](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/vim-airline.png)
 
-####[gorodinskiy/vim-coloresque](https://github.com/gorodinskiy/vim-coloresque)
+#### [gorodinskiy/vim-coloresque](https://github.com/gorodinskiy/vim-coloresque)
 高亮显示文档中颜色代码
 
 ![vim-coloresque](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/vim-colorsque.png)
 
-####[bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
+#### [bronson/vim-trailing-whitespace](https://github.com/bronson/vim-trailing-whitespace)
 将代码行最后无效的空格标红
 
 ```
 ,空格    去掉多余空格
 ```
 
-####[dhruvasagar/vim-prosession](https://github.com/dhruvasagar/vim-prosession)
+#### [dhruvasagar/vim-prosession](https://github.com/dhruvasagar/vim-prosession)
 保存当前打开文件、slpit窗口、buffer的状态，下次在该目录下运行`vim`的时候自动还原
 
-####[MattesGroeger/vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)
+#### [MattesGroeger/vim-bookmarks](https://github.com/MattesGroeger/vim-bookmarks)
 在左侧添加书签、注释等。
 
 ```
 ,,m  # 切换书签显示\关闭，更多快捷键请查看vimrc
 ```
 
-####[Valloric/MatchTagAlways](https://github.com/Valloric/MatchTagAlways)
+#### [Valloric/MatchTagAlways](https://github.com/Valloric/MatchTagAlways)
 高亮显示匹配的标签
 
 ![matchtagalways](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/matchtagalways.gif)
 
-####[szw/vim-maximizer](https://github.com/szw/vim-maximizer)
+#### [szw/vim-maximizer](https://github.com/szw/vim-maximizer)
 最大化当前窗口\返回之前状态切换，在多个split窗口的非常有用
 
 ```
 tab    # 快捷键设置为tab
 ```
 
-####[Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
+#### [Lokaltog/vim-easymotion](https://github.com/Lokaltog/vim-easymotion)
 跳转到任意位置
 
 ```
@@ -213,22 +213,22 @@ tab    # 快捷键设置为tab
 
 ![easy_motion](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/easy-motion.gif)
 
-####[vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
+#### [vim-scripts/matchit.zip](https://github.com/vim-scripts/matchit.zip)
 快速匹配() [] {} 等
 
    `%` 匹配标签，不只是单个的字符，还可以匹配单词，如html标签
 
-####[gcmt/wildfire.vim](https://github.com/gcmt/wildfire.vim)
+#### [gcmt/wildfire.vim](https://github.com/gcmt/wildfire.vim)
 快速选取代码块
 
 ![wildfire](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/wildfire.gif)
 
-####[alvan/vim-closetag](https://github.com/alvan/vim-closetag)
+#### [alvan/vim-closetag](https://github.com/alvan/vim-closetag)
 自动关闭html, xml标签
 
 ![closetag](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/CloseTag.gif)
 
-####[Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
+#### [Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe)
 强大的自动补全，如果安装失败，请前往该项目的github wiki查找帮助
 ![YCM](https://camo.githubusercontent.com/1f3f922431d5363224b20e99467ff28b04e810e2/687474703a2f2f692e696d6775722e636f6d2f304f50346f6f642e676966)
 ```
@@ -237,7 +237,7 @@ tab    # 快捷键设置为tab
 ```
 
 
-###[SirVer/ultisnips](https://github.com/SirVer/ultisnips)
+#### [SirVer/ultisnips](https://github.com/SirVer/ultisnips)
 代码片段工具
 ```
 <C-\> 触发
@@ -245,7 +245,7 @@ tab    # 快捷键设置为tab
 ![ultisnips](https://camo.githubusercontent.com/296aecf30e1607233814196db6bd3f5f47e70c73/68747470733a2f2f7261772e6769746875622e636f6d2f5369725665722f756c7469736e6970732f6d61737465722f646f632f64656d6f2e676966)
 
 
-####[scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
+#### [scrooloose/nerdcommenter](https://github.com/scrooloose/nerdcommenter)
 快速注释工具
 ```
 shift+v 选择要注释的行
@@ -257,7 +257,7 @@ shift+v 选择要注释的行
 ![nerdcomment](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/nerdcomment.gif)
 
 
-####[tpope/vim-surround](https://github.com/tpope/vim-surround)
+#### [tpope/vim-surround](https://github.com/tpope/vim-surround)
 快速给单词添加 单引号，双引号，中括号等
 ```
 ysiw"
@@ -270,18 +270,18 @@ ds"
 ![surround](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/surround.gif)
 
 
-###[tpope/vim-repeat](https://github.com/tpope/vim-repeat)
+#### [tpope/vim-repeat](https://github.com/tpope/vim-repeat)
 重复上一次命令
 ```
  . # 快捷键
 ```
 
-####[vim-swap](https://github.com/machakann/vim-swap)
+#### [vim-swap](https://github.com/machakann/vim-swap)
 快速交换函数参数位置
 
 ![vim-swap](https://camo.githubusercontent.com/b8f954e6c61f74bc03da8251dffa95c16d393563/687474703a2f2f617274392e70686f746f7a6f752e6a702f7075622f3938362f333038303938362f70686f746f2f3233323836383939375f6f72672e76313435333831353530342e676966)
 
-####[vim-sort-motion](https://github.com/christoomey/vim-sort-motion)
+#### [vim-sort-motion](https://github.com/christoomey/vim-sort-motion)
 快速排序
 
 ![vim-sort-motion](https://cloud.githubusercontent.com/assets/486382/21075611/0d57ddec-bf1f-11e6-89ae-df1939d67c0e.gif)
@@ -291,7 +291,7 @@ ds"
 自动补全：(), [], {}, <>
 
 
-####[godlygeek/tabular](https://github.com/godlygeek/tabular)
+#### [godlygeek/tabular](https://github.com/godlygeek/tabular)
 代码按=或者: 对齐
 ```
 ,a=   按等号对齐
@@ -300,7 +300,7 @@ ds"
 ![tabular](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/tabular.gif)
 
 
-####[terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
+#### [terryma/vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 多光标操作
 ```
 ,n  开始选择
@@ -310,7 +310,7 @@ ds"
 ![multicursor](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/multicursor.gif)
 
 
-####[mattn/emmet-vim](https://github.com/mattn/emmet-vim)
+#### [mattn/emmet-vim](https://github.com/mattn/emmet-vim)
 快速书写html
 ```
 <C-y>,  触发
@@ -318,47 +318,47 @@ ds"
 ![emmet](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/emmet.gif)
 
 
-####[scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+#### [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
 语法检查插件，写javascript配合eslint使用非常有帮助
 ![syntastic](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/syntastic.png)
 
 
-####[hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
+#### [hail2u/vim-css3-syntax](https://github.com/hail2u/vim-css3-syntax)
 css3语法高亮
 
-####[tpope/vim-markdown](https://github.com/tpope/vim-markdown)
+#### [tpope/vim-markdown](https://github.com/tpope/vim-markdown)
 markdown语法高亮
 
 
 ## Javascript相关插件
-####[pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
+#### [pangloss/vim-javascript](https://github.com/pangloss/vim-javascript)
 JS语法高亮
 
-###[kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
+#### [kchmck/vim-coffee-script](https://github.com/kchmck/vim-coffee-script)
 coffee script语法高亮
 
-###[mxw/vim-jsx](https://github.com/mxw/vim-jsx)
+#### [mxw/vim-jsx](https://github.com/mxw/vim-jsx)
 React JSX语法高亮
 
-####[othree/javascript-libraries-syntax.vim](https://github.com/othree/javascript-libraries-syntax.vim)
+#### [othree/javascript-libraries-syntax.vim](https://github.com/othree/javascript-libraries-syntax.vim)
 一些javascript library的语法高亮
 
-####[burnettk/vim-angular](https://github.com/burnettk/vim-angular)
+#### [burnettk/vim-angular](https://github.com/burnettk/vim-angular)
 Angular相关
 
-####[ruanyl/vim-fidget](https://github.com/ruanyl/vim-fidget)
+#### [ruanyl/vim-fidget](https://github.com/ruanyl/vim-fidget)
 vim版jsfiddle，打开3个split窗口，分别是css,js,html，快速写点小demo时比较实用
 ```
 :VimFidget   # 进入3个窗口，并自动打开浏览器。并且是livereload的
 :VimFidgetBrowse    # 上传代码到jsfiddle
 ```
 
-####[heavenshell/vim-jsdoc](https://github.com/heavenshell/vim-jsdoc)
+#### [heavenshell/vim-jsdoc](https://github.com/heavenshell/vim-jsdoc)
 ```
 ,,d  光标定位在方法上面，自动生成js doc
 ```
 
-###[marijnh/tern_for_vim](https://github.com/marijnh/tern_for_vim)
+#### [marijnh/tern_for_vim](https://github.com/marijnh/tern_for_vim)
 非常强大javascript代码自动补全，支持node，jquery，浏览器相关api的
 相关配置可以看[这篇博客](http://efe.baidu.com/blog/vim-javascript-completion/)
 ```
@@ -366,24 +366,24 @@ vim版jsfiddle，打开3个split窗口，分别是css,js,html，快速写点小d
 ```
 
 ## PHP相关插件
-####[StanAngeloff/php.vim](https://github.com/StanAngeloff/php.vim)
+#### [StanAngeloff/php.vim](https://github.com/StanAngeloff/php.vim)
 php语法高亮
 
-####[shawncplus/phpcomplete.vim](https://github.com/shawncplus/phpcomplete.vim)
+#### [shawncplus/phpcomplete.vim](https://github.com/shawncplus/phpcomplete.vim)
 php自动补全增强
 
-####[mkusher/padawan.vim](https://github.com/mkusher/padawan.vim)
+#### [mkusher/padawan.vim](https://github.com/mkusher/padawan.vim)
 更加强大的php自动补全，能够检索composer项目，对相关依赖library进行补全
 >安装方法请见项目主页
 ![padawan](https://camo.githubusercontent.com/2d1bebc7052809b43ac7e051b86149dab60e454f/687474703a2f2f69312e7974696d672e636f6d2f76692f59353450324e3154362d492f6d617872657364656661756c742e6a7067)
 
-####[ruanyl/vim-php-manual](https://github.com/ruanyl/vim-php-manual)
+#### [ruanyl/vim-php-manual](https://github.com/ruanyl/vim-php-manual)
 php手册
 ```
 K    # 查找当前光标下的关键字
 ```
 
-####[sjl/gundo.vim](https://github.com/sjl/gundo.vim)
+#### [sjl/gundo.vim](https://github.com/sjl/gundo.vim)
 查看文件历史修改记录，移动到某一个时间点，`r` 来查看改动，`enter`返回到这个状态
 ```
 ,h
@@ -391,34 +391,34 @@ K    # 查找当前光标下的关键字
 ![gundo](https://raw.githubusercontent.com/ruanyl/bigvim/gh-pages/images/gundo.png)
 
 
-####[Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
+#### [Chiel92/vim-autoformat](https://github.com/Chiel92/vim-autoformat)
 格式化js,json,html,css,scss
 ```
 ,,f  自动格式化
 ```
 
-####[thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)
+#### [thinca/vim-quickrun](https://github.com/thinca/vim-quickrun)
 ```
 ,r  运行当前文件，如运行javascript
 ```
 
-####[tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
+#### [tpope/vim-fugitive](https://github.com/tpope/vim-fugitive)
 git整合
 
-####[moll/vim-bbye](https://github.com/moll/vim-bbye)
+#### [moll/vim-bbye](https://github.com/moll/vim-bbye)
 ```
 qq 删除当前buff
 ```
 
-####[vim-scripts/BufOnly.vim](https://github.com/vim-scripts/BufOnly.vim)
+#### [vim-scripts/BufOnly.vim](https://github.com/vim-scripts/BufOnly.vim)
 ```
 qo 关闭所有buff，当前除外
 ```
 
-####[editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
+#### [editorconfig/editorconfig-vim](https://github.com/editorconfig/editorconfig-vim)
 支持.editorconfig文件
 
-####[romainl/vim-cool](https://github.com/romainl/vim-cool)
+#### [romainl/vim-cool](https://github.com/romainl/vim-cool)
 
 智能高亮搜索
 
