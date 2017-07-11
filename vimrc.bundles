@@ -94,9 +94,12 @@ Plug 'pangloss/vim-javascript'
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'kchmck/vim-coffee-script'
-Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx']}
+Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx', 'typescript']}
 Plug 'burnettk/vim-angular'
 Plug 'mxw/vim-jsx'
+
+" typescript
+Plug 'HerringtonDarkholme/yats.vim'
 
 " PHP
 if count(g:bigvim_minor_plugins, 'php')
@@ -153,7 +156,7 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
-let g:ctrlp_follow_symlinks=1
+let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
 call ctrlp_bdelete#init()
@@ -305,7 +308,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\   'typescript': ['tsserver'],
 \}
+nmap <silent> <Leader>j <Plug>(ale_next_wrap)
+nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 
 " ----------------------------------------------------------------------------
 " syntastic
@@ -341,7 +347,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
 " vim-jsdoc
 " ----------------------------------------------------------------------------
 let g:jsdoc_default_mapping = 0
-autocmd FileType javascript nnoremap <Leader><Leader>d :JsDoc<CR>
+autocmd FileType javascript,typescript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " ----------------------------------------------------------------------------
 " tern_for_vim
