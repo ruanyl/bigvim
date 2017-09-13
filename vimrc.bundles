@@ -295,7 +295,7 @@ vmap <Leader>a" :Tabularize /"<CR>
 " ----------------------------------------------------------------------------
 " vim-closetag
 " ----------------------------------------------------------------------------
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.js"
+let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.js,*.tsx"
 
 " ----------------------------------------------------------------------------
 " ale
@@ -309,6 +309,8 @@ let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver'],
+\   'scss': [],
+\   'java': [],
 \}
 nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
@@ -323,9 +325,6 @@ let g:syntastic_style_warning_symbol='•'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_javascript_checkers = ['eslint']
-if executable('eslint_d')
-    let g:syntastic_javascript_eslint_exec = 'eslint_d'
-endif
 let g:syntastic_mode_map = {
     \ "mode": "active",
     \ "active_filetypes": [],
@@ -377,6 +376,12 @@ let g:gundo_auto_preview = 0
 "require: npm install -g js-beautify
 " ----------------------------------------------------------------------------
 autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
+
+" ----------------------------------------------------------------------------
+" vim-sort-motion
+" ----------------------------------------------------------------------------
+" case insensitive
+let g:sort_motion_flags = "i"
 
 " ----------------------------------------------------------------------------
 " vim-bbye
