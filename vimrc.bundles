@@ -24,9 +24,9 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
-Plug 'inside/vim-search-pulse'
-Plug 'romainl/vim-cool'
-Plug 'henrik/vim-indexed-search'
+"Plug 'inside/vim-search-pulse'
+"Plug 'romainl/vim-cool'
+"Plug 'henrik/vim-indexed-search'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -66,12 +66,13 @@ Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
-Plug 'thinca/vim-quickrun'
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+"Plug 'thinca/vim-quickrun'
+Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
-Plug 'MattesGroeger/vim-bookmarks'
-Plug 'ruanyl/vim-fixmyjs', {'on': 'Fixmyjs'}
+"Plug 'MattesGroeger/vim-bookmarks'
+Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
+Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript']}
 Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
 Plug 'vim-scripts/BufOnly.vim'
@@ -100,6 +101,9 @@ Plug 'mxw/vim-jsx'
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'Quramy/tsuquyomi'
+let g:tsuquyomi_single_quote_import = 1
+autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
 " PHP
 if count(g:bigvim_minor_plugins, 'php')
@@ -129,6 +133,7 @@ call plug#end()
 " NERDTree
 " ----------------------------------------------------------------------------
 nnoremap <leader>e :NERDTreeToggle<CR>
+nnoremap <c-o> :NERDTreeFind<CR>
 let NERDTreeHighlightCursorline=1
 let NERDTreeQuitOnOpen=1
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
@@ -202,18 +207,19 @@ map <leader><space> :FixWhitespace<cr>
 " ----------------------------------------------------------------------------
 " vim-bookmarks
 " ----------------------------------------------------------------------------
-let g:bookmark_no_default_key_mappings = 1
-nnoremap <Leader><Leader>m :BookmarkToggle<CR>
-nnoremap <Leader>i :BookmarkAnnotate<CR>
-nnoremap <Leader>a :BookmarkShowAll<CR>
-nnoremap <Leader>j :BookmarkNext<CR>
-nnoremap <Leader>k :BookmarkPrev<CR>
-nnoremap <Leader>c :BookmarkClear<CR>
-nnoremap <Leader>x :BookmarkClearAll<CR>
+"let g:bookmark_no_default_key_mappings = 1
+"nnoremap <Leader><Leader>m :BookmarkToggle<CR>
+"nnoremap <Leader>i :BookmarkAnnotate<CR>
+"nnoremap <Leader>a :BookmarkShowAll<CR>
+"nnoremap <Leader>j :BookmarkNext<CR>
+"nnoremap <Leader>k :BookmarkPrev<CR>
+"nnoremap <Leader>c :BookmarkClear<CR>
+"nnoremap <Leader>x :BookmarkClearAll<CR>
 
 " ----------------------------------------------------------------------------
 " vim-maximizer
 " ----------------------------------------------------------------------------
+let g:maximizer_set_default_mapping = 0
 nnoremap <tab> :MaximizerToggle<CR>
 
 " ----------------------------------------------------------------------------
@@ -308,7 +314,7 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'typescript': ['tsserver'],
+\   'typescript': ['tsserver', 'tslint'],
 \   'scss': [],
 \   'java': [],
 \}
@@ -336,6 +342,9 @@ let g:syntastic_mode_map = {
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
+
+let g:fixmyjs_rc_filename = ['tslint.json', '.eslintrc', '.eslintrc.json']
+let g:import_sort_auto = 1
 
 " ----------------------------------------------------------------------------
 " vim-jsx
