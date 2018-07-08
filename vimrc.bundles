@@ -68,7 +68,8 @@ Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
 "Plug 'thinca/vim-quickrun'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
+" Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
 "Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
@@ -102,6 +103,7 @@ Plug 'mxw/vim-jsx'
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Quramy/tsuquyomi'
+Plug 'tasn/vim-tsx'
 let g:tsuquyomi_single_quote_import = 1
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
@@ -376,7 +378,8 @@ autocmd FileType javascript setlocal omnifunc=tern#Complete
 " ----------------------------------------------------------------------------
 " gundo.vim
 " ----------------------------------------------------------------------------
-nnoremap <leader>h :GundoToggle<CR>
+" nnoremap <leader>h :GundoToggle<CR>
+nnoremap <leader>h :UndotreeToggle<CR>
 let g:gundo_auto_preview = 0
 
 " ----------------------------------------------------------------------------
