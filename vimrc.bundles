@@ -102,8 +102,8 @@ Plug 'mxw/vim-jsx'
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'peitalin/vim-jsx-typescript'
 Plug 'Quramy/tsuquyomi'
-Plug 'tasn/vim-tsx'
 let g:tsuquyomi_single_quote_import = 1
 autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
 
