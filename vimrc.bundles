@@ -31,7 +31,8 @@ Plug 'airblade/vim-gitgutter'
 " fast move
 Plug 'vim-scripts/matchit.zip'
 Plug 'easymotion/vim-easymotion'
-Plug 'unblevable/quick-scope'
+" Plug 'unblevable/quick-scope'
+Plug 'ruanyl/vim-gh-line'
 
 " fast edit
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
@@ -48,28 +49,32 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 " key mapping: g< and  g>
-Plug 'machakann/vim-swap'
+" Plug 'machakann/vim-swap'
 " Visual mode: gs
 " text objects, for example: gsi(
-Plug 'christoomey/vim-sort-motion'
+" Plug 'christoomey/vim-sort-motion'
 
 " tools
-Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
+" Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
 if s:vim8
     Plug 'w0rp/ale'
     let g:airline#extensions#ale#enabled = 1
 else
     Plug 'scrooloose/syntastic'
 endif
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
 "Plug 'thinca/vim-quickrun'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
-Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
+" Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
 "Plug 'MattesGroeger/vim-bookmarks'
 Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
 Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript']}
@@ -78,25 +83,26 @@ Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
 Plug 'vim-scripts/BufOnly.vim'
 
 " theme
+Plug 'lifepillar/vim-solarized8'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 
 " search
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'j5shi/ctrlp_bdelete.vim'
-Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
-Plug 'ggVGc/vim-fuzzysearch'
+" Plug 'tacahiroy/ctrlp-funky'
+" Plug 'j5shi/ctrlp_bdelete.vim'
+" Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
+" Plug 'ggVGc/vim-fuzzysearch'
 Plug 'rking/ag.vim'
 
 " javascript
 Plug 'pangloss/vim-javascript'
-Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'kchmck/vim-coffee-script'
+" Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
+" Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'kchmck/vim-coffee-script'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx', 'typescript']}
-Plug 'burnettk/vim-angular'
+" Plug 'burnettk/vim-angular'
 Plug 'mxw/vim-jsx'
 
 " typescript
@@ -164,7 +170,7 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
-call ctrlp_bdelete#init()
+" call ctrlp_bdelete#init()
 
 " ----------------------------------------------------------------------------
 " ctrlp-funky
@@ -225,7 +231,7 @@ nnoremap <tab> :MaximizerToggle<CR>
 " ----------------------------------------------------------------------------
 " vim-colors-solarized
 " ----------------------------------------------------------------------------
-let g:solarized_termcolors=16
+"let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"

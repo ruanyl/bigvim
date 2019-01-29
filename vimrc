@@ -20,19 +20,22 @@ syntax enable
 syntax on
 
 "colorscheme gruvbox
-colorscheme solarized
+"colorscheme solarized
+colorscheme solarized8
 "colorscheme molokai
 "colorscheme desert
 
 set background=dark
-set t_Co=256
 set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
 set nobackup
 set noswapfile
-set cursorcolumn          " highlight current column
-set cursorline            " highlight current line
+set termguicolors
+set cmdheight=2
+set shortmess+=c
+" set cursorcolumn          " highlight current column
+" set cursorline            " highlight current line
 set t_ti= t_te=           " alway show the content on the screen after exist VIM
 set mouse-=a              " disable mouse
 set selection=inclusive   "set selection=exclusive
@@ -135,11 +138,11 @@ endif
 au InsertLeave * set nopaste
 
 "close popup menu when leave insert mode
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
+"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
+"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
+"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
@@ -244,19 +247,19 @@ if has('macunix')
   vnoremap <C-c> :w !pbcopy<CR><CR>
 endif
 
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
-
-" for error highlight
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
+"hi! link SignColumn   LineNr
+"hi! link ShowMarksHLl DiffAdd
+"hi! link ShowMarksHLu DiffChange
+"
+"" for error highlight
+"highlight clear SpellBad
+"highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
+"highlight clear SpellCap
+"highlight SpellCap term=underline cterm=underline
+"highlight clear SpellRare
+"highlight SpellRare term=underline cterm=underline
+"highlight clear SpellLocal
+"highlight SpellLocal term=underline cterm=underline
 
 " Because Vim doesn't like
 " pasting that works.
