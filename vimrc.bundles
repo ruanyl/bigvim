@@ -160,7 +160,7 @@ let g:tagbar_width = 50
 nnoremap <leader>m :CtrlPMRU<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](node_modules|target|dist)|\.(git|hg|svn|rvm)$',
+    \ 'dir':  '\v[\/](node_modules|target|dist|coverage)|\.(git|hg|svn|rvm)$',
     \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
     \ }
 let g:ctrlp_follow_symlinks = 1
