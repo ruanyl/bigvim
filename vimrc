@@ -140,13 +140,6 @@ if has("autocmd")
 endif
 au InsertLeave * set nopaste
 
-"close popup menu when leave insert mode
-"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-"inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-"inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-"inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-"inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
-
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
 
@@ -249,20 +242,6 @@ if has('macunix')
   vnoremap <C-x> :!pbcopy<CR>
   vnoremap <C-c> :w !pbcopy<CR><CR>
 endif
-
-"hi! link SignColumn   LineNr
-"hi! link ShowMarksHLl DiffAdd
-"hi! link ShowMarksHLu DiffChange
-"
-"" for error highlight
-"highlight clear SpellBad
-"highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-"highlight clear SpellCap
-"highlight SpellCap term=underline cterm=underline
-"highlight clear SpellRare
-"highlight SpellRare term=underline cterm=underline
-"highlight clear SpellLocal
-"highlight SpellLocal term=underline cterm=underline
 
 " Because Vim doesn't like
 " pasting that works.
