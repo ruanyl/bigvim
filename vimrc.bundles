@@ -31,8 +31,11 @@ Plug 'airblade/vim-gitgutter'
 " fast move
 Plug 'vim-scripts/matchit.zip'
 Plug 'easymotion/vim-easymotion'
-" Plug 'unblevable/quick-scope'
+Plug 'unblevable/quick-scope'
+let g:qs_highlight_on_keys = ['f', 'F']
+
 Plug 'ruanyl/vim-gh-line'
+Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
@@ -62,10 +65,22 @@ if s:vim8
 else
     Plug 'scrooloose/syntastic'
 endif
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': { -> coc#util#install()}}
+
+"function! s:check_back_space() abort
+"  let col = col('.') - 1
+"  return !col || getline('.')[col - 1]  =~ '\s'
+"endfunction
+"
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
 " Plug 'majutsushi/tagbar'
 Plug 'plasticboy/vim-markdown'
@@ -79,7 +94,9 @@ Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
 Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
 Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript']}
 Plug 'moll/vim-bbye'
-Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
+"Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
+Plug 'neoclide/vim-easygit'
+let g:easygit_enable_command = 1
 Plug 'vim-scripts/BufOnly.vim'
 
 " theme
@@ -97,13 +114,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 
 " javascript
-Plug 'pangloss/vim-javascript'
+Plug 'neoclide/vim-jsx-improve'
+"Plug 'pangloss/vim-javascript'
 " Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
 " Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'kchmck/vim-coffee-script'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx', 'typescript']}
 " Plug 'burnettk/vim-angular'
-Plug 'mxw/vim-jsx'
+"Plug 'mxw/vim-jsx'
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'

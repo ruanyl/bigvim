@@ -36,7 +36,8 @@ set cmdheight=2
 set shortmess+=c
 " set cursorcolumn          " highlight current column
 " set cursorline            " highlight current line
-set t_ti= t_te=           " alway show the content on the screen after exist VIM
+set t_ti=
+set t_te=           " alway show the content on the screen after exist VIM
 set mouse-=a              " disable mouse
 set selection=inclusive   "set selection=exclusive
 set selectmode=mouse,key
