@@ -25,6 +25,7 @@ colorscheme solarized8
 "colorscheme molokai
 "colorscheme desert
 
+"let $NVIM_COC_LOG_LEVEL = 'debug'
 set background=dark
 set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
@@ -34,6 +35,7 @@ set noswapfile
 set termguicolors
 set cmdheight=2
 set shortmess+=c
+set updatetime=300
 " set cursorcolumn          " highlight current column
 " set cursorline            " highlight current line
 set t_ti=

@@ -24,9 +24,6 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
-"Plug 'inside/vim-search-pulse'
-"Plug 'romainl/vim-cool'
-"Plug 'henrik/vim-indexed-search'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -39,7 +36,6 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
-Plug 'godlygeek/tabular'
 Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
 Plug 'Raimondi/delimitMate'
@@ -50,51 +46,48 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
 " key mapping: g< and  g>
-" Plug 'machakann/vim-swap'
-" Visual mode: gs
-" text objects, for example: gsi(
-" Plug 'christoomey/vim-sort-motion'
-
-" tools
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py'}
-if s:vim8
-    Plug 'w0rp/ale'
-    let g:airline#extensions#ale#enabled = 1
-else
-    Plug 'scrooloose/syntastic'
-endif
+Plug 'machakann/vim-swap'
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': { -> coc#util#install()}}
 
-"function! s:check_back_space() abort
-"  let col = col('.') - 1
-"  return !col || getline('.')[col - 1]  =~ '\s'
-"endfunction
-"
-"inoremap <silent><expr> <TAB>
-"      \ pumvisible() ? "\<C-n>" :
-"      \ <SID>check_back_space() ? "\<TAB>" :
-"      \ coc#refresh()
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"Plug 'ruanyl/vim-eslint', {'do': 'npm install'}
-" Plug 'majutsushi/tagbar'
+nmap <silent> <C-]> <Plug>(coc-definition)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
-"Plug 'thinca/vim-quickrun'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
-Plug 'sjl/gundo.vim', {'on': 'GundoToggle'}
-" Plug 'ruanyl/vim-fidget', {'do': 'npm install'}
-"Plug 'MattesGroeger/vim-bookmarks'
+Plug 'mbbill/undotree'
+nnoremap <leader>h :UndotreeToggle<CR>
 Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
+
 Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript']}
+let g:import_sort_auto = 1
+
 Plug 'moll/vim-bbye'
-"Plug 'tpope/vim-fugitive' | Plug 'junegunn/gv.vim'
 Plug 'neoclide/vim-easygit'
 let g:easygit_enable_command = 1
 Plug 'vim-scripts/BufOnly.vim'
@@ -107,40 +100,18 @@ Plug 'morhetz/gruvbox'
 
 " search
 Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tacahiroy/ctrlp-funky'
-" Plug 'j5shi/ctrlp_bdelete.vim'
-" Plug 'dyng/ctrlsf.vim', {'on': '<Plug>CtrlSFVwordExec'}
-" Plug 'ggVGc/vim-fuzzysearch'
 Plug 'rking/ag.vim'
 
 " javascript
 Plug 'neoclide/vim-jsx-improve'
-"Plug 'pangloss/vim-javascript'
-" Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-" Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'kchmck/vim-coffee-script'
 Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx', 'typescript']}
-" Plug 'burnettk/vim-angular'
-"Plug 'mxw/vim-jsx'
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'Quramy/tsuquyomi'
-let g:tsuquyomi_single_quote_import = 1
-autocmd FileType typescript nmap <buffer> <Leader>t : <C-u>echo tsuquyomi#hint()<CR>
-
-" PHP
-if count(g:bigvim_minor_plugins, 'php')
-    Plug 'StanAngeloff/php.vim', {'for': 'php'}
-    Plug 'mkusher/padawan.vim', {'for': 'php'}
-    Plug 'ruanyl/vim-php-manual', {'for': 'php'}
-    Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
-    Plug 'fantasyczl/blade-php-vim'
-endif
 
 " CSS
 if count(g:bigvim_minor_plugins, 'css')
-    Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
+    "Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
     "Plug 'hail2u/vim-css3-syntax'
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'JulesWang/css.vim'
@@ -165,18 +136,6 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 " ----------------------------------------------------------------------------
-" tagbar
-" require ctags, jsctags
-" npm install -g git+https://github.com/ramitos/jsctags.git
-" ----------------------------------------------------------------------------
-let g:tagbar_type_javascript = {
-    \ 'ctagsbin' : 'jsctags'
-    \ }
-nnoremap <leader>t :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
-let g:tagbar_width = 50
-
-" ----------------------------------------------------------------------------
 " ctrlp.vim
 " ----------------------------------------------------------------------------
 nnoremap <leader>m :CtrlPMRU<CR>
@@ -188,31 +147,12 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
-" call ctrlp_bdelete#init()
-
-" ----------------------------------------------------------------------------
-" ctrlp-funky
-" Mapping: <Leader>fu
-" ----------------------------------------------------------------------------
-let g:ctrlp_funky_matchtype = 'path'
-let g:ctrlp_funky_syntax_highlight = 1
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-
-" ----------------------------------------------------------------------------
-" ctrlsf.vim
-" ----------------------------------------------------------------------------
-vmap <Leader>s <Plug>CtrlSFVwordExec
 
 " ----------------------------------------------------------------------------
 " ag.vim
 " ----------------------------------------------------------------------------
 nnoremap <Leader><Leader>a :Ag!<space>
 let g:ag_working_path_mode='r'
-
-" ----------------------------------------------------------------------------
-" vim-fuzzysearch
-" ----------------------------------------------------------------------------
-nnoremap <leader><leader>/ :FuzzySearch<cr>
 
 " ----------------------------------------------------------------------------
 " vim-airline
@@ -229,18 +169,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 map <leader><space> :FixWhitespace<cr>
 
 " ----------------------------------------------------------------------------
-" vim-bookmarks
-" ----------------------------------------------------------------------------
-"let g:bookmark_no_default_key_mappings = 1
-"nnoremap <Leader><Leader>m :BookmarkToggle<CR>
-"nnoremap <Leader>i :BookmarkAnnotate<CR>
-"nnoremap <Leader>a :BookmarkShowAll<CR>
-"nnoremap <Leader>j :BookmarkNext<CR>
-"nnoremap <Leader>k :BookmarkPrev<CR>
-"nnoremap <Leader>c :BookmarkClear<CR>
-"nnoremap <Leader>x :BookmarkClearAll<CR>
-
-" ----------------------------------------------------------------------------
 " vim-maximizer
 " ----------------------------------------------------------------------------
 let g:maximizer_set_default_mapping = 0
@@ -249,7 +177,6 @@ nnoremap <tab> :MaximizerToggle<CR>
 " ----------------------------------------------------------------------------
 " vim-colors-solarized
 " ----------------------------------------------------------------------------
-"let g:solarized_termcolors=16
 let g:solarized_termtrans=1
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
@@ -274,91 +201,15 @@ let g:wildfire_fuel_map = "<ENTER>"
 let g:wildfire_water_map = "<BS>"
 
 " ----------------------------------------------------------------------------
-" YouCompleteMe
-" ----------------------------------------------------------------------------
-let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_complete_in_strings = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_key_list_select_completion = ['<Tab>', '<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_seed_identifiers_with_syntax = 1
-let g:ycm_semantic_triggers =  {
-            \   'c' : ['->', '.'],
-            \   'objc' : ['->', '.'],
-            \   'ocaml' : ['.', '#'],
-            \   'cpp,objcpp' : ['->', '.', '::'],
-            \   'perl' : ['->'],
-            \   'php' : ['->', '::', '(', 'use ', 'namespace ', '\'],
-            \   'cs,java,typescript,d,python,perl6,scala,vb,elixir,go' : ['.', 're!(?=[a-zA-Z]{3,4})'],
-            \   'html': ['<', '"', '</', ' '],
-            \   'vim' : ['re![_a-za-z]+[_\w]*\.'],
-            \   'ruby' : ['.', '::'],
-            \   'lua' : ['.', ':'],
-            \   'erlang' : [':'],
-            \   'haskell' : ['.', 're!.'],
-            \   'scss,css': [ 're!^\s{2,4}', 're!:\s+' ],
-            \ }
-
-" ----------------------------------------------------------------------------
-" ultisnips
-" ----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<c-l>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" ----------------------------------------------------------------------------
 " delimitMate
 " ----------------------------------------------------------------------------
 let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_expand_cr = 1
 
 " ----------------------------------------------------------------------------
-" tabular
-" ----------------------------------------------------------------------------
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:<CR>
-vmap <Leader>a: :Tabularize /:<CR>
-nmap <Leader>a" :Tabularize /"<CR>
-vmap <Leader>a" :Tabularize /"<CR>
-
-" ----------------------------------------------------------------------------
 " vim-closetag
 " ----------------------------------------------------------------------------
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.js,*.tsx"
-
-" ----------------------------------------------------------------------------
-" ale
-" ----------------------------------------------------------------------------
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '❗'
-let g:ale_echo_msg_error_str = '✷ Error'
-let g:ale_echo_msg_warning_str = '⚠ Warning'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
-\   'scss': [],
-\   'java': [],
-\}
-nmap <silent> <Leader>j <Plug>(ale_next_wrap)
-nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
-
-" ----------------------------------------------------------------------------
-" syntastic
-" ----------------------------------------------------------------------------
-let g:syntastic_error_symbol='✘'
-let g:syntastic_warning_symbol='❗'
-let g:syntastic_style_error_symbol='»'
-let g:syntastic_style_warning_symbol='•'
-let g:syntastic_check_on_open=1
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": [],
-    \ "passive_filetypes": ["java"] }
 
 " ----------------------------------------------------------------------------
 " vim-markdown
@@ -367,53 +218,11 @@ let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
 
-let g:import_sort_auto = 1
-
-" ----------------------------------------------------------------------------
-" vim-jsx
-" ----------------------------------------------------------------------------
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files"
-
 " ----------------------------------------------------------------------------
 " vim-jsdoc
 " ----------------------------------------------------------------------------
 let g:jsdoc_default_mapping = 0
 autocmd FileType javascript,typescript nnoremap <Leader><Leader>d :JsDoc<CR>
-
-" ----------------------------------------------------------------------------
-" tern_for_vim
-" ----------------------------------------------------------------------------
-let tern_show_signature_in_pum = 1
-let tern_show_argument_hints = 'on_hold'
-autocmd FileType javascript nnoremap <leader>d :TernDef<CR>
-autocmd FileType javascript setlocal omnifunc=tern#Complete
-
-" ----------------------------------------------------------------------------
-" padawan.vim
-" Generate Index: :call padawan#GenerateIndex()
-" Start Server: :call padawan#StartServer()
-" Stop Server: :call padawan#StopServer()
-" Restart Server: :call padawan#RestartServer()
-" cd ~/.vim/bundle/padawan.vim/padawan.php && composer install
-" ----------------------------------------------------------------------------
-
-" ----------------------------------------------------------------------------
-" gundo.vim
-" ----------------------------------------------------------------------------
-nnoremap <leader>h :GundoToggle<CR>
-let g:gundo_auto_preview = 0
-
-" ----------------------------------------------------------------------------
-" vim-autoformat
-"require: npm install -g js-beautify
-" ----------------------------------------------------------------------------
-autocmd FileType javascript,json,html,css,scss noremap <buffer>  <leader><leader>f :Autoformat<cr>
-
-" ----------------------------------------------------------------------------
-" vim-sort-motion
-" ----------------------------------------------------------------------------
-" case insensitive
-let g:sort_motion_flags = "i"
 
 " ----------------------------------------------------------------------------
 " vim-bbye
