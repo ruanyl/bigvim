@@ -36,6 +36,7 @@ Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
+let g:UltiSnipsExpandTrigger="<c-tab>"
 Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -48,6 +49,22 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 " key mapping: g< and  g>
 Plug 'machakann/vim-swap'
+Plug 'w0rp/ale'
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '❗'
+let g:ale_echo_msg_error_str = '✷ Error'
+let g:ale_echo_msg_warning_str = '⚠ Warning'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'scss': [],
+\   'java': [],
+\}
+nmap <silent> <Leader>j <Plug>(ale_next_wrap)
+nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': { -> coc#util#install()}}
 
@@ -66,8 +83,8 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
-nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+""nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+""nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 
 function! s:show_documentation()
   if &filetype == 'vim'
