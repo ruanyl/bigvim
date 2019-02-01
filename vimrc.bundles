@@ -22,7 +22,6 @@ endif
 Plug 'Valloric/MatchTagAlways'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'gorodinskiy/vim-coloresque'
 Plug 'airblade/vim-gitgutter'
 
 " fast move
@@ -49,22 +48,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 " key mapping: g< and  g>
 Plug 'machakann/vim-swap'
-Plug 'w0rp/ale'
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '❗'
-let g:ale_echo_msg_error_str = '✷ Error'
-let g:ale_echo_msg_warning_str = '⚠ Warning'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_statusline_format = ['✘ %d', '❗ %d', '✔ ok']
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
-\   'scss': [],
-\   'java': [],
-\}
-nmap <silent> <Leader>j <Plug>(ale_next_wrap)
-nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': { -> coc#util#install()}}
 
@@ -77,14 +60,20 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
+inoremap <silent><expr> <C-n>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<C-n>" :
+      \ coc#refresh()
+
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-""nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
-""nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -93,6 +82,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
+nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
@@ -106,8 +98,7 @@ Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript
 let g:import_sort_auto = 1
 
 Plug 'moll/vim-bbye'
-Plug 'neoclide/vim-easygit'
-let g:easygit_enable_command = 1
+Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/BufOnly.vim'
 
 " theme
@@ -179,6 +170,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#coc#error_symbol='✘ '
+let g:airline#extensions#coc#warning_symbol='❕'
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " ----------------------------------------------------------------------------
 " vim-trailing-whitespace

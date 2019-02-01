@@ -37,7 +37,7 @@ set cmdheight=2
 set shortmess+=c
 set updatetime=300
 " set cursorcolumn          " highlight current column
-" set cursorline            " highlight current line
+set cursorline            " highlight current line
 set t_ti=
 set t_te=           " alway show the content on the screen after exist VIM
 set mouse-=a              " disable mouse
@@ -110,7 +110,7 @@ set whichwrap+=<,>,h,l
 set pastetoggle=<F5>                         " when in insert mode, toggle between 'paste' and 'nopaste'
 
 "let &colorcolumn="80,".join(range(120,999),",")
-let &colorcolumn="120"
+"let &colorcolumn="120"
 
 autocmd InsertEnter * :set norelativenumber " no relativenumber in insert mode
 autocmd InsertLeave * :set relativenumber   " show relativenumber when leave insert mode
@@ -126,12 +126,6 @@ endif
 
 if has('statusline')
     set laststatus=2
-    set statusline=%<%f\                     " Filename
-    set statusline+=%w%h%m%r                 " Options
-    set statusline+=%{fugitive#statusline()} " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " Filetype
-    set statusline+=\ [%{getcwd()}]          " Current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
 
