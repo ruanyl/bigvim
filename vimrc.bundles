@@ -22,7 +22,9 @@ endif
 Plug 'Valloric/MatchTagAlways'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+""Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+let g:signify_sign_change='~'
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -34,8 +36,8 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'epilande/vim-es2015-snippets'
-let g:UltiSnipsExpandTrigger="<c-tab>"
+Plug 'honza/vim-snippets'
+Plug 'ruanyl/vim-es2015-snippets'
 Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
 Plug 'jiangmiao/auto-pairs'
@@ -61,10 +63,13 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
-inoremap <silent><expr> <C-n>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<C-n>" :
-      \ coc#refresh()
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
@@ -74,14 +79,9 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+imap <C-l> <Plug>(coc-snippets-expand)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 
 vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>

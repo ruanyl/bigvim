@@ -3,5 +3,10 @@
   "coc.preferences.diagnostic.errorSign": "✘",
   "coc.preferences.diagnostic.warningSign": "❕",
   "coc.preferences.diagnostic.infoSign": "✷",
-  "coc.preferences.diagnostic.hintSign": "✷"
+  "coc.preferences.diagnostic.hintSign": "✷",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+    "typescript": ["javascript", "javascript-jasmine-arrow"]
+  }
 }

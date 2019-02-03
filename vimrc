@@ -98,9 +98,9 @@ set termencoding=utf-8
 set ffs=unix,dos,mac         " Use Unix as the standard file type
 set formatoptions+=m
 set formatoptions+=B         " When joining lines, don't insert a space between two multi-byte characters.
-set completeopt=longest,menu " behaviour of insert mode completion
+set completeopt=menu,preview " behaviour of insert mode completion
 set wildmenu                 " auto complete command
-set wildignore=**.o,*~,.swp,*.bak,*.pyc,*.class " Ignore compiled files
+set wildignore=**.o,*~,.swp,*.bak,*.pyc,*.class,*/.git/*,*/.DS_Store,*/tmp/* " Ignore compiled files
 
 set viminfo^=% " Remember info about open buffers on close
 set magic      " For regular expressions turn magic on
