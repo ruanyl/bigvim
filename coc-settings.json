@@ -4,6 +4,7 @@
   "coc.preferences.diagnostic.warningSign": "❕",
   "coc.preferences.diagnostic.infoSign": "✷",
   "coc.preferences.diagnostic.hintSign": "✷",
+  "coc.preferences.snippetIndicator": "⚡",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
