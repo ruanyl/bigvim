@@ -33,7 +33,7 @@ Plug 'unblevable/quick-scope'
 let g:qs_lazy_highlight = 1
 
 Plug 'ruanyl/vim-gh-line'
-Plug 'yuttie/comfortable-motion.vim'
+"Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
 Plug 'honza/vim-snippets'
@@ -102,6 +102,9 @@ imap <C-l> <Plug>(coc-snippets-expand)
 vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
@@ -150,7 +153,7 @@ if count(g:bigvim_minor_plugins, 'css')
     "Plug 'hail2u/vim-css3-syntax'
     Plug 'cakebaker/scss-syntax.vim'
     Plug 'JulesWang/css.vim'
-    "au BufRead,BufNewFile *.scss set filetype=scss.css
+    au BufRead,BufNewFile *.css set filetype=scss
 endif
 
 "Load local plugins
