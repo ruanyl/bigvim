@@ -215,9 +215,7 @@ nnoremap <tab> :MaximizerToggle<CR>
 " ----------------------------------------------------------------------------
 " vim-colors-solarized
 " ----------------------------------------------------------------------------
-let g:solarized_termtrans=1
-let g:solarized_contrast="high"
-let g:solarized_visibility="high"
+let g:solarized_statusline='flat'
 
 " ----------------------------------------------------------------------------
 " vim-easymotion

@@ -21,7 +21,7 @@ syntax on
 
 "colorscheme gruvbox
 "colorscheme solarized
-colorscheme solarized8
+colorscheme solarized8_flat
 "colorscheme molokai
 "colorscheme desert
 
@@ -249,6 +249,11 @@ function! XTermPasteBegin()
     set paste
     return ""
 endfunction
+
+if get(g:, 'colors_name', "") == 'solarized8_flat'
+    hi CursorLine ctermfg=NONE ctermbg=0 guifg=NONE guibg=#073642 guisp=#93a1a1 cterm=NONE gui=NONE
+    highlight EndOfBuffer guifg=bg
+endif
 
 "Load local settings
 if filereadable(expand("~/.vim/vimrc.local"))
