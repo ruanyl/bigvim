@@ -71,7 +71,7 @@ let g:ale_linters = {
 ""nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 ""nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install'}
 
 function! s:check_back_space() abort
   let col = col('.') - 1
