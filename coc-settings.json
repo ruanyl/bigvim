@@ -1,4 +1,5 @@
 {
+  "coc.preferences.enableFloatHighlight": false,
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "❕",
