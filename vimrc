@@ -19,6 +19,9 @@ filetype plugin indent on
 syntax enable
 syntax on
 
+set termguicolors
+set background=dark
+
 "colorscheme gruvbox
 "colorscheme solarized
 colorscheme solarized8_flat
@@ -26,13 +29,11 @@ colorscheme solarized8_flat
 "colorscheme desert
 
 "let $NVIM_COC_LOG_LEVEL = 'debug'
-set background=dark
 set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
 set nobackup
 set noswapfile
-set termguicolors
 set cmdheight=2
 set shortmess+=c
 set updatetime=300
