@@ -19,6 +19,7 @@ endif
 " ----------------------------------------------------------------------------
 
 " display
+Plug 'gu-fan/autotype.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -73,6 +74,21 @@ let g:ale_linters = {
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install'}
 
+let g:coc_global_extensions = [
+    \'coc-yank',
+    \'coc-word',
+    \'coc-snippets',
+    \'coc-prettier',
+    \'coc-lists',
+    \'coc-jest',
+    \'coc-highlight',
+    \'coc-tsserver',
+    \'coc-json',
+    \'coc-eslint',
+    \'coc-html',
+    \'coc-css',
+    \]
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
@@ -90,6 +106,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
@@ -135,6 +153,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
+Plug 'haishanh/night-owl.vim'
 
 " search
 Plug 'ctrlpvim/ctrlp.vim'
