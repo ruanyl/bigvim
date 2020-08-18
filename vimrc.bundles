@@ -117,8 +117,14 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 imap <C-l> <Plug>(coc-snippets-expand)
 
+" scroll float window
+nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+
 vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
+nmap <Leader>bj <Plug>(coc-bookmark-next)
+nmap <Leader>bk <Plug>(coc-bookmark-prev)
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
@@ -132,6 +138,9 @@ let g:airline#extensions#coc#error_symbol='✘ '
 let g:airline#extensions#coc#warning_symbol='❕'
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
 let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
