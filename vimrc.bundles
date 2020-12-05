@@ -19,7 +19,6 @@ endif
 " ----------------------------------------------------------------------------
 
 " display
-Plug 'gu-fan/autotype.vim'
 Plug 'Valloric/MatchTagAlways'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -43,14 +42,11 @@ Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
-Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
-" key mapping: g< and  g>
-Plug 'machakann/vim-swap'
 
 Plug 'w0rp/ale'
 "let g:ale_virtualtext_cursor = 1
