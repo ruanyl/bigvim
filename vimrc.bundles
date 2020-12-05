@@ -159,6 +159,7 @@ endfunction
 
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
+let g:prosession_per_branch = 1
 Plug 'szw/vim-maximizer'
 Plug 'mbbill/undotree'
 nnoremap <leader>h :UndotreeToggle<CR>

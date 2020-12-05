@@ -21,7 +21,7 @@
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "‣",
   "suggest.snippetIndicator": "⚡",
-  "codeLens.enable": false,
+  "codeLens.enable": true,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],

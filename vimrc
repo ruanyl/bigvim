@@ -257,6 +257,8 @@ if get(g:, 'colors_name', "") == 'solarized8_flat'
     highlight EndOfBuffer guifg=bg
 endif
 
+hi CocCodeLens guifg=#2f5f6b
+
 "Load local settings
 if filereadable(expand("~/.vim/vimrc.local"))
   source ~/.vim/vimrc.local
