@@ -19,21 +19,28 @@ filetype plugin indent on
 syntax enable
 syntax on
 
+set termguicolors
+set background=dark
+
 "colorscheme gruvbox
-colorscheme solarized
+"colorscheme solarized
+colorscheme solarized8_flat
 "colorscheme molokai
 "colorscheme desert
 
-set background=dark
-set t_Co=256
+"let $NVIM_COC_LOG_LEVEL = 'debug'
 set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
 set nobackup
 set noswapfile
-set cursorcolumn          " highlight current column
+set cmdheight=2
+set shortmess+=c
+set updatetime=300
+" set cursorcolumn          " highlight current column
 set cursorline            " highlight current line
-set t_ti= t_te=           " alway show the content on the screen after exist VIM
+set t_ti=
+set t_te=           " alway show the content on the screen after exist VIM
 set mouse-=a              " disable mouse
 set selection=inclusive   "set selection=exclusive
 set selectmode=mouse,key
@@ -92,9 +99,9 @@ set termencoding=utf-8
 set ffs=unix,dos,mac         " Use Unix as the standard file type
 set formatoptions+=m
 set formatoptions+=B         " When joining lines, don't insert a space between two multi-byte characters.
-set completeopt=longest,menu " behaviour of insert mode completion
+set completeopt=menu,preview " behaviour of insert mode completion
 set wildmenu                 " auto complete command
-set wildignore=**.o,*~,.swp,*.bak,*.pyc,*.class " Ignore compiled files
+set wildignore=**.o,*~,.swp,*.bak,*.pyc,*.class,*/.git/*,*/.DS_Store,*/tmp/* " Ignore compiled files
 
 set viminfo^=% " Remember info about open buffers on close
 set magic      " For regular expressions turn magic on
@@ -104,7 +111,7 @@ set whichwrap+=<,>,h,l
 set pastetoggle=<F5>                         " when in insert mode, toggle between 'paste' and 'nopaste'
 
 "let &colorcolumn="80,".join(range(120,999),",")
-let &colorcolumn="120"
+"let &colorcolumn="120"
 
 autocmd InsertEnter * :set norelativenumber " no relativenumber in insert mode
 autocmd InsertLeave * :set relativenumber   " show relativenumber when leave insert mode
@@ -127,13 +134,6 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 au InsertLeave * set nopaste
-
-"close popup menu when leave insert mode
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-inoremap <expr> <Down>     pumvisible() ? "\<C-n>" : "\<Down>"
-inoremap <expr> <Up>       pumvisible() ? "\<C-p>" : "\<Up>"
-inoremap <expr> <PageDown> pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<PageDown>"
-inoremap <expr> <PageUp>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<PageUp>"
 
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType javascript,json,css,scss,html set tabstop=2 shiftwidth=2 expandtab ai
@@ -226,6 +226,7 @@ vnoremap > >gv
 "" Move visual block
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+nnoremap gp `[v`]
 
 " Quick move in insert mode
 inoremap <C-o> <Esc>o
@@ -238,20 +239,6 @@ if has('macunix')
   vnoremap <C-c> :w !pbcopy<CR><CR>
 endif
 
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
-
-" for error highlight
-highlight clear SpellBad
-highlight SpellBad term=standout ctermfg=1 term=underline cterm=underline
-highlight clear SpellCap
-highlight SpellCap term=underline cterm=underline
-highlight clear SpellRare
-highlight SpellRare term=underline cterm=underline
-highlight clear SpellLocal
-highlight SpellLocal term=underline cterm=underline
-
 " Because Vim doesn't like
 " pasting that works.
 let &t_SI .= "\<Esc>[?2004h"
@@ -263,6 +250,11 @@ function! XTermPasteBegin()
     set paste
     return ""
 endfunction
+
+if get(g:, 'colors_name', "") == 'solarized8_flat'
+    hi CursorLine ctermfg=NONE ctermbg=0 guifg=NONE guibg=#073642 guisp=#93a1a1 cterm=NONE gui=NONE
+    highlight EndOfBuffer guifg=bg
+endif
 
 "Load local settings
 if filereadable(expand("~/.vim/vimrc.local"))

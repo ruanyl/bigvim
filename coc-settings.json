@@ -1,0 +1,17 @@
+{
+  "coc.preferences.enableFloatHighlight": false,
+  "diagnostic.enable": true,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "❕",
+  "diagnostic.infoSign": "✷",
+  "diagnostic.hintSign": "✷",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextPrefix": "‣",
+  "suggest.snippetIndicator": "⚡",
+  "codeLens.enable": false,
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
+    "typescript": ["javascript", "javascript-jasmine-arrow"]
+  }
+}
