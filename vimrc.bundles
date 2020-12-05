@@ -8,7 +8,7 @@ let g:mapleader = ','
 let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
 
 if !exists('g:bigvim_minor_plugins')
-    let g:bigvim_minor_plugins=['php', 'css',]
+    let g:bigvim_minor_plugins=['css',]
 endif
 
 " ----------------------------------------------------------------------------
