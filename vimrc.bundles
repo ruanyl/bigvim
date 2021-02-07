@@ -20,11 +20,69 @@ endif
 
 " display
 Plug 'Valloric/MatchTagAlways'
-Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-""Plug 'airblade/vim-gitgutter'
-Plug 'mhinz/vim-signify'
-let g:signify_sign_change='~'
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+  \ 'colorscheme': 'solarized',
+  \ 'active': {
+  \   'left': [
+  \     [ 'mode', 'paste' ],
+  \     [ 'readonly', 'filename' ],
+  \     [ 'gitbranch', 'gitstatus' ]
+  \   ],
+  \   'right':[
+  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent', 'cocstatus' ],
+  \     [ 'diagnostic', 'blame' ]
+  \   ],
+  \ },
+  \ 'component_function': {
+  \   'diagnostic': 'LightlineDiagnostic',
+  \   'cocstatus': 'LightlineCocStatus',
+  \   'blame': 'LightlineGitBlame',
+  \   'gitbranch': 'LightlineGitBranch',
+  \   'gitstatus': 'LightlineGitStatus',
+  \   'filename': 'LightlineFilename'
+  \ }
+\ }
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+function! LightlineDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, '✘' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, '❕' . info['warning'])
+  endif
+  return join(msgs, ' ')
+endfunction
+
+function! LightlineCocStatus() abort
+  let status = get(g:, 'coc_status', '')
+  return status
+endfunction
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  return blame
+endfunction
+
+function! LightlineGitBranch() abort
+  let status = get(g:, 'coc_git_status', '')
+  return status
+endfunction
+
+function! LightlineGitStatus() abort
+  let status = get(b:, 'coc_git_status', '')
+  return status
+endfunction
+
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
 
 " fast move
 Plug 'vim-scripts/matchit.zip'
@@ -47,26 +105,6 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
-
-Plug 'w0rp/ale'
-"let g:ale_virtualtext_cursor = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '❕'
-let g:ale_echo_msg_error_str = '✷ Error'
-let g:ale_echo_msg_warning_str = '⚠ Warning'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:airline#extensions#ale#error_symbol = '✘'
-let g:airline#extensions#ale#warning_symbol = '❕'
-let g:ale_linters = {
-\   'javascript': [],
-\   'typescript': [],
-\   'scss': [],
-\   'java': [],
-\   'python': ['flake8'],
-\}
-""nmap <silent> <Leader>j <Plug>(ale_next_wrap)
-""nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install'}
 
@@ -94,6 +132,12 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! s:show_documentation()
   if &filetype == 'vim'
@@ -107,15 +151,23 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 nmap <silent> <C-]> <Plug>(coc-definition)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 imap <C-l> <Plug>(coc-snippets-expand)
 
 " scroll float window
-nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
-nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 vmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
 nmap <leader>a  <Plug>(coc-codeaction-selected)<CR>
@@ -130,13 +182,14 @@ let g:coc_snippet_prev = '<c-k>'
 
 nmap <silent> <leader>j <Plug>(coc-diagnostic-next)
 nmap <silent> <leader>k <Plug>(coc-diagnostic-prev)
-let g:airline#extensions#coc#error_symbol='✘ '
-let g:airline#extensions#coc#warning_symbol='❕'
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" CocList for mru, buffers and files
+nnoremap <leader>m :CocList mru<CR>
+nnoremap <leader>b :CocList buffers<CR>
+nnoremap <c-p> :CocList files<CR>
 
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
@@ -161,7 +214,6 @@ Plug 'morhetz/gruvbox'
 Plug 'haishanh/night-owl.vim'
 
 " search
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 
 " javascript
@@ -197,31 +249,10 @@ let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 " ----------------------------------------------------------------------------
-" ctrlp.vim
-" ----------------------------------------------------------------------------
-nnoremap <leader>m :CtrlPMRU<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/](node_modules|target|dist|coverage)|\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
-    \ }
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_mruf_relative = 1
-let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*'
-
-" ----------------------------------------------------------------------------
 " ag.vim
 " ----------------------------------------------------------------------------
 nnoremap <Leader><Leader>a :Ag!<space>
 let g:ag_working_path_mode='r'
-
-" ----------------------------------------------------------------------------
-" vim-airline
-" ----------------------------------------------------------------------------
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " ----------------------------------------------------------------------------
 " vim-trailing-whitespace
