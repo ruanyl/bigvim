@@ -21,6 +21,9 @@ endif
 " display
 Plug 'Valloric/MatchTagAlways'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#unnamed = '[No Name]'
 let g:lightline = {
   \ 'colorscheme': 'solarized',
   \ 'active': {
@@ -30,19 +33,30 @@ let g:lightline = {
   \     [ 'gitbranch', 'gitstatus' ]
   \   ],
   \   'right':[
-  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent', 'cocstatus' ],
-  \     [ 'diagnostic', 'blame' ]
+  \     [ 'filetype', 'lineinfo', 'percent', 'cocstatus' ],
+  \     [ 'diagnostic' ]
   \   ],
+  \ },
+  \ 'tabline': {
+  \   'left': [ ['buffers'] ],
+  \   'right': [ [] ]
+  \ },
+  \ 'component_expand': {
+  \   'buffers': 'lightline#bufferline#buffers'
+  \ },
+  \ 'component_type': {
+  \   'buffers': 'tabsel'
   \ },
   \ 'component_function': {
   \   'diagnostic': 'LightlineDiagnostic',
   \   'cocstatus': 'LightlineCocStatus',
-  \   'blame': 'LightlineGitBlame',
   \   'gitbranch': 'LightlineGitBranch',
   \   'gitstatus': 'LightlineGitStatus',
   \   'filename': 'LightlineFilename'
   \ }
 \ }
+nmap gc <Plug>(coc-git-commit)
+nmap gs <Plug>(coc-git-chunkinfo)
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 function! LightlineDiagnostic() abort
@@ -61,11 +75,6 @@ endfunction
 function! LightlineCocStatus() abort
   let status = get(g:, 'coc_status', '')
   return status
-endfunction
-
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  return blame
 endfunction
 
 function! LightlineGitBranch() abort
@@ -121,6 +130,7 @@ let g:coc_global_extensions = [
     \'coc-eslint',
     \'coc-html',
     \'coc-css',
+    \'coc-git',
     \]
 
 function! s:check_back_space() abort
@@ -197,7 +207,6 @@ Plug 'szw/vim-maximizer'
 Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'mbbill/undotree'
 nnoremap <leader>h :UndotreeToggle<CR>
-Plug 'ruanyl/vim-fixmyjs', {'for': ['javascript', 'typescript']}
 
 Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript.tsx']}
 let g:import_sort_auto = 1
