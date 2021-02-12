@@ -22,7 +22,7 @@ endif
 Plug 'Valloric/MatchTagAlways'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-let g:lightline#bufferline#show_number  = 1
+let g:lightline#bufferline#show_number = 1
 let g:lightline#bufferline#unnamed = '[No Name]'
 let g:lightline = {
   \ 'colorscheme': 'solarized',
@@ -131,6 +131,7 @@ let g:coc_global_extensions = [
     \'coc-html',
     \'coc-css',
     \'coc-git',
+    \'coc-explorer',
     \]
 
 function! s:check_back_space() abort
@@ -186,6 +187,9 @@ nmap <Leader>bk <Plug>(coc-bookmark-prev)
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+nmap <Leader>rf <Plug>(coc-refactor)
+nmap <Leader>ff <Plug>(coc-format)
+vmap <Leader>ff <Plug>(coc-format-selected)
 
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
@@ -201,10 +205,28 @@ nnoremap <leader>m :CocList mru<CR>
 nnoremap <leader>b :CocList buffers<CR>
 nnoremap <c-p> :CocList files<CR>
 
+" coc-explorer
+nnoremap <leader>e :CocCommand explorer<CR>
+nnoremap <c-o> :call FocusInExplorer()<CR>
+
+function! FocusInExplorer()
+  let l:a = 0
+  for window in getwininfo()
+    if getbufvar(window.bufnr, '&ft') == 'coc-explorer'
+      let l:a = 1
+      break
+    endif
+  endfor
+  if l:a == 1
+    call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])
+  else
+    execute 'CocCommand explorer --reveal '.expand('%:p')
+  endif
+endfunction
+
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'
 Plug 'szw/vim-maximizer'
-Plug 'scrooloose/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeFind']}
 Plug 'mbbill/undotree'
 nnoremap <leader>h :UndotreeToggle<CR>
 
@@ -245,17 +267,6 @@ if filereadable(expand("~/.vim/vimrc.bundles.local"))
   source ~/.vim/vimrc.bundles.local
 endif
 call plug#end()
-
-" ----------------------------------------------------------------------------
-" NERDTree
-" ----------------------------------------------------------------------------
-nnoremap <leader>e :NERDTreeToggle<CR>
-nnoremap <c-o> :NERDTreeFind<CR>
-let NERDTreeHighlightCursorline=1
-let NERDTreeQuitOnOpen=1
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
-"close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 " ----------------------------------------------------------------------------
 " ag.vim

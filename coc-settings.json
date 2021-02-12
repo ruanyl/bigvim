@@ -1,5 +1,7 @@
 {
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.enableFloatHighlight": false,
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascriptreact", "javascript", "css", "scss"],
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "❕",
@@ -13,5 +15,7 @@
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
     "typescript": ["javascript", "javascript-jasmine-arrow"]
-  }
+  },
+  "explorer.icon.enableNerdfont": true,
+  "explorer.file.revealWhenOpen": false
 }
