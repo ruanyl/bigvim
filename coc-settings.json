@@ -1,5 +1,5 @@
 {
-  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.extensionUpdateCheck": "never",
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascriptreact", "javascript", "css", "scss"],
   "diagnostic.enable": true,
