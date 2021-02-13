@@ -20,8 +20,10 @@
   "diagnostic.hintSign": "✷",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextPrefix": "‣",
+  "diagnostic.enableMessage": "jump",
+  "diagnostic.maxWindowHeight": 20,
   "suggest.snippetIndicator": "⚡",
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescriptreact": ["javascript", "javascript-jasmine-arrow"],
