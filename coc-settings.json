@@ -18,9 +18,7 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "✷",
   "diagnostic.hintSign": "✷",
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextPrefix": "‣",
-  "diagnostic.enableMessage": "jump",
+  "diagnostic.enableMessage": "always",
   "diagnostic.maxWindowHeight": 20,
   "suggest.snippetIndicator": "⚡",
   "codeLens.enable": false,
@@ -40,5 +38,8 @@
     "outfile",
     "reapex"
   ],
-  "volar.formatting.enable": false
+  "volar.formatting.enable": false,
+  "coverage.uncoveredSign.text": "⦿",
+  "apollo.default.variant": "dev",
+  "apollo.schema.filename": "schema.json"
 }

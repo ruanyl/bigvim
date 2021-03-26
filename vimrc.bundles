@@ -7,10 +7,6 @@ let mapleader = ','
 let g:mapleader = ','
 let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
 
-if !exists('g:bigvim_minor_plugins')
-    let g:bigvim_minor_plugins=['css',]
-endif
-
 " ----------------------------------------------------------------------------
 " vim plugin bundle control, command model
 " :PlugInstall     install
@@ -32,7 +28,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 let g:qs_lazy_highlight = 1
 
-Plug 'ruanyl/vim-gh-line'
+"Plug 'ruanyl/vim-gh-line'
 "Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
@@ -188,14 +184,13 @@ Plug 'yaegassy/coc-jsdoc', {'do': 'yarn install --frozen-lockfile'}
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
+
 " CSS
-if count(g:bigvim_minor_plugins, 'css')
-    "Plug 'ruanyl/vim-caniuse', {'on': 'Caniuse', 'for': ['css', 'html']}
-    "Plug 'hail2u/vim-css3-syntax'
-    Plug 'cakebaker/scss-syntax.vim'
-    Plug 'JulesWang/css.vim'
-    au BufRead,BufNewFile *.css set filetype=scss
-endif
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'JulesWang/css.vim'
+
+" GraphQL
+Plug 'jparise/vim-graphql'
 
 "Load local plugins
 if filereadable(expand("~/.vim/vimrc.bundles.local"))
