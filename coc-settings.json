@@ -17,5 +17,8 @@
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.revealWhenOpen": false
+  "explorer.file.revealWhenOpen": false,
+  "jsdoc.formatter": "tsdoc",
+  "git.addGBlameToBufferVar": true,
+  "git.showCommitInFloating": true
 }

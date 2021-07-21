@@ -34,7 +34,8 @@ let g:lightline = {
   \   ],
   \   'right':[
   \     [ 'filetype', 'lineinfo', 'percent', 'cocstatus' ],
-  \     [ 'diagnostic' ]
+  \     [ 'diagnostic' ],
+  \     [ 'blame' ]
   \   ],
   \ },
   \ 'tabline': {
@@ -48,6 +49,7 @@ let g:lightline = {
   \   'buffers': 'tabsel'
   \ },
   \ 'component_function': {
+  \   'blame': 'LightlineGitBlame',
   \   'diagnostic': 'LightlineDiagnostic',
   \   'cocstatus': 'LightlineCocStatus',
   \   'gitbranch': 'LightlineGitBranch',
@@ -58,6 +60,12 @@ let g:lightline = {
 nmap gc <Plug>(coc-git-commit)
 nmap gs <Plug>(coc-git-chunkinfo)
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+function! LightlineGitBlame() abort
+  let blame = get(b:, 'coc_git_blame', '')
+  " return blame
+  return winwidth(0) > 120 ? blame : ''
+endfunction
 
 function! LightlineDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
@@ -249,7 +257,7 @@ Plug 'rking/ag.vim'
 
 " javascript
 Plug 'neoclide/vim-jsx-improve'
-Plug 'heavenshell/vim-jsdoc', {'for': ['javascript', 'jsx', 'typescript']}
+Plug 'yaegassy/coc-jsdoc', {'do': 'yarn install --frozen-lockfile'}
 
 " typescript
 Plug 'HerringtonDarkholme/yats.vim'
@@ -321,12 +329,6 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.js,*.tsx"
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
 let g:vim_markdown_frontmatter=1
-
-" ----------------------------------------------------------------------------
-" vim-jsdoc
-" ----------------------------------------------------------------------------
-let g:jsdoc_default_mapping = 0
-autocmd FileType javascript,typescript nnoremap <Leader><Leader>d :JsDoc<CR>
 
 " ----------------------------------------------------------------------------
 " vim-bbye
