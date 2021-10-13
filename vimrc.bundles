@@ -140,6 +140,7 @@ let g:coc_global_extensions = [
     \'coc-css',
     \'coc-git',
     \'coc-explorer',
+    \'@yaegassy/coc-volar',
     \]
 
 function! s:check_back_space() abort
@@ -165,8 +166,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 inoremap <silent><expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <silent><expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"

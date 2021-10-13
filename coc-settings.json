@@ -1,7 +1,16 @@
 {
-  "coc.preferences.extensionUpdateCheck": "never",
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.enableFloatHighlight": false,
-  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact", "javascriptreact", "javascript", "css", "scss"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "javascript",
+    "css",
+    "scss",
+    "vue"
+  ],
+  "prettier.disableLanguages": [],
   "diagnostic.enable": true,
   "diagnostic.errorSign": "✘",
   "diagnostic.warningSign": "❕",
@@ -17,8 +26,10 @@
     "typescript": ["javascript", "javascript-jasmine-arrow"]
   },
   "explorer.icon.enableNerdfont": true,
-  "explorer.file.revealWhenOpen": false,
+  "explorer.file.reveal.whenOpen": false,
   "jsdoc.formatter": "tsdoc",
   "git.addGBlameToBufferVar": true,
-  "git.showCommitInFloating": true
+  "git.showCommitInFloating": true,
+  "cSpell.userWords": ["reapex"],
+  "volar.formatting.enable": false
 }
