@@ -111,6 +111,7 @@ Plug 'ruanyl/vim-gh-line'
 "Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
+Plug 'github/copilot.vim', {'branch': 'release'}
 Plug 'honza/vim-snippets'
 Plug 'ruanyl/vim-es2015-snippets'
 Plug 'tpope/vim-repeat'
