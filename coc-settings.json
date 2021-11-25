@@ -10,10 +10,12 @@
     "scss",
     "vue"
   ],
-  "prettier.disableLanguages": [],
+  "prettier.disableLanguages": [
+    "vue"
+  ],
   "diagnostic.enable": true,
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "❕",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
   "diagnostic.infoSign": "✷",
   "diagnostic.hintSign": "✷",
   "diagnostic.virtualText": true,
@@ -30,6 +32,11 @@
   "jsdoc.formatter": "tsdoc",
   "git.addGBlameToBufferVar": true,
   "git.showCommitInFloating": true,
-  "cSpell.userWords": ["reapex"],
+  "cSpell.userWords": [
+    "esbuild",
+    "fastify",
+    "outfile",
+    "reapex"
+  ],
   "volar.formatting.enable": false
 }

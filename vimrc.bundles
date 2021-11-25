@@ -19,90 +19,15 @@ endif
 " ----------------------------------------------------------------------------
 
 " display
-Plug 'Valloric/MatchTagAlways'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
-let g:lightline#bufferline#show_number = 1
-let g:lightline#bufferline#unnamed = '[No Name]'
-let g:lightline = {
-  \ 'colorscheme': 'solarized',
-  \ 'active': {
-  \   'left': [
-  \     [ 'mode', 'paste' ],
-  \     [ 'readonly', 'filename' ],
-  \     [ 'gitbranch', 'gitstatus' ]
-  \   ],
-  \   'right':[
-  \     [ 'filetype', 'lineinfo', 'percent', 'cocstatus' ],
-  \     [ 'diagnostic' ],
-  \     [ 'blame' ]
-  \   ],
-  \ },
-  \ 'tabline': {
-  \   'left': [ ['buffers'] ],
-  \   'right': [ [] ]
-  \ },
-  \ 'component_expand': {
-  \   'buffers': 'lightline#bufferline#buffers'
-  \ },
-  \ 'component_type': {
-  \   'buffers': 'tabsel'
-  \ },
-  \ 'component_function': {
-  \   'blame': 'LightlineGitBlame',
-  \   'diagnostic': 'LightlineDiagnostic',
-  \   'cocstatus': 'LightlineCocStatus',
-  \   'gitbranch': 'LightlineGitBranch',
-  \   'gitstatus': 'LightlineGitStatus',
-  \   'filename': 'LightlineFilename'
-  \ }
-\ }
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'karb94/neoscroll.nvim'
+
 nmap gc <Plug>(coc-git-commit)
 nmap gs <Plug>(coc-git-chunkinfo)
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
-endfunction
-
-function! LightlineDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, '✘' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, '❕' . info['warning'])
-  endif
-  return join(msgs, ' ')
-endfunction
-
-function! LightlineCocStatus() abort
-  let status = get(g:, 'coc_status', '')
-  return status
-endfunction
-
-function! LightlineGitBranch() abort
-  let status = get(g:, 'coc_git_status', '')
-  return status
-endfunction
-
-function! LightlineGitStatus() abort
-  let status = get(b:, 'coc_git_status', '')
-  return status
-endfunction
-
-function! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunction
 
 " fast move
-Plug 'vim-scripts/matchit.zip'
+"Plug 'vim-scripts/matchit.zip'
 Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 let g:qs_lazy_highlight = 1
@@ -251,6 +176,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 Plug 'haishanh/night-owl.vim'
+Plug 'Mofiqul/vscode.nvim', {'branch': 'main'}
 
 " search
 Plug 'rking/ag.vim'
@@ -322,6 +248,13 @@ let g:wildfire_water_map = "<BS>"
 " vim-closetag
 " ----------------------------------------------------------------------------
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.xml,*.js,*.tsx"
+" Disables auto-close if not in a valid region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
 
 " ----------------------------------------------------------------------------
 " vim-markdown
