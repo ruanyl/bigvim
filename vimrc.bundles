@@ -160,7 +160,7 @@ Plug 'szw/vim-maximizer'
 Plug 'mbbill/undotree'
 nnoremap <leader>h :UndotreeToggle<CR>
 
-Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript.tsx']}
+Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact']}
 let g:import_sort_auto = 1
 
 Plug 'moll/vim-bbye'
@@ -225,9 +225,9 @@ let g:solarized_statusline='flat'
 " vim-easymotion
 " ----------------------------------------------------------------------------
 map <space> <Plug>(easymotion-s2)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-let g:EasyMotion_smartcase = 1
+" map  / <Plug>(easymotion-sn)
+" omap / <Plug>(easymotion-tn)
+let g:EasyMotion_smartcase = 0
 
 " ----------------------------------------------------------------------------
 " wildfire.vim

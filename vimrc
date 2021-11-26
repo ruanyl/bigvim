@@ -33,6 +33,7 @@ set history=200           "history: number of command-lines remembered
 set autoread              " auto reload file after being modified
 set shortmess=atI         " do not show initial page
 set nobackup
+set nowritebackup
 set noswapfile
 set cmdheight=2
 set shortmess+=c
@@ -128,6 +129,15 @@ endif
 
 if has('statusline')
     set laststatus=2
+endif
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
 endif
 
 
@@ -258,6 +268,8 @@ if get(g:, 'colors_name', "") == 'solarized8_flat'
 endif
 
 hi CocCodeLens guifg=#2f5f6b
+
+hi UncoveredLine guifg=#ff0000 guibg=#ff0000
 
 "Load local settings
 if filereadable(expand("~/.vim/vimrc.local"))
