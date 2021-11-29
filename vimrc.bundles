@@ -19,6 +19,9 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'karb94/neoscroll.nvim'
 
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 nmap gc <Plug>(coc-git-commit)
 nmap gs <Plug>(coc-git-chunkinfo)
 
@@ -130,9 +133,10 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " CocList for mru, buffers and files
-nnoremap <leader>m :CocList mru<CR>
-nnoremap <leader>b :CocList buffers<CR>
-nnoremap <c-p> :CocList files<CR>
+"nnoremap <leader>m :CocList mru<CR>
+nnoremap <leader>m :Telescope oldfiles theme=dropdown<CR>
+nnoremap <leader>b :Telescope buffers theme=dropdown<CR>
+nnoremap <c-p> :Telescope find_files theme=dropdown<CR>
 
 " coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>

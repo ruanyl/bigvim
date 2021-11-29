@@ -492,3 +492,17 @@ t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '500', [['ci
 
 require('neoscroll.config').set_mappings(t)
 EOF
+
+lua << EOF
+local actions = require('telescope.actions')
+require("telescope").setup({
+    defaults = {
+        mappings = {
+            i = {
+                ['<C-j>'] = actions.move_selection_next,
+                ['<C-k>'] = actions.move_selection_previous,
+            }
+        }
+    },
+})
+EOF
