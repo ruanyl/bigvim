@@ -486,13 +486,13 @@ require("bufferline").setup{
 EOF
 
 lua << EOF
-require("neoscroll").setup()
-local t = {}
--- Use the "circular" easing function
-t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '500', [['circular']]}}
-t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '500', [['circular']]}}
-
-require('neoscroll.config').set_mappings(t)
+-- require("neoscroll").setup()
+-- local t = {}
+-- -- Use the "circular" easing function
+-- t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '500', [['circular']]}}
+-- t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '500', [['circular']]}}
+--
+-- require('neoscroll.config').set_mappings(t)
 EOF
 
 lua << EOF

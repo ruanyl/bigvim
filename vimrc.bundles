@@ -18,7 +18,7 @@ let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
-Plug 'karb94/neoscroll.nvim'
+"Plug 'karb94/neoscroll.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
