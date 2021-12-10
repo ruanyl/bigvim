@@ -430,10 +430,10 @@ ins_left {
   },
 }
 
-ins_right {
-  'b:coc_git_blame',
-  color = { fg = colors.base01, gui = 'bold' },
-}
+-- ins_right {
+--   'b:coc_git_blame',
+--   color = { fg = colors.base01, gui = 'bold' },
+-- }
 
 ins_right {
   'branch',
@@ -475,7 +475,9 @@ END
 lua << EOF
 require("bufferline").setup{
   options = {
-    numbers = 'buffer_id',
+    numbers = function(opts)
+        return string.format('%s.', opts.id)
+    end,
     show_close_icon = false,
     show_buffer_close_icons = false,
     diagnostics = 'coc',
