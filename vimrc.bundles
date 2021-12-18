@@ -14,26 +14,35 @@ let s:vim8 = has('patch-8.0.0039') && exists('*job_start')
 " :PlugClean       remove plugin not in list
 " ----------------------------------------------------------------------------
 
+" theme
+Plug 'lifepillar/vim-solarized8'
+Plug 'ishan9299/nvim-solarized-lua'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+Plug 'haishanh/night-owl.vim'
+Plug 'Mofiqul/vscode.nvim', {'branch': 'main'}
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+
 " display
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
-"Plug 'karb94/neoscroll.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" nvim lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
+Plug 'folke/lsp-trouble.nvim', {'branch': 'main'}
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
-nmap gc <Plug>(coc-git-commit)
-nmap gs <Plug>(coc-git-chunkinfo)
-
 " fast move
-"Plug 'vim-scripts/matchit.zip'
 Plug 'easymotion/vim-easymotion'
 Plug 'unblevable/quick-scope'
 let g:qs_lazy_highlight = 1
 
 "Plug 'ruanyl/vim-gh-line'
-"Plug 'yuttie/comfortable-motion.vim'
 
 " fast edit
 Plug 'github/copilot.vim', {'branch': 'release'}
@@ -48,25 +57,27 @@ Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'kevinhwang91/nvim-bqf', {'branch': 'main'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 let g:coc_global_extensions = [
+    \'coc-yank',
+    \'coc-spell-checker',
     \'coc-word',
     \'coc-snippets',
     \'coc-prettier',
     \'coc-lists',
-    \'coc-jest',
     \'coc-highlight',
     \'coc-tsserver',
-    \'coc-json',
-    \'coc-eslint',
+    \'coc-docthis',
     \'coc-html',
-    \'coc-css',
     \'coc-git',
     \'coc-explorer',
-    \'@yaegassy/coc-volar',
     \]
+
+nmap gc <Plug>(coc-git-commit)
+nmap gs <Plug>(coc-git-chunkinfo)
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -139,6 +150,10 @@ nnoremap <leader>m :Telescope oldfiles theme=dropdown<CR>
 nnoremap <leader>b :Telescope buffers theme=dropdown<CR>
 nnoremap <c-p> :Telescope find_files theme=dropdown<CR>
 
+
+" coc-docthis
+nnoremap <leader><leader>d :CocCommand docthis.documentThis<CR>
+
 " coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>
 nnoremap <c-o> :call FocusInExplorer()<CR>
@@ -172,30 +187,8 @@ Plug 'moll/vim-bbye'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/BufOnly.vim'
 
-" theme
-Plug 'lifepillar/vim-solarized8'
-Plug 'altercation/vim-colors-solarized'
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
-Plug 'haishanh/night-owl.vim'
-Plug 'Mofiqul/vscode.nvim', {'branch': 'main'}
-
 " search
 Plug 'rking/ag.vim'
-
-" javascript
-Plug 'neoclide/vim-jsx-improve'
-Plug 'yaegassy/coc-jsdoc', {'do': 'yarn install --frozen-lockfile'}
-
-" typescript
-Plug 'HerringtonDarkholme/yats.vim'
-
-" CSS
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'JulesWang/css.vim'
-
-" GraphQL
-Plug 'jparise/vim-graphql'
 
 "Load local plugins
 if filereadable(expand("~/.vim/vimrc.bundles.local"))
@@ -220,11 +213,6 @@ map <leader><space> :FixWhitespace<cr>
 " ----------------------------------------------------------------------------
 let g:maximizer_set_default_mapping = 0
 nnoremap <tab> :MaximizerToggle<CR>
-
-" ----------------------------------------------------------------------------
-" vim-colors-solarized
-" ----------------------------------------------------------------------------
-let g:solarized_statusline='flat'
 
 " ----------------------------------------------------------------------------
 " vim-easymotion
