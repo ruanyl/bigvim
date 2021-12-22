@@ -188,7 +188,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/BufOnly.vim'
 
 " search
-Plug 'rking/ag.vim'
+Plug 'mhinz/vim-grepper'
 
 "Load local plugins
 if filereadable(expand("~/.vim/vimrc.bundles.local"))
@@ -197,10 +197,9 @@ endif
 call plug#end()
 
 " ----------------------------------------------------------------------------
-" ag.vim
+" vim-grepper
 " ----------------------------------------------------------------------------
-nnoremap <Leader><Leader>a :Ag!<space>
-let g:ag_working_path_mode='r'
+nnoremap <Leader><Leader>a :GrepperRg<space>
 
 " ----------------------------------------------------------------------------
 " vim-trailing-whitespace
