@@ -28,10 +28,13 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/bufferline.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-tree/nvim-tree.lua'
+nnoremap <leader>e :NvimTreeToggle<CR>
+nnoremap <c-o> :NvimTreeFindFile<CR>
 
 " nvim lsp
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/nvim-lsp-installer', {'branch': 'main'}
+Plug 'williamboman/mason.nvim', {'branch': 'main'}
 Plug 'folke/lsp-trouble.nvim', {'branch': 'main'}
 
 Plug 'nvim-lua/plenary.nvim'
@@ -63,7 +66,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 let g:coc_global_extensions = [
     \'coc-yank',
-    \'coc-spell-checker',
     \'coc-word',
     \'coc-snippets',
     \'coc-prettier',
@@ -73,7 +75,6 @@ let g:coc_global_extensions = [
     \'coc-docthis',
     \'coc-html',
     \'coc-git',
-    \'coc-explorer',
     \]
 
 nmap gc <Plug>(coc-git-commit)
@@ -153,25 +154,6 @@ nnoremap <c-p> :Telescope find_files theme=dropdown<CR>
 
 " coc-docthis
 nnoremap <leader><leader>d :CocCommand docthis.documentThis<CR>
-
-" coc-explorer
-nnoremap <leader>e :CocCommand explorer<CR>
-nnoremap <c-o> :call FocusInExplorer()<CR>
-
-function! FocusInExplorer()
-  let l:a = 0
-  for window in getwininfo()
-    if getbufvar(window.bufnr, '&ft') == 'coc-explorer'
-      let l:a = 1
-      break
-    endif
-  endfor
-  if l:a == 1
-    call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])
-  else
-    execute 'CocCommand explorer --reveal '.expand('%:p')
-  endif
-endfunction
 
 Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-obsession' | Plug 'dhruvasagar/vim-prosession'

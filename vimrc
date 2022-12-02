@@ -137,6 +137,7 @@ endif
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
+set spell
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -278,6 +279,6 @@ require('plugin-config/bufferline')
 require('plugin-config/telescope')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/lsp-trouble')
-
-require('nvim-lsp')
+require('plugin-config/nvim-tree')
+require("mason").setup()
 EOF
