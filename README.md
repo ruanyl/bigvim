@@ -9,8 +9,9 @@
 ## Install
 ```bash
 git clone https://github.com/ruanyl/bigvim.git ~/.vim
+mkdir -p ~/.config/nvim
 ln -s ~/.vim/vimrc ~/.vimrc
-ln -s ~/.vim/init.vim ~/.config/nvim
+ln -s ~/.vim/init.vim ~/.config/nvim/init.vim
 
 # Install vim-plug
 curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \

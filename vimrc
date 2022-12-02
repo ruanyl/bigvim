@@ -44,7 +44,7 @@ set updatetime=300
 set cursorline            " highlight current line
 set t_ti=
 set t_te=           " alway show the content on the screen after exist VIM
-set mouse-=a              " disable mouse
+set mouse=              " disable mouse
 set selection=inclusive   "set selection=exclusive
 set selectmode=mouse,key
 set title                 " change the terminal's title
@@ -136,8 +136,6 @@ endif
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
-
-set spell
 
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -280,5 +278,6 @@ require('plugin-config/telescope')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/lsp-trouble')
 require('plugin-config/nvim-tree')
+require('plugin-config/auto-session')
 require("mason").setup()
 EOF

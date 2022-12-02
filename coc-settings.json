@@ -77,5 +77,6 @@
     "userdoc",
     "waitselect",
     "webstore"
-  ]
+  ],
+  "snippets.ultisnips.pythonPrompt": false
 }
