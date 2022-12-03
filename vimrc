@@ -25,8 +25,9 @@ set background=dark
 "let g:tokyonight_style = "night"
 "colorscheme gruvbox
 "colorscheme solarized8_flat
-colorscheme solarized-flat
+"colorscheme solarized-flat
 "colorscheme tokyonight
+colorscheme tokyonight-storm
 "colorscheme molokai
 "colorscheme desert
 

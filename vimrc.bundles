@@ -66,6 +66,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 let g:coc_global_extensions = [
     \'coc-yank',
+    \'coc-spell-checker',
     \'coc-word',
     \'coc-snippets',
     \'coc-prettier',
