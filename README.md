@@ -1,6 +1,6 @@
 # bigvim
 
-### Requires NVIM v0.6.0-dev
+### Requires NVIM v0.8.0
 
 ![image](https://user-images.githubusercontent.com/486382/143928606-63e40713-01e6-42e0-b328-7c1f6d01b587.png)
 
@@ -20,6 +20,12 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
 # Open nvim and install plugins
 :PlugInstall
 ```
+
+### Install ripgrep
+```bash
+brew install ripgrep
+```
+
 ## Find files `<C-p>`
 ![image](https://user-images.githubusercontent.com/486382/143928011-ef3e7521-60b5-47dd-8bc1-9cb0e27f9cc3.png)
 
