@@ -1,0 +1,32 @@
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[difftool]
+  prompt = false
+[pager]
+  diff =
+[user]
+  name = Yulong Ruan
+  email = ruanyu1@gmail.com
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[alias]
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
+  db = log --left-right --graph --cherry-pick --no-merges --oneline
+[core]
+  editor = nvim
+  whitespace = nowarn
+[push]
+  default = simple
+[rerere]
+  enabled = true
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
