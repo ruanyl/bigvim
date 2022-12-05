@@ -279,6 +279,6 @@ require('plugin-config/telescope')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/lsp-trouble')
 require('plugin-config/nvim-tree')
-require('plugin-config/auto-session')
+require('session_manager').setup({})
 require("mason").setup()
 EOF

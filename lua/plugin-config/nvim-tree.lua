@@ -4,5 +4,20 @@ require("nvim-tree").setup({
   },
   git = {
     ignore = false,
+  },
+  renderer = {
+    icons = {
+      glyphs = {
+        git = {
+          unstaged = "+",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "?",
+          deleted = "",
+          ignored = "◌",
+        }
+      }
+    }
   }
 })

@@ -154,13 +154,14 @@ nnoremap <c-p> :Telescope find_files theme=dropdown<CR>
 " coc-docthis
 nnoremap <leader><leader>d :CocCommand docthis.documentThis<CR>
 
-Plug 'rmagatti/auto-session'
+Plug 'Shatur/neovim-session-manager'
+"Plug 'rmagatti/auto-session'
 Plug 'plasticboy/vim-markdown'
 Plug 'szw/vim-maximizer'
 Plug 'mbbill/undotree'
 nnoremap <leader>h :UndotreeToggle<CR>
 
-Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact']}
+"Plug 'ruanyl/vim-sort-imports', {'for': ['javascript', 'typescript', 'typescript.tsx', 'typescriptreact']}
 let g:import_sort_auto = 1
 
 Plug 'moll/vim-bbye'
