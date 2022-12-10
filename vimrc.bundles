@@ -154,6 +154,8 @@ nnoremap <c-p> :Telescope find_files theme=dropdown<CR>
 " coc-docthis
 nnoremap <leader><leader>d :CocCommand docthis.documentThis<CR>
 
+"Plug 'folke/persistence.nvim'
+" Make sure rm -rf ~/.local/share/nvim/sessions
 Plug 'Shatur/neovim-session-manager'
 "Plug 'rmagatti/auto-session'
 Plug 'plasticboy/vim-markdown'

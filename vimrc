@@ -114,6 +114,7 @@ set backspace=eol,start,indent               " Configure backspace so it acts as
 set whichwrap+=<,>,h,l
 set pastetoggle=<F5>                         " when in insert mode, toggle between 'paste' and 'nopaste'
 set showtabline=2
+set sessionoptions+=winpos,terminal,folds
 
 "let &colorcolumn="80,".join(range(120,999),",")
 "let &colorcolumn="120"
