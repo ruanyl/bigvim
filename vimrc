@@ -280,6 +280,6 @@ require('plugin-config/telescope')
 require('plugin-config/nvim-treesitter')
 require('plugin-config/lsp-trouble')
 require('plugin-config/nvim-tree')
-require('session_manager').setup({})
+require('plugin-config/session-manager')
 require("mason").setup()
 EOF
