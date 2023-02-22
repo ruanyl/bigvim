@@ -57,7 +57,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'kaplanz/nvim-retrail'
 Plug 'scrooloose/nerdcommenter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'kevinhwang91/nvim-bqf', {'branch': 'main'}
@@ -183,12 +183,6 @@ call plug#end()
 " vim-grepper
 " ----------------------------------------------------------------------------
 nnoremap <Leader><Leader>a :GrepperRg<space>
-
-" ----------------------------------------------------------------------------
-" vim-trailing-whitespace
-" Mapping: <leader><space>
-" ----------------------------------------------------------------------------
-map <leader><space> :FixWhitespace<cr>
 
 " ----------------------------------------------------------------------------
 " vim-maximizer

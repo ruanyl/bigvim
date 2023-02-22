@@ -282,4 +282,5 @@ require('plugin-config/lsp-trouble')
 require('plugin-config/nvim-tree')
 require('plugin-config/session-manager')
 require("mason").setup()
+require("retrail").setup()
 EOF
