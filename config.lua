@@ -50,6 +50,9 @@ lvim.builtin.which_key.mappings["t"] = {
   s = { "<cmd>Trouble lsp toggle<cr>", "LSP references/definitions/... (Trouble)" },
 }
 
+lvim.builtin.which_key.mappings["j"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" }
+lvim.builtin.which_key.mappings["k"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" }
+
 lvim.leader = ","
 
 lvim.plugins = {
@@ -168,7 +171,7 @@ lvim.plugins = {
 lvim.keys.normal_mode["qo"] = ":BufOnly<CR>"
 
 -- Map <Leader><Leader>a to run :GrepperRg
-lvim.keys.normal_mode["<Leader><Leader>a"] = ":GrepperRg "
+lvim.keys.normal_mode["<leader><leader>a"] = ":GrepperRg "
 
 lvim.keys.normal_mode["qq"] = ":BufferKill<CR>"
 
@@ -198,8 +201,8 @@ lvim.keys.normal_mode["j"] = "gj"
 lvim.keys.normal_mode["k"] = "gk"
 
 -- goto older/newer position in change list
-lvim.keys.normal_mode["<silent> ("] = "g;"
-lvim.keys.normal_mode["<silent> )"] = "g,"
+lvim.keys.normal_mode["("] = "g;"
+lvim.keys.normal_mode[")"] = "g,"
 
 -- replace currently selected text with default register without yanking it
 -- lvim.keys.visual_mode["p"] = "\"_dP"
@@ -251,7 +254,7 @@ formatters.setup {
     -- options such as `--line-width 80` become either `{"--line-width", "80"}` or `{"--line-width=80"}`
     args = {},
     ---@usage only start in these filetypes, by default it will attach to all filetypes it supports
-    filetypes = { "typescript", "typescriptreact" },
+    filetypes = { "typescript", "typescriptreact", "scss" },
   },
 }
 lvim.format_on_save.enabled = true
