@@ -1,0 +1,11 @@
+{
+  "extras": [
+    "lazyvim.plugins.extras.coding.yanky",
+    "lazyvim.plugins.extras.formatting.prettier",
+    "lazyvim.plugins.extras.linting.eslint"
+  ],
+  "news": {
+    "NEWS.md": "7429"
+  },
+  "version": 7
+}
