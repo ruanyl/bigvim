@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+
 local actions = require("telescope.actions")
 
 return {

@@ -1,3 +1,3 @@
-return {
-  { "ggandor/flit.nvim", enabled = false },
-}
+if true then
+  return {}
+end
